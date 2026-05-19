@@ -1,0 +1,4 @@
+interface:
+  display_name: "Goal Planning"
+  short_description: "Plan repo work as a Codex goal launch bundle."
+  default_prompt: "Use $goal-planning to produce a /goal command and execution invocation."

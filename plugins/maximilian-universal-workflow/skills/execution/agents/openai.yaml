@@ -1,0 +1,4 @@
+interface:
+  display_name: "Execution"
+  short_description: "Execute approved repo plans inline or with isolated workers."
+  default_prompt: "Execute this approved repository plan with clear ownership and verification."

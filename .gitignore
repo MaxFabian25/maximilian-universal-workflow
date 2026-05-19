@@ -1,0 +1,16 @@
+.DS_Store
+.idea/
+.vscode/
+
+workflow-artifacts/
+**/workflow-artifacts/
+
+node_modules/
+.pytest_cache/
+__pycache__/
+*.pyc
+
+tmp/
+.tmp/
+dist/
+build/

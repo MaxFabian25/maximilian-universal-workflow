@@ -1,0 +1,20 @@
+{
+  "name": "maximilian-universal-workflow",
+  "interface": {
+    "displayName": "Maximilian Universal Workflow"
+  },
+  "plugins": [
+    {
+      "name": "maximilian-universal-workflow",
+      "source": {
+        "source": "local",
+        "path": "./plugins/maximilian-universal-workflow"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

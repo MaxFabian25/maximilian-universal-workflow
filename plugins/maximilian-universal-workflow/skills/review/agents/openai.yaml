@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review"
+  short_description: "Run read-only reviews before handoff."
+  default_prompt: "Review this repository workflow output read-only and report findings by severity."

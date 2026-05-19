@@ -1,0 +1,4 @@
+interface:
+  display_name: "Repo Context Cleanup"
+  short_description: "Inventory and clean stale agent planning residue."
+  default_prompt: "Inventory stale repo context, classify it, and propose a hard-cut cleanup."

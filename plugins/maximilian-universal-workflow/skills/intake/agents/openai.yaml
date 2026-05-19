@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intake"
+  short_description: "Confirm git workspace state and route the workflow phase."
+  default_prompt: "Inspect this repo workflow request, confirm the current phase, and route to the next workflow."

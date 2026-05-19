@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ideation"
+  short_description: "Brainstorm repo-backed alternatives and converge on a direction."
+  default_prompt: "Generate repo-backed options, ask for the branch choice, and prepare planning input."

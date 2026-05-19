@@ -1,0 +1,4 @@
+interface:
+  display_name: "Handoff"
+  short_description: "Close verified repo work with evidence and branch decisions."
+  default_prompt: "Prepare the final repository workflow handoff with evidence, risks, and closeout choices."

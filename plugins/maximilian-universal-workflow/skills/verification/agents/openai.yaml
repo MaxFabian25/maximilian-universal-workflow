@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verification"
+  short_description: "Require fresh repo evidence before completion claims."
+  default_prompt: "Verify this repository workflow result with fresh parent-side evidence."

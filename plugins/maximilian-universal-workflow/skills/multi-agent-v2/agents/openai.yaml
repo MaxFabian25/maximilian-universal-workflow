@@ -1,0 +1,4 @@
+interface:
+  display_name: "Multi-Agent V2"
+  short_description: "Use Codex sub-agents effectively"
+  default_prompt: "Use $multi-agent-v2 to delegate a codebase investigation with bounded sub-agent tasks."

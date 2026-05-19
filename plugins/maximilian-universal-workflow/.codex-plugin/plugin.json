@@ -1,0 +1,44 @@
+{
+  "name": "maximilian-universal-workflow",
+  "version": "0.1.0",
+  "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
+  "author": {
+    "name": "Max Fabian",
+    "url": "https://github.com/MaxFabian25"
+  },
+  "homepage": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+  "repository": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "workflow",
+    "git",
+    "repository",
+    "subagents",
+    "multi-agent",
+    "goals"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Maximilian Universal Workflow",
+    "shortDescription": "Universal repo-phase workflows for Codex",
+    "longDescription": "Universal Codex workflow phases for git repository workspaces with explorer, worker, goal-planning, and MultiAgentV2 coordination lanes.",
+    "developerName": "Max Fabian",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+    "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+    "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+    "defaultPrompt": [
+      "Route or explore this repo task.",
+      "Create a /goal launch bundle for this repo plan.",
+      "Coordinate subagents, execute, verify, review, and hand off."
+    ],
+    "brandColor": "#2563EB",
+    "screenshots": []
+  }
+}
