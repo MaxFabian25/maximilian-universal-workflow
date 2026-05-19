@@ -15,7 +15,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/goal-plan-struc
 
 - Cite exploration; run `exploration` first if evidence is missing.
 - Output the plan first, then a single next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
-- The `/goal` objective describes the desired executed repo end state, not the planning task.
+- The `/goal` objective describes the desired executed repo end state.
 - Keep the objective durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Put long execution detail in the execution prompt body or a repo file, not in the `/goal` objective.
 - Expect `goals = true`; if `/goal` is unavailable, output the same execution launch prompt without claiming goal setup.

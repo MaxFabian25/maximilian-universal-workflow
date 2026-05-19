@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- Removes over-strict goal-planning prohibition language while preserving the goal-prefixed execution prompt shape.
+
 ## 0.1.2
 
 - Adds direct-question fallback language when `request_user_input` is unavailable.

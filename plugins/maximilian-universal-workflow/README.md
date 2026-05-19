@@ -35,7 +35,7 @@ Assume the active workspace is a git repository. Start by reading applicable `AG
 
 ## Goal Planning
 
-Use `goal-planning` when the planning phase should produce a plan plus the next goal-backed execution prompt. The launch prompt starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`; the goal describes the executed repo end state, not the planning task. Keep the `/goal` objective concise and put long instructions in the execution prompt body or a repo file.
+Use `goal-planning` when the planning phase should produce a plan plus the next goal-backed execution prompt. The launch prompt starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`; the goal describes the executed repo end state. Keep the `/goal` objective concise and put long instructions in the execution prompt body or a repo file.
 
 ## Artifacts
 
