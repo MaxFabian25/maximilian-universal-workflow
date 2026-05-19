@@ -32,7 +32,7 @@ Use root-thread `request_user_input` for two or three material options. Otherwis
 
 ## Goal Planning
 
-`goal-planning` outputs `/goal ...` first, then a self-contained `execution` invocation carrying the same objective.
+`goal-planning` outputs the plan first, then a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
 
 ## Stop
 

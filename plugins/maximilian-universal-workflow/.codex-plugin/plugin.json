@@ -1,6 +1,6 @@
 {
   "name": "maximilian-universal-workflow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
   "author": {
     "name": "Max Fabian",
@@ -34,8 +34,8 @@
     "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "defaultPrompt": [
-      "Route or explore this repo task.",
-      "Create a /goal launch bundle for this repo plan.",
+      "Run the full repo workflow loop for this request.",
+      "Create a plan and the goal-prefixed execution prompt.",
       "Coordinate subagents, execute, verify, review, and hand off."
     ],
     "brandColor": "#2563EB",

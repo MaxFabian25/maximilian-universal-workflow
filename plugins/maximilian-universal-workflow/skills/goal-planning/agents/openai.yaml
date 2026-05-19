@@ -1,4 +1,4 @@
 interface:
   display_name: "Goal Planning"
-  short_description: "Plan repo work as a Codex goal launch bundle."
-  default_prompt: "Use $goal-planning to produce a /goal command and execution invocation."
+  short_description: "Plan repo work and emit a goal-prefixed execution prompt."
+  default_prompt: "Create the repo plan, then output the next prompt starting with /goal and invoking maximilian-universal-workflow:execution."

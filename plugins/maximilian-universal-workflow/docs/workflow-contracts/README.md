@@ -21,7 +21,8 @@ Human-facing authority for Maximilian Universal Workflow.
 ## Rules
 
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
-- Goal planning: output `/goal ...` plus the later execution invocation; do not claim the command ran. `goals = true` is expected; when unavailable, output the same objective bundle without claiming `/goal` execution.
+- Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
+- Goal planning: output the plan first, then a single next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`. Do not make planning itself the goal. `goals = true` is expected; when unavailable, output the same execution launch prompt without claiming goal setup.
 - Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
 - Artifacts: `workflow-artifacts/` supports evidence and handoff. Source, tests, docs, branches, commits, and PRs are primary.

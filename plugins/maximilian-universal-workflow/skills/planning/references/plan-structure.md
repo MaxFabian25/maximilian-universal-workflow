@@ -2,7 +2,7 @@
 
 Use this structure for decision-complete repo plans.
 
-Use `goal-planning/references/goal-plan-structure.md` when planning should output `/goal ...` plus execution prompt.
+Use `goal-planning/references/goal-plan-structure.md` when planning should output a goal-prefixed execution prompt.
 
 ## Required Fields
 

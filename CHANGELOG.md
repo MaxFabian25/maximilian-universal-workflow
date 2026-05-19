@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- Improves general plugin invocation by making `intake` run the phase loop instead of only routing.
+- Changes `goal-planning` to produce a plan plus a goal-prefixed `execution` launch prompt.
+- Clarifies that `/goal` objectives target executed repository end states, not planning tasks.
+
 ## 0.1.0
 
 - Initial public release of Maximilian Universal Workflow.

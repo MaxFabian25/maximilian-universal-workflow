@@ -8,6 +8,8 @@ The plugin provides universal, phase-oriented, repeatable Codex-native workflows
 intake -> exploration -> ideation -> planning or goal-planning -> execution -> verification -> review -> handoff
 ```
 
+When the plugin is invoked generally, `intake` should start the loop and advance through later phases as far as the current request, repo evidence, approval, and permissions allow.
+
 It also bundles `multi-agent-v2` as the canonical future copy for Codex native subagent coordination.
 
 ## Install

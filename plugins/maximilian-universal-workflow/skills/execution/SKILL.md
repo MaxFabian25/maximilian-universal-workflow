@@ -15,6 +15,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/worker-packets.
 
 - Check branch/status and instructions before mutation.
 - Preserve and verify goal-planning bundle objectives.
+- When launched from goal-planning, treat the `/goal` line as the execution success target, not as a request to re-plan.
 - Parent sends isolated worker packets; leaves do only their packet.
 - Prefer `fork_turns: "none"` for self-contained packets; do not use `fork_context`.
 - Tell workers not to overwrite others' work.
