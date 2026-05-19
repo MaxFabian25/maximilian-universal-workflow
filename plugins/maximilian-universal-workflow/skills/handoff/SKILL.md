@@ -14,7 +14,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checkli
 ## Do
 
 - Report repo path, branch, changed paths, verification, review, risks, and next owner.
-- Use `request_user_input` for closeout choices: keep branch, create PR, merge, or stop with evidence.
+- Use `request_user_input` for closeout choices when supported: keep branch, create PR, merge, or stop with evidence. Otherwise ask one direct question.
 - Do not discard, delete, merge, or push without approval and verification.
 - Use `workflow-artifacts/` for evidence and handoff support only.
 

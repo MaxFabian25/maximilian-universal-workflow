@@ -21,7 +21,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/cleanup-playboo
 - Identify `AGENTS.md`, cleanup conventions, and authority first.
 - Classify as authority, archive, stale bloat, generated evidence, or uncertain.
 - Actions: delete, archive, consolidate, rewrite as authority, or leave.
-- Use `request_user_input` from the root thread for delete vs archive vs report-only policy choices.
+- Use `request_user_input` from the root thread for delete vs archive vs report-only policy choices when supported; otherwise ask one direct question.
 - Do not delete uncertain items without explicit approval.
 
 ## Stop

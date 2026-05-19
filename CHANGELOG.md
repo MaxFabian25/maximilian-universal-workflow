@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Adds direct-question fallback language when `request_user_input` is unavailable.
+
 ## 0.1.1
 
 - Improves general plugin invocation by making `intake` run the phase loop instead of only routing.

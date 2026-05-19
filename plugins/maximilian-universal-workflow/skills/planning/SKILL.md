@@ -18,7 +18,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 - Route to `goal-planning` when planning should output a goal-prefixed execution prompt.
 - State goal, scope, files/areas, tasks, ownership, verification, handoff.
 - Inspect repo conventions first.
-- Use `request_user_input` for two or three major planning tradeoffs.
+- Use `request_user_input` for two or three major planning tradeoffs when supported; otherwise ask one direct question.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Use `workflow-artifacts/` only for supporting plans, evidence, ledgers, or handoff notes.
 - If the user asked the plugin to carry the workflow forward, continue to execution when approval and ownership are clear; otherwise provide the exact next prompt.
