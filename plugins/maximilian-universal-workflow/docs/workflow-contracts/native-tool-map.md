@@ -5,7 +5,7 @@
 - intake: `git status --short`, branch, `AGENTS.md`, `rg --files`.
 - phase loop: when the plugin is invoked generally, start at `intake` and continue through the next phase instead of returning only a route label.
 - exploration/review: local reads first; spawn read-only `explorer` leaves with `fork_turns: "none"` whenever fanout improves evidence, critique, or confidence.
-- ideation/planning/goal-planning/handoff/cleanup: root-thread `request_user_input` for two or three choices only when supported; fallback is one direct question.
+- ideation/planning/goal-planning/handoff/cleanup: call root-thread `request_user_input` liberally for material choices, branch selection, approval, ownership, and closeout.
 - planning: cite fresh exploration or run it first; name ownership and verification.
 - goal-planning: output a plan plus one next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`; keep the objective under 4,000 characters; put long instructions in the execution prompt body or a repo file.
 - goal tools: `get_goal` may inspect state; `create_goal` only for explicit create/set-goal instructions; `update_goal` only for proven completion when exposed.

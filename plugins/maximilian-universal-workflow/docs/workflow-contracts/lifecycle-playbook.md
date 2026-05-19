@@ -28,7 +28,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 ## Decisions
 
-Use root-thread `request_user_input` for two or three material options when the current surface supports it. Otherwise ask one concise question.
+Use root-thread `request_user_input` liberally for material options, ambiguity, approvals, ownership, and closeout choices.
 
 ## Goal Planning
 

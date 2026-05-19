@@ -18,7 +18,7 @@ Follow `../../docs/workflow-contracts/README.md`.
 - Route to the narrowest phase: exploration, ideation, planning, goal-planning, execution, verification, review, handoff, or cleanup.
 - Continue into the next phase when evidence, approval, and permissions are already sufficient.
 - If continuation needs a later user turn, provide the exact next skill invocation prompt.
-- Use root-thread `request_user_input` only for two or three material choices when supported; otherwise ask one direct question.
+- Call root-thread `request_user_input` liberally for routing, approval, ambiguity, and material choices.
 - Child agents never ask the user directly; they return `decision_needed`.
 
 ## Stop

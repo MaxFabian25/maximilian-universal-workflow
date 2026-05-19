@@ -23,7 +23,7 @@ Human-facing authority for Maximilian Universal Workflow.
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
 - Goal planning: output the plan first, then a single next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`. `goals = true` is expected; when unavailable, output the same execution launch prompt without claiming goal setup.
-- User choices: use root-thread `request_user_input` only when the current surface supports it; otherwise ask one concise direct question.
+- User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Do not replace choice collection with a plain-text prompt.
 - Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
 - Artifacts: `workflow-artifacts/` supports evidence and handoff. Source, tests, docs, branches, commits, and PRs are primary.
