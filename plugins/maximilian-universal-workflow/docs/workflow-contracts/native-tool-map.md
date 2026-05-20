@@ -2,6 +2,8 @@
 
 `AGENTS.md` and repo instructions outrank this map.
 
+The public repository includes `.codex/config.toml` with the required feature flags and `default`, `explorer`, and `worker` role mappings.
+
 - intake: `git status --short`, branch, `AGENTS.md`, `rg --files`.
 - phase loop: when the plugin is invoked generally, start at `intake` and continue through the next phase instead of returning only a route label.
 - exploration/review: local reads first; spawn read-only `explorer` leaves with `fork_turns: "none"` whenever fanout improves evidence, critique, or confidence.

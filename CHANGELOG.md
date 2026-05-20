@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- Adds repository-held `.codex/config.toml` and agent role files for the plugin's required Codex runtime features.
+
 ## 0.1.5
 
 - Adds `receiving-review` for triaging received review feedback before changing repo code or workflow artifacts.

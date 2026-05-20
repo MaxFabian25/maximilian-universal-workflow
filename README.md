@@ -21,6 +21,21 @@ codex plugin marketplace add MaxFabian25/maximilian-universal-workflow --ref mai
 codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 ```
 
+## Required Codex Config
+
+This repository includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`.
+
+Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment for this plugin. Do not replace personal machine paths, MCP servers, secrets, marketplace state, or unrelated local policy with the repository file.
+
+The config enables the plugin's required native surfaces:
+
+- `request_user_input` in Default mode
+- `/goal`
+- remote plugin installation
+- skill/plugin mentions
+- MultiAgentV2 with explicit root/subagent role boundaries
+- `default`, `explorer`, and `worker` agent roles
+
 To refresh after updates:
 
 ```bash
@@ -46,6 +61,8 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 ## Repository Layout
 
 ```text
+.codex/config.toml
+.codex/agents/
 .agents/plugins/marketplace.json
 plugins/maximilian-universal-workflow/
   .codex-plugin/plugin.json

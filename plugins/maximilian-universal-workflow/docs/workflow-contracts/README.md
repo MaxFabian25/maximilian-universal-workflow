@@ -12,6 +12,7 @@ Human-facing authority for Maximilian Universal Workflow.
 
 ## Files
 
+- Repository `.codex/config.toml` defines the required Codex runtime features and agent role mapping.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
@@ -21,6 +22,7 @@ Human-facing authority for Maximilian Universal Workflow.
 ## Rules
 
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
+- Runtime config: keep `default_mode_request_user_input`, `goals`, `remote_plugin`, `mentions_v2`, `child_agents_md`, and `features.multi_agent_v2.enabled` enabled for this plugin.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
 - Goal planning: output the plan first, then a single next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`. `goals = true` is expected; when unavailable, output the same execution launch prompt without claiming goal setup.
 - User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Do not replace choice collection with a plain-text prompt.

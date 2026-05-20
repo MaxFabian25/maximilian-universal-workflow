@@ -27,6 +27,10 @@ intake -> exploration -> ideation -> planning or goal-planning -> execution/prod
 
 Assume the active workspace is a git repository. Start by reading applicable `AGENTS.md` files and checking branch/status before mutation. If no git repo or worktree is available, establish one or stop; this plugin does not model a non-repo work surface.
 
+## Runtime Config
+
+The public repository includes `.codex/config.toml` and `.codex/agents/*.toml` as the required Codex runtime config for this plugin. Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment. Keep machine-local paths, MCP servers, secrets, marketplaces, and unrelated policy in the operator's own config.
+
 ## Subagent Lanes
 
 - Use `explorer` freely for read-only repository investigation, critique, review, and evidence fanout.

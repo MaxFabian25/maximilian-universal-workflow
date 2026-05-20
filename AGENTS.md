@@ -13,6 +13,8 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 ## Plugin Layout
 
 - Marketplace metadata lives at `.agents/plugins/marketplace.json`.
+- Required Codex runtime config lives at `.codex/config.toml`.
+- Agent role config referenced by `.codex/config.toml` lives under `.codex/agents/`.
 - The plugin root lives at `plugins/maximilian-universal-workflow/`.
 - The required plugin manifest is `plugins/maximilian-universal-workflow/.codex-plugin/plugin.json`.
 - Bundled skills live under `plugins/maximilian-universal-workflow/skills/`.
@@ -23,6 +25,7 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 - Keep `multi-agent-v2` bundled as the canonical future copy.
 - Keep `explorer` fanout encouraged for read-only investigation and review.
 - Keep `worker` fanout encouraged for isolated execution ownership.
+- Keep `.codex/config.toml` public-safe: no personal paths, secrets, MCP server credentials, marketplace state, or unrelated local policy.
 - Do not add non-git fallback parity language. If repo mechanics are missing, the workflow should establish a repo/worktree or stop.
 
 ## Validation
