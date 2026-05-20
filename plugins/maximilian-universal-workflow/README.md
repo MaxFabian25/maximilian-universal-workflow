@@ -5,7 +5,7 @@ Maximilian Universal Workflow is a prose-first plugin for universal, phase-orien
 The default lifecycle is:
 
 ```text
-intake -> exploration -> ideation -> planning or goal-planning -> execution/production -> verification -> review -> handoff
+intake -> exploration -> ideation -> planning -> execution/production -> verification -> review -> handoff
 ```
 
 ## Skills
@@ -14,7 +14,6 @@ intake -> exploration -> ideation -> planning or goal-planning -> execution/prod
 - `exploration`
 - `ideation`
 - `planning`
-- `goal-planning`
 - `execution`
 - `verification`
 - `review`
@@ -42,9 +41,9 @@ The public repository includes `.codex/config.toml` and `.codex/agents/*.toml` a
 
 Use `receiving-review` when review feedback, PR comments, reviewer findings, CI review notes, or user critique arrives and must be triaged before changes. Verify each item against repo evidence before fixing, pushing back, or escalating.
 
-## Goal Planning
+## Goal-Backed Planning
 
-Use `goal-planning` when the planning phase should produce a plan plus the next goal-backed execution prompt. The launch prompt starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`; the goal describes the executed repo end state. Keep the `/goal` objective concise and put long instructions in the execution prompt body or a repo file.
+Use `planning` for repo plans and the default goal-backed execution launch. The launch prompt starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`; the goal describes the executed repo end state. Keep the `/goal` objective concise and put long instructions in the execution prompt body or a repo file. When native goal tools are available and the plan is complete, planning may create the goal directly.
 
 ## Artifacts
 

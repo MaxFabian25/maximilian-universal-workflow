@@ -1,11 +1,11 @@
 ---
 name: planning
-description: Use when repo planning is needed.
+description: Use when repo planning is needed, including default goal-backed execution launch prompts.
 ---
 
 # Planning
 
-Turn an approved direction into an executable repo plan.
+Turn an approved direction into an executable, goal-backed repo plan.
 
 ## Read
 
@@ -15,8 +15,11 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
-- Route to `goal-planning` when planning should output a goal-prefixed execution prompt.
 - State goal, scope, files/areas, tasks, ownership, verification, handoff.
+- Output the plan first, then a single next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
+- The `/goal` objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
+- Put long execution detail in the execution prompt body or a repo file, not in the `/goal` objective.
+- Use `get_goal` when current goal state matters. When the plan is complete and no replacement choice is unresolved, call `create_goal` if the native tool is available and the user intent is to proceed.
 - Inspect repo conventions first.
 - Use root-thread `request_user_input` liberally for major planning tradeoffs, scope, ownership, and verification choices.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
@@ -25,4 +28,4 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 
 ## Stop
 
-Stop when direction, ownership, or verification is unclear.
+Stop when direction, ownership, goal replacement, or verification is unclear.

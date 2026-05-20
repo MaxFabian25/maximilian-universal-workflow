@@ -1,4 +1,0 @@
-interface:
-  display_name: "Goal Planning"
-  short_description: "Plan repo work and emit a goal-prefixed execution prompt."
-  default_prompt: "Create the repo plan, then output the next prompt starting with /goal and invoking maximilian-universal-workflow:execution."

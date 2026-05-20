@@ -5,7 +5,7 @@ Maximilian Universal Workflow is a public Codex marketplace repository for the `
 The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces:
 
 ```text
-intake -> exploration -> ideation -> planning or goal-planning -> execution -> verification -> review -> handoff
+intake -> exploration -> ideation -> planning -> execution -> verification -> review -> handoff
 ```
 
 When the plugin is invoked generally, `intake` should start the loop and advance through later phases as far as the current request, repo evidence, approval, and permissions allow.
@@ -49,7 +49,6 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 - `maximilian-universal-workflow:exploration`
 - `maximilian-universal-workflow:ideation`
 - `maximilian-universal-workflow:planning`
-- `maximilian-universal-workflow:goal-planning`
 - `maximilian-universal-workflow:execution`
 - `maximilian-universal-workflow:verification`
 - `maximilian-universal-workflow:review`

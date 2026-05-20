@@ -2,7 +2,7 @@
 
 Repeatable git-repo lifecycle:
 
-`intake -> exploration -> ideation -> planning or goal-planning -> execution/production -> verification -> review -> handoff`
+`intake -> exploration -> ideation -> planning -> execution/production -> verification -> review -> handoff`
 
 `repo-context-cleanup` supports any phase blocked by stale context.
 
@@ -19,8 +19,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | intake and repo state | `intake` |
 | exploration and read-only fanout | `exploration` |
 | ideation and branch selection | `ideation` |
-| planning downstream of exploration evidence | `planning` |
-| planning that should launch `/goal` before execution | `goal-planning` |
+| planning downstream of exploration evidence and `/goal` launch | `planning` |
 | implementation, execution, creation, production | `execution` |
 | fresh evidence and completion claims | `verification` |
 | read-only review | `review` |
@@ -33,9 +32,9 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 Use root-thread `request_user_input` liberally for material options, ambiguity, approvals, ownership, and closeout choices.
 
-## Goal Planning
+## Goal-Backed Planning
 
-`goal-planning` outputs the plan first, then a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
+`planning` outputs the plan first, then a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`. When native goal tools are available and user intent is clear, `planning` may create the goal after the plan is complete.
 
 ## Stop
 
