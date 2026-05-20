@@ -19,7 +19,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | intake and repo state | `intake` |
 | exploration and read-only fanout | `exploration` |
 | ideation and branch selection | `ideation` |
-| planning downstream of exploration evidence and `/goal` launch | `planning` |
+| planning downstream of exploration evidence and native goal setup | `planning` |
 | implementation, execution, creation, production | `execution` |
 | fresh evidence and completion claims | `verification` |
 | read-only review | `review` |
@@ -30,11 +30,15 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 ## Decisions
 
-Use root-thread `request_user_input` liberally for material options, ambiguity, approvals, ownership, and closeout choices.
+Use root-thread `request_user_input` liberally for material options, ambiguity, approvals, ownership, and closeout choices. Use `request-user-input.md` for the exact prompt shape.
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then uses native goal tools. It resolves goal replacement and proceed choices through `request_user_input`, then calls `create_goal` after the plan is complete and proceed intent is clear.
+`planning` outputs the plan first, then uses native goal tools. It compares active goal state to the planned objective with `get_goal`, resolves goal conflicts and proceed choices through `request_user_input`, and calls `create_goal` only when no current goal exists and proceed intent is clear.
+
+## Phase Transitions
+
+Use `phase-transition.md` for phase handoffs, stop payloads, and substantial workflow artifacts. Carry acceptance criteria from ideation and planning into execution, verification, review, and handoff.
 
 ## Stop
 

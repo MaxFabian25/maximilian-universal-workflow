@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.11
+
+- Adds shared phase-transition and request-user-input contracts, makes substantial runs artifact-backed, tightens native goal identity handling, and carries acceptance criteria through verification and handoff.
+
 ## 0.1.10
 
 - Removes remaining soft-path workflow wording for native goal completion, validation, review disposition, and subagent follow-up.

@@ -9,6 +9,7 @@ Task: Review <change/artifact/output>.
 Agent type: explorer.
 Scope: Read only <paths/artifacts/commands>.
 Requirements: <plan/spec/expected behavior>.
+Acceptance criteria: <criteria to preserve or prove>.
 Constraints: Do not edit files, ask the user, coordinate agents, or wait for siblings.
 Check: correctness, scope, tests/evidence, integration risks, unsupported claims, handoff gaps.
 Output findings by severity with evidence.

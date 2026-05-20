@@ -43,12 +43,12 @@ Use `receiving-review` when review feedback, PR comments, reviewer findings, CI 
 
 ## Goal-Backed Planning
 
-Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, asks replacement/proceed choices with `request_user_input`, and creates the goal when the plan is complete and proceed intent is clear.
+Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts and proceed choices with `request_user_input`, and creates the goal only when no current goal exists and proceed intent is clear.
 
 ## Artifacts
 
-`./workflow-artifacts/YYYY-MM-DD-<slug>.html` is for supporting evidence, plans, ledgers, reports, and handoffs. Repo files, tests, branches, commits, and PRs are the primary work surface.
+`./workflow-artifacts/YYYY-MM-DD-<slug>.html` is for supporting evidence, plans, ledgers, reports, handoffs, and interactive HTML for substantial runs. Repo files, tests, branches, commits, and PRs are the primary work surface.
 
 ## Authority
 
-Human-facing workflow authority lives in `docs/workflow-contracts/`. Skills are compact phase front doors into those contracts and their direct references.
+Human-facing workflow authority lives in `docs/workflow-contracts/`. Skills are compact phase front doors into those contracts and their direct references. Use `phase-transition.md` and `request-user-input.md` to move smoothly between phases.

@@ -16,7 +16,8 @@ Follow `../../docs/workflow-contracts/README.md` and `references/explorer-packet
 - Prefer `rg`, `rg --files`, direct reads, and non-mutating commands.
 - Parent sends self-contained explorer packets; leaves do only their packet.
 - Cite file, command, branch/status, test, log, or source evidence.
-- Synthesize findings and choose the next phase.
+- Synthesize findings into a phase-transition packet with evidence, uncertainty, next phase, and artifact status.
+- When evidence is sufficient, continue to ideation or planning. When evidence conflicts, use `request_user_input` for the next probe or stop path.
 
 ## Stop
 

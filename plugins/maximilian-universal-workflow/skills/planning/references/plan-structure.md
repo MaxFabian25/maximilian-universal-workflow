@@ -7,6 +7,7 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Goal
 - Exploration evidence: files inspected, commands run, explorer summaries if any, and unresolved evidence gaps
 - Approved direction
+- Acceptance criteria
 - Repo state and branch assumption
 - Scope and non-goals
 - Files or areas to create/modify
@@ -15,8 +16,8 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Verification commands or checklists
 - Review expectations
 - Handoff target
-- Goal state: existing goal checked when relevant, new goal created when approval allows, or replacement/proceed decision needed
-- Goal-backed execution setup: native goal id/status and execution prompt
+- Goal state: current goal checked, conflict disposition if any, new goal id/status if created, or proceed decision needed
+- Goal-backed execution setup: native goal id/status, execution prompt, phase-transition packet, and artifact path for substantial runs
 - Open questions that block execution
 
 ## Task Table
@@ -27,7 +28,7 @@ Use this structure for decision-complete, goal-backed repo plans.
 
 ## Goal-Backed Setup
 
-Every completed planning phase establishes native goal-backed execution state:
+Every completed planning phase establishes native goal-backed execution state after current-goal conflicts are settled:
 
 ```text
 Use maximilian-universal-workflow:execution.
@@ -35,12 +36,15 @@ Use maximilian-universal-workflow:execution.
 Objective:
 <same durable execution end state>
 
+Acceptance criteria:
+<criteria that verification and handoff must prove>
+
 Plan:
-<task order, ownership, verification, review, handoff>
+<task order, ownership, allowed side effects, verification, review, handoff>
 ```
 
-Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Resolve active-goal replacement and proceed intent with `request_user_input` before `create_goal`.
+Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Use `get_goal` before creating a goal. If a different current goal exists, resolve the conflict with `request_user_input` instead of implying native goal overwrite.
 
 ## Artifact Use
 
-Use `./workflow-artifacts/YYYY-MM-DD-<slug>.html` only for supporting evidence, plans, ledgers, or handoff reports. Source changes, tests, docs, commits, branches, and PRs remain the primary repo outputs.
+Use `./workflow-artifacts/YYYY-MM-DD-<slug>.html` for supporting evidence, plans, ledgers, and handoff reports in substantial runs. Source changes, tests, docs, commits, branches, and PRs remain the primary repo outputs.

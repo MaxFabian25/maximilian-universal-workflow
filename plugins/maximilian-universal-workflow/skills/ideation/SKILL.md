@@ -16,7 +16,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/ideation-branch
 - Tie each option to repo evidence, constraints, risks, and tradeoffs.
 - Use root-thread `request_user_input` liberally for concrete branch choices.
 - Use the root thread for user-facing choices; child agents return `decision_needed`.
-- End with a selected direction ready for `planning`.
+- End with selected direction, acceptance criteria, rejected alternatives worth preserving, and a phase-transition packet ready for `planning`.
 
 ## Stop
 

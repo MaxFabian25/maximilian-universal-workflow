@@ -7,12 +7,12 @@ The public repository includes `.codex/config.toml` with the required feature fl
 - intake: `git status --short`, branch, `AGENTS.md`, `rg --files`.
 - phase loop: when the plugin is invoked generally, start at `intake` and continue through the next phase instead of returning only a route label.
 - exploration/review: local reads first; spawn read-only `explorer` leaves with `fork_turns: "none"` whenever fanout improves evidence, critique, or confidence.
-- every phase: call root-thread `request_user_input` for material choices, branch selection, approval, ownership, blockers, and closeout; children return decision payloads to the parent.
+- every phase: call root-thread `request_user_input` for material choices, branch selection, approval, ownership, blockers, and closeout; use `request-user-input.md` for the prompt shape; children return decision payloads to the parent.
 - planning: cite fresh exploration or run it first; name ownership and verification; use native goal tools for goal setup.
-- goal tools: `get_goal` inspects existing state before replacement; `create_goal` creates the goal after a complete plan and clear proceed intent; `update_goal` marks completion only after verification proves no required work remains.
+- goal tools: `get_goal` compares current goal state to the planned or verified objective; `create_goal` creates the goal only when no current goal exists after a complete plan and clear proceed intent; `update_goal` marks completion only after goal identity matches and verification proves no required work remains.
 - execution: spawn `worker` freely for isolated ownership; `fork_turns: "none"`; no `fork_context`. Goal bundles are binding context, not implicit create-goal permission.
 - multi-agent-v2: use the bundled skill for task-path mechanics, stalled-agent recovery, collection diagnostics, or source-backed MultiAgentV2 contracts.
-- verification: parent current-state commands/checklists; child summaries and old output are not proof; complete active goals only after proof.
+- verification: parent current-state commands/checklists; child summaries and old output are not proof; complete active goals only after `get_goal` identity check and proof.
 - review: use `git status`, `git diff --stat`, `git diff`, changed tests, relevant `rg`, and read-only explorer review packets.
 - receiving-review: read the full feedback, verify each item against repo evidence, then fix, push back, or escalate with a disposition ledger.
 

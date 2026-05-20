@@ -13,10 +13,10 @@ Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checkli
 
 ## Do
 
-- Report repo path, branch, changed paths, verification, review, risks, and next owner.
+- Report outcome delivered, acceptance criteria status, repo path, branch, changed paths, verification commands with exit status, review disposition, risks, unverified gaps, stop condition, and next owner.
 - Use root-thread `request_user_input` for non-destructive closeout choices first: stop with evidence, keep branch, or create PR.
 - Do not discard, delete, merge, or push without approval and verification.
-- Use `workflow-artifacts/` for evidence and handoff support only.
+- Use `workflow-artifacts/` for evidence and handoff support, and update the interactive HTML artifact for substantial runs.
 
 ## Stop
 

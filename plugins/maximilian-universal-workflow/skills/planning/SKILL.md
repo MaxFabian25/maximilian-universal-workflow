@@ -15,8 +15,8 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
-- State goal, scope, files/areas, tasks, ownership, verification, handoff.
-- Use native goal tools: call `get_goal` when current goal state matters, resolve replacement with `request_user_input`, and call `create_goal` after the plan is complete when proceed intent is clear.
+- State goal, acceptance criteria, scope, files/areas, tasks, ownership, verification, review, handoff, and phase-transition packet.
+- Use native goal tools: call `get_goal`, compare the current objective to the planned execution objective, resolve conflicts with `request_user_input`, and call `create_goal` only when no current goal exists and proceed intent is clear.
 - The goal objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Put long execution detail in the execution prompt body or a repo file, not in the goal objective.
 - Inspect repo conventions first.
@@ -27,4 +27,4 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 
 ## Stop
 
-Stop with a decision-ready payload when direction, ownership, goal replacement, proceed intent, or verification is unclear. Use native goal tools for goal setup.
+Stop with a decision-ready payload when direction, ownership, active-goal conflict, proceed intent, or verification is unclear. Use native goal tools for goal setup.

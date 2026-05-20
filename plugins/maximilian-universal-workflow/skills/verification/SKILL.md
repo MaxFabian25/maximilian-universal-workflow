@@ -14,10 +14,11 @@ Follow `../../docs/workflow-contracts/README.md`.
 ## Do
 
 - Run or identify the command/checklist proving the claim in the current repo state.
-- Report command, exit status, pass/fail counts or key evidence, and unverified gaps.
+- Map acceptance criteria to command/check evidence, exit status, pass/fail counts, and unverified gaps.
 - Treat child summaries and old output as inputs, not proof.
-- If an active goal is complete and no required work remains, mark it complete with `update_goal`.
+- Call `get_goal` before `update_goal`; mark the goal complete only when the active objective matches the verified outcome and no required work remains.
 - If verification cannot run, state exactly why and what risk remains.
+- On pass, emit a phase-transition packet and continue to `review`. On fail, continue to `execution` or use `request_user_input`.
 
 ## Stop
 

@@ -19,6 +19,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/disposition-led
 - Decide per item: fix, push back with evidence, or return `decision_needed` through root-thread `request_user_input`.
 - Implement accepted fixes one item at a time; then run fresh verification for each fixed item.
 - Reply with concise dispositions and supporting evidence.
+- Emit a phase-transition packet to execution, verification, review, or handoff after disposition.
 - For GitHub inline review comments, reply in the inline thread, not as a top-level PR comment.
 
 ## Stop

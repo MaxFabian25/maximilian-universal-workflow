@@ -20,4 +20,6 @@ Convergence output:
 - constraints;
 - risks;
 - acceptance criteria;
+- allowed side effects;
+- phase-transition packet;
 - next planning questions.
