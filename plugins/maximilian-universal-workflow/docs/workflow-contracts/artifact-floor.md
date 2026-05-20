@@ -20,6 +20,12 @@
 
 Every durable support artifact includes purpose, repo path, branch when known, inputs reviewed, evidence status, decision state, open questions, next actions, and owner when known.
 
+## Optional Interactive HTML
+
+Offer a `workflow-artifacts/YYYY-MM-DD-<slug>.html` artifact for long-running, multi-agent, verification-heavy, review-heavy, or handoff-heavy workflows. Keep it supporting evidence, not authority.
+
+Allowed interaction: static tabs, filters, collapsible evidence, severity toggles, task tables, and copyable next prompts. Avoid hidden state, remote dependencies, destructive controls, or requiring the artifact to understand the repo.
+
 ## Exceptions
 
 Do not create an HTML artifact when the repo convention names another durable surface, the task is trivial, or the user opts out.

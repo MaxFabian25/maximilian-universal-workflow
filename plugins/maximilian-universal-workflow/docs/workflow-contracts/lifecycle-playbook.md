@@ -2,7 +2,7 @@
 
 Repeatable git-repo lifecycle:
 
-`intake -> exploration -> ideation -> planning -> execution/production -> verification -> review -> handoff`
+`intake -> exploration -> ideation -> planning -> execution -> verification -> review -> handoff`
 
 `repo-context-cleanup` supports any phase blocked by stale context.
 
@@ -34,7 +34,7 @@ Use root-thread `request_user_input` liberally for material options, ambiguity, 
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`. When native goal tools are available and user intent is clear, `planning` may create the goal after the plan is complete.
+`planning` outputs the plan first, then prefers native goal tools. When native goal tools are unavailable or intentionally deferred, it emits a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
 
 ## Stop
 

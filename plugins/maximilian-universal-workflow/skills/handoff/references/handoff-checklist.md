@@ -2,6 +2,14 @@
 
 Report: repo path, branch/base, phase, changed files/artifacts, verification, review resolution, decisions, residual risks, next action, owner.
 
-Closeout choices default non-destructive: keep branch, create PR, merge after final verification, or stop with evidence.
+Use this final shape:
 
-Discard or destructive cleanup requires explicit user request and confirmation.
+```text
+Status: <done/blocked/needs decision>
+Evidence: <commands, review, changed paths, artifacts>
+Risks: <remaining risks or none>
+Next owner: <user/agent/team>
+Recommended closeout: <stop with evidence/keep branch/create PR>
+```
+
+First closeout prompt is non-destructive: stop with evidence, keep branch, or create PR. Merge, push, discard, delete, or destructive cleanup requires a second explicit user request and confirmation.

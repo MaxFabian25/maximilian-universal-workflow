@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.8
+
+- Makes goal-backed planning tool-first, adds phase decision gates, standardizes stop payloads, and clarifies optional interactive HTML artifacts.
+
 ## 0.1.7
 
 - Makes `/goal` the default planning behavior and removes the separate `/goal` planning front door.

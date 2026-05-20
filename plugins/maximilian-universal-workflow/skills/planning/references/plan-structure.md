@@ -15,8 +15,8 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Verification commands or checklists
 - Review expectations
 - Handoff target
-- Goal state: existing goal checked when relevant, new goal created if applicable, or replacement decision needed
-- Goal-backed execution launch prompt
+- Goal state: existing goal checked when relevant, new goal created when tools and approval allow, or replacement/proceed decision needed
+- Goal-backed execution launch: native goal id/status or manual `/goal` prompt
 - Open questions that block execution
 
 ## Task Table
@@ -27,7 +27,7 @@ Use this structure for decision-complete, goal-backed repo plans.
 
 ## Goal-Backed Launch
 
-Every completed planning phase produces one self-contained launch prompt:
+Every completed planning phase establishes a goal-backed launch state. Prefer native goal tools when available and user intent is clear. Use a manual launch prompt only when native goal creation is unavailable or intentionally deferred:
 
 ```text
 /goal <execution objective>
@@ -41,7 +41,7 @@ Plan:
 <task order, ownership, verification, review, handoff>
 ```
 
-Rules: the `/goal` objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Resolve active-goal replacement with `request_user_input` before launch. When native goal tools are available and the user intent is to proceed, `create_goal` may create the objective directly after the plan is complete.
+Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Resolve active-goal replacement and proceed intent with `request_user_input` before native `create_goal` or manual launch.
 
 ## Artifact Use
 

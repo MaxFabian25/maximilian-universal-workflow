@@ -14,6 +14,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/review-packets.
 ## Do
 
 - Review boundary, requirements, evidence, and changed paths or artifacts are explicit.
+- Use concrete repo evidence surfaces: `git status`, `git diff --stat`, `git diff`, changed tests, relevant `rg`, and read-only explorer review packets.
 - Apply the shared subagent role boundary: parent sends self-contained review packets; leaves do only their packet.
 - Parent arbitrates findings; review does not replace verification.
 

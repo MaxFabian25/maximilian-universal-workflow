@@ -79,7 +79,7 @@ Subagents are encouraged:
 - Use `worker` for explicitly owned, isolated write/execution tasks.
 - Parent threads own user decisions, synthesis, integration, verification, review arbitration, and handoff.
 
-`workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, and handoffs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
+`workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, and handoffs, including optional interactive HTML for large workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
 
 ## Development
 

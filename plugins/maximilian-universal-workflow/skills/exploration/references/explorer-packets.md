@@ -11,6 +11,7 @@ Scope: Read only <files/directories/commands>.
 Constraints: no edits, user questions, coordination, or sibling waits.
 Evidence: Cite exact paths, lines, command output, or observations.
 Output: finding, evidence, uncertainty, decision_needed if any, next probe.
+Decision payload: when blocked, return question, 2-3 options, recommended option, evidence, and blocking_phase.
 ```
 
 ## Root-Cause Map
@@ -20,5 +21,5 @@ Task: Map likely root causes for <symptom>.
 Agent type: explorer.
 Scope: Read only <subsystem/test/log area>.
 Constraints: no edits, coordination, or sibling waits.
-Output: ranked causes, evidence for/against, missing evidence, next verification step.
+Output: ranked causes, evidence for/against, missing evidence, next verification step, decision payload if blocked.
 ```

@@ -23,4 +23,4 @@ Follow `../../docs/workflow-contracts/README.md`.
 
 ## Stop
 
-Stop when repo, branch safety, instructions, mutation permission, or next phase is unclear.
+Stop when repo, branch safety, instructions, or next phase is unclear. Require mutation permission only before a mutating phase.
