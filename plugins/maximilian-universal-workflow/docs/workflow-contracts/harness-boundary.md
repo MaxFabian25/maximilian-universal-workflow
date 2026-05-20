@@ -4,7 +4,7 @@ Maximilian Universal Workflow is a universal git-repository phase harness, not a
 
 ## Owns
 
-Intake, repo state checks, exploration, ideation, planning, goal-planning, execution, worker dispatch, verification, read-only review, handoff, branch/PR/merge/keep choices, evidence summaries, and stale context cleanup.
+Intake, repo state checks, exploration, ideation, planning, goal-planning, execution, worker dispatch, verification, read-only review, review feedback reception, handoff, branch/PR/merge/keep choices, evidence summaries, and stale context cleanup.
 
 ## Does Not Own
 

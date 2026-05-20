@@ -18,6 +18,7 @@ intake -> exploration -> ideation -> planning or goal-planning -> execution/prod
 - `execution`
 - `verification`
 - `review`
+- `receiving-review`
 - `handoff`
 - `repo-context-cleanup`
 - `multi-agent-v2`
@@ -32,6 +33,10 @@ Assume the active workspace is a git repository. Start by reading applicable `AG
 - Use `worker` freely for explicitly owned, isolated write/execution tasks.
 - Child agents never ask the user directly; they return `decision_needed` to the parent.
 - Use `multi-agent-v2` when the native subagent coordination mechanics, task paths, collection, recovery, or debugging are themselves the work.
+
+## Review Reception
+
+Use `receiving-review` when review feedback, PR comments, reviewer findings, CI review notes, or user critique arrives and must be triaged before changes. Verify each item against repo evidence before fixing, pushing back, or escalating.
 
 ## Goal Planning
 

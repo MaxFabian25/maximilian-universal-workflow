@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- Adds `receiving-review` for triaging received review feedback before changing repo code or workflow artifacts.
+
 ## 0.1.4
 
 - Makes root-thread `request_user_input` the expected liberal choice mechanism.

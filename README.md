@@ -38,6 +38,7 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 - `maximilian-universal-workflow:execution`
 - `maximilian-universal-workflow:verification`
 - `maximilian-universal-workflow:review`
+- `maximilian-universal-workflow:receiving-review`
 - `maximilian-universal-workflow:handoff`
 - `maximilian-universal-workflow:repo-context-cleanup`
 - `maximilian-universal-workflow:multi-agent-v2`

@@ -13,6 +13,7 @@
 - multi-agent-v2: use the bundled skill for task-path mechanics, stalled-agent recovery, collection diagnostics, or source-backed MultiAgentV2 contracts.
 - verification: parent current-state commands/checklists; child summaries and old output are not proof.
 - review: use native whole-worktree review surfaces when available.
+- receiving-review: read the full feedback, verify each item against repo evidence, then fix, push back, or escalate with a disposition ledger.
 
 Parent lifecycle: `spawn_agent`, `wait_agent`, `list_agents`, optional one `followup_task`, then `close_agent`. Close stuck children and report partial evidence.
 

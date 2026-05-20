@@ -24,6 +24,7 @@ Phase skills may hand off by applying the next phase directly or by emitting the
 | execution | `worker` fanout, `apply_patch`, commands, integration | ownership map, changed paths, local checks, blockers | work is integrated and ready to prove | verification |
 | verification | parent-side commands/checklists | command/check result in current repo state | claims are proven or failures reported | review or execution |
 | review | read-only parent review, native review surfaces, `explorer` fanout | findings with file/line evidence and severity | findings resolved or accepted | handoff or execution |
+| receiving-review | full review text, repo reads, optional `explorer` checks, root `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
 | handoff | status, branch/PR commands, root `request_user_input` | changed paths, verification, review, risks, closeout choice | operator has next action and owner | done |
 
 ## Fanout Bias

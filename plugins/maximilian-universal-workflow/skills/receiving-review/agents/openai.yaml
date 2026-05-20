@@ -1,0 +1,4 @@
+interface:
+  display_name: "Receiving Review"
+  short_description: "Triage received review feedback before changing repo work."
+  default_prompt: "Triage this received review feedback, verify each item, and produce fix/pushback/escalation dispositions."

@@ -6,6 +6,8 @@ Repeatable git-repo lifecycle:
 
 `repo-context-cleanup` supports any phase blocked by stale context.
 
+`receiving-review` supports review feedback received from the user, a PR, CI, a reviewer, or another agent before execution or handoff continues.
+
 `multi-agent-v2` supports any phase that needs native subagent task-path coordination or debugging.
 
 See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
@@ -22,6 +24,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | implementation, execution, creation, production | `execution` |
 | fresh evidence and completion claims | `verification` |
 | read-only review | `review` |
+| triage received review feedback | `receiving-review` |
 | status, branch/PR choices, operator handoff | `handoff` |
 | stale context cleanup | `repo-context-cleanup` |
 | subagent coordination mechanics and diagnostics | `multi-agent-v2` |
