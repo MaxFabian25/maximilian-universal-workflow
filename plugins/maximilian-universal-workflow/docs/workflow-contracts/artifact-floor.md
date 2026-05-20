@@ -20,7 +20,7 @@
 
 Every durable support artifact includes purpose, repo path, branch when known, inputs reviewed, evidence status, decision state, open questions, next actions, and owner when known.
 
-## Optional Interactive HTML
+## Interactive HTML
 
 Offer a `workflow-artifacts/YYYY-MM-DD-<slug>.html` artifact for long-running, multi-agent, verification-heavy, review-heavy, or handoff-heavy workflows. Keep it supporting evidence, not authority.
 

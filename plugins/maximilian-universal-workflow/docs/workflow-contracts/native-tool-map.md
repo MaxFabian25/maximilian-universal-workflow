@@ -16,6 +16,6 @@ The public repository includes `.codex/config.toml` with the required feature fl
 - review: use `git status`, `git diff --stat`, `git diff`, changed tests, relevant `rg`, and read-only explorer review packets.
 - receiving-review: read the full feedback, verify each item against repo evidence, then fix, push back, or escalate with a disposition ledger.
 
-Parent lifecycle: `spawn_agent`, `wait_agent`, `list_agents`, optional one `followup_task`, then `close_agent`. Close stuck children and report partial evidence.
+Parent lifecycle: `spawn_agent`, `wait_agent`, `list_agents`, at most one focused `followup_task`, then `close_agent`. Close stuck children and report partial evidence.
 
 Leaf rule: spawned explorers/workers do not coordinate fanout or wait on siblings unless explicitly assigned descendants. Parent owns choices, synthesis, verification, review arbitration, and handoff.

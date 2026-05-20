@@ -1,12 +1,16 @@
 # Changelog
 
+## 0.1.10
+
+- Removes remaining soft-path workflow wording for native goal completion, validation, review disposition, and subagent follow-up.
+
 ## 0.1.9
 
 - Requires native goal tools for goal-backed planning and removes non-native goal setup paths.
 
 ## 0.1.8
 
-- Makes goal-backed planning tool-first, adds phase decision gates, standardizes stop payloads, and clarifies optional interactive HTML artifacts.
+- Makes goal-backed planning tool-first, adds phase decision gates, standardizes stop payloads, and clarifies interactive HTML artifacts.
 
 ## 0.1.7
 

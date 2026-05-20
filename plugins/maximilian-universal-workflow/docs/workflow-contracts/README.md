@@ -28,4 +28,4 @@ Human-facing authority for Maximilian Universal Workflow.
 - User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Do not replace choice collection with a plain-text prompt.
 - Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
-- Artifacts: `workflow-artifacts/` supports evidence and handoff. Optional interactive HTML may help long-running, multi-agent, verification, review, or handoff-heavy workflows. Source, tests, docs, branches, commits, and PRs are primary.
+- Artifacts: `workflow-artifacts/` supports evidence and handoff. Interactive HTML may help long-running, multi-agent, verification, review, or handoff-heavy workflows. Source, tests, docs, branches, commits, and PRs are primary.

@@ -24,7 +24,7 @@ intake -> exploration -> ideation -> planning -> execution -> verification -> re
 
 ## Repository Assumption
 
-Assume the active workspace is a git repository. Start by reading applicable `AGENTS.md` files and checking branch/status before mutation. If no git repo or worktree is available, establish one or stop; this plugin does not model a non-repo work surface.
+Assume the active workspace is a git repository. Start by reading applicable `AGENTS.md` files and checking branch/status before mutation. If no git repo or worktree is present, establish one or stop; this plugin does not model a non-repo work surface.
 
 ## Runtime Config
 

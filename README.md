@@ -79,7 +79,7 @@ Subagents are encouraged:
 - Use `worker` for explicitly owned, isolated write/execution tasks.
 - Parent threads own user decisions, synthesis, integration, verification, review arbitration, and handoff.
 
-`workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, and handoffs, including optional interactive HTML for large workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
+`workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and interactive HTML for large workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
 
 ## Development
 
@@ -91,7 +91,7 @@ jq empty plugins/maximilian-universal-workflow/.codex-plugin/plugin.json
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/maximilian-universal-workflow
 ```
 
-When available, also run skill validation and Plugin Eval:
+Run skill validation and Plugin Eval:
 
 ```bash
 for skill in plugins/maximilian-universal-workflow/skills/*; do

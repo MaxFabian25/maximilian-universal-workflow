@@ -4,20 +4,18 @@ Use this structure when review feedback contains multiple items or when the fina
 
 | Item | Source | Claim | Evidence checked | Disposition | Action | Verification | Reply |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|  | user/PR/CI/agent |  | file/line, command, spec, artifact | fix/push back/escalate/defer |  |  |  |
+|  | user/PR/CI/agent |  | file/line, command, spec, artifact | fix/push back/decision_needed |  |  |  |
 
 ## Disposition Rules
 
 - `fix`: the item is valid and scoped; implement only the needed change, then verify.
 - `push back`: the item does not apply; cite repo evidence, tests, specs, or explicit support contracts.
-- `escalate`: the item is ambiguous, changes scope, changes architecture, or conflicts with instructions; call root-thread `request_user_input`.
-- `defer`: evidence is missing or the fix belongs to a later owner; state what evidence or owner is needed.
+- `decision_needed`: the item is ambiguous, changes scope, changes architecture, conflicts with instructions, lacks required evidence, or belongs to a later owner; call root-thread `request_user_input`.
 
 ## Reply Patterns
 
 - `Fixed in <path>: <what changed>. Verified with <command/check>.`
 - `Keeping current approach: <evidence-backed reason>.`
-- `Need decision on <item>: <specific branch choice>.`
-- `Deferred: <missing evidence or owner>.`
+- `Need decision on <item>: <specific branch choice, missing evidence, or owner>.`
 
 Keep replies technical and brief. Do not use social filler as a substitute for a disposition.
