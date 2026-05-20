@@ -34,7 +34,7 @@ Use root-thread `request_user_input` liberally for material options, ambiguity, 
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then prefers native goal tools. When native goal tools are unavailable or intentionally deferred, it emits a self-contained next prompt that starts with `/goal <execution objective>` and invokes `maximilian-universal-workflow:execution`.
+`planning` outputs the plan first, then uses native goal tools. It resolves goal replacement and proceed choices through `request_user_input`, then calls `create_goal` after the plan is complete and proceed intent is clear.
 
 ## Stop
 

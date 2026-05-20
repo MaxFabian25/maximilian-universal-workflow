@@ -7,7 +7,7 @@
 # Required so phase skills can collect material choices in Default mode.
 default_mode_request_user_input = true
 
-# Required for goal-backed planning and /goal launch prompts.
+# Required for goal-backed planning.
 goals = true
 
 # Required for installing and using this public GitHub marketplace plugin.

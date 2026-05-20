@@ -15,8 +15,8 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Verification commands or checklists
 - Review expectations
 - Handoff target
-- Goal state: existing goal checked when relevant, new goal created when tools and approval allow, or replacement/proceed decision needed
-- Goal-backed execution launch: native goal id/status or manual `/goal` prompt
+- Goal state: existing goal checked when relevant, new goal created when approval allows, or replacement/proceed decision needed
+- Goal-backed execution setup: native goal id/status and execution prompt
 - Open questions that block execution
 
 ## Task Table
@@ -25,13 +25,11 @@ Use this structure for decision-complete, goal-backed repo plans.
 | --- | --- | --- | --- | --- | --- |
 |  |  |  |  |  |  |
 
-## Goal-Backed Launch
+## Goal-Backed Setup
 
-Every completed planning phase establishes a goal-backed launch state. Prefer native goal tools when available and user intent is clear. Use a manual launch prompt only when native goal creation is unavailable or intentionally deferred:
+Every completed planning phase establishes native goal-backed execution state:
 
 ```text
-/goal <execution objective>
-
 Use maximilian-universal-workflow:execution.
 
 Objective:
@@ -41,7 +39,7 @@ Plan:
 <task order, ownership, verification, review, handoff>
 ```
 
-Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Resolve active-goal replacement and proceed intent with `request_user_input` before native `create_goal` or manual launch.
+Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Resolve active-goal replacement and proceed intent with `request_user_input` before `create_goal`.
 
 ## Artifact Use
 

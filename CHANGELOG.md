@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- Requires native goal tools for goal-backed planning and removes non-native goal setup paths.
+
 ## 0.1.8
 
 - Makes goal-backed planning tool-first, adds phase decision gates, standardizes stop payloads, and clarifies optional interactive HTML artifacts.
@@ -23,7 +27,7 @@
 ## 0.1.1
 
 - Improves general plugin invocation by making `intake` run the phase loop instead of only routing.
-- Changes planning to produce a plan plus a goal-prefixed `execution` launch prompt.
+- Changes planning to produce a plan plus goal-backed execution setup.
 - Clarifies that `/goal` objectives target executed repository end states, not planning tasks.
 
 ## 0.1.0

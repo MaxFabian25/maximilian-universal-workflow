@@ -24,7 +24,7 @@ Human-facing authority for Maximilian Universal Workflow.
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
 - Runtime config: keep `default_mode_request_user_input`, `goals`, `remote_plugin`, `mentions_v2`, `child_agents_md`, and `features.multi_agent_v2.enabled` enabled for this plugin.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
-- Goal-backed planning: `planning` outputs the plan first, then prefers native goal tools. Use `get_goal` when replacement matters, `request_user_input` for replacement/proceed choices, and `create_goal` after the plan is complete when proceed intent is clear. Emit a manual `/goal <execution objective>` launch prompt only when native goal creation is unavailable or intentionally deferred.
+- Goal-backed planning: `planning` outputs the plan first, then uses native goal tools. Use `get_goal` when replacement matters, `request_user_input` for replacement/proceed choices, and `create_goal` after the plan is complete when proceed intent is clear.
 - User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Do not replace choice collection with a plain-text prompt.
 - Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.

@@ -43,7 +43,7 @@ Use `receiving-review` when review feedback, PR comments, reviewer findings, CI 
 
 ## Goal-Backed Planning
 
-Use `planning` for repo plans and the default goal-backed execution launch. Planning prefers native goal tools: inspect active goal state, ask replacement/proceed choices with `request_user_input`, and create the goal when the plan is complete and proceed intent is clear. If native goal creation is unavailable or deferred, emit a `/goal <execution objective>` prompt that invokes `maximilian-universal-workflow:execution`.
+Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, asks replacement/proceed choices with `request_user_input`, and creates the goal when the plan is complete and proceed intent is clear.
 
 ## Artifacts
 

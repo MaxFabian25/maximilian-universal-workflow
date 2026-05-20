@@ -1,4 +1,4 @@
 interface:
   display_name: "Planning"
-  short_description: "Write goal-backed repo execution plans."
-  default_prompt: "Use repo evidence, write the plan, and prepare the /goal execution launch prompt."
+  short_description: "Write repo plans and set up native goals."
+  default_prompt: "Use repo evidence, write the plan, and set up native goal-backed execution."
