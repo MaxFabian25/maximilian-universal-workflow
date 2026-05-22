@@ -17,7 +17,7 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Verification commands or checklists
 - Review expectations
 - Handoff target
-- Goal state: current goal checked, conflict disposition if any, new goal id/status if created, or proceed decision needed
+- Goal state: current goal checked, conflict disposition if any, new goal id/status if created, or explicit planning-only/no-goal decision needed
 - Goal-backed execution setup: native goal id/status, execution prompt, phase bundle, `continue_now`, and artifact path for substantial runs
 - Open questions that block execution
 
@@ -47,7 +47,7 @@ Phase bundle:
 <current shared phase bundle fields that execution must preserve or update>
 ```
 
-Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Use `get_goal` before creating a goal. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence. If a different current goal exists, resolve the conflict with `request_user_input` instead of implying native goal overwrite. Set `continue_now: yes` only after goal state, worktree state, ownership, and approval are settled.
+Rules: the goal objective names the durable executed repo end state, is current-state verifiable, and stays under 4,000 characters. Put long instructions in the execution prompt body or a repo file and reference that file from the objective. Use `get_goal` before creating a goal. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence. If a different current goal exists, resolve the conflict with `request_user_input` instead of implying native goal overwrite. Create the default goal when no current goal exists after the plan is complete. Set `continue_now: yes` after goal state, worktree state, ownership, and approval are settled unless the user explicitly asked for planning-only or no-goal work.
 
 ## Goal Tool Gates
 

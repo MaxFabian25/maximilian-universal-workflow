@@ -46,7 +46,7 @@ Use `receiving-review` when review feedback, PR comments, reviewer findings, CI 
 
 ## Goal-Backed Planning
 
-Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts and proceed choices with `request_user_input`, and creates the goal only when no current goal exists and proceed intent is clear.
+Use `planning` for repo plans and default native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts with `request_user_input`, and creates the goal when no current goal exists after the plan is decision-complete. A normal workflow invocation is enough goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Worktree Isolation
 

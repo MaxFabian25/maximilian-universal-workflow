@@ -80,6 +80,6 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Keep `objective` tied to the executed repository end state, not to planning itself.
 - Every phase stop or continuation includes the phase footer.
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
-- Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, goal, worktree, verification, review, or closeout choices.
+- Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, active-goal conflict, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the parent has fresh current-state evidence.
 - Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.

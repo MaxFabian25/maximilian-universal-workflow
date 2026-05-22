@@ -10,7 +10,7 @@ Runtime loop:
 
 A general invocation of the plugin starts at `intake` and advances through the loop in the same turn when the next phase satisfies the Decision Precedence in `phase-transition.md`. Do not stop after naming the next phase unless a user-owned decision, missing evidence, permission boundary, or safety stop requires it.
 
-Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes` and the user asked Codex to do the work.
+Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes`; a workflow invocation is enough continuation and goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Table
 
@@ -42,7 +42,7 @@ Use root-thread `request_user_input` proactively whenever a phase has 2-3 concre
 - intake (`phase_route`): choose current phase or approve mutation after read-only state is known.
 - exploration (`phase_route`): choose deeper probe, ideation, or stop with evidence when evidence is incomplete but actionable.
 - ideation (`ideation_branch`): choose one branch from 2-3 repo-grounded options.
-- planning (`active_goal_conflict`, `planning_proceed`): choose active-goal conflict disposition, create goal, use worktree isolation, proceed to execution, revise plan, or stop with plan. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence.
+- planning (`active_goal_conflict`, `planning_proceed`): choose active-goal conflict disposition, handle explicit planning-only or no-goal requests, use worktree isolation, revise plan, or stop with plan. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence.
 - git-worktrees (`worktree_location`, `dirty_state`, `baseline_failure`): choose worktree location, dirty-state disposition, baseline failure disposition, or stop with evidence.
 - execution (`ownership_overlap`): choose parent integration path when worker ownership overlaps or side effects expand.
 - verification (`verification_failure`): choose fix failures, accept residual risk, or stop with evidence.

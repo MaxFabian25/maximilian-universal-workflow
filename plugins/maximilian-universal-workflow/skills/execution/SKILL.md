@@ -16,13 +16,13 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - Check branch/status and instructions before mutation.
 - Require a completed `git-worktrees` handoff before write-owning mutation. If it is missing, invoke `git-worktrees` before editing.
 - Preserve and verify goal-backed planning objectives.
-- When launched from planning with native goal state or `/goal`, treat the goal objective as the execution success target, not as a request to re-plan.
+- When launched from planning with native goal state, treat the goal objective as the execution success target, not as a request to re-plan.
 - Execute against the plan acceptance criteria and allowed side effects.
 - Parent sends isolated worker packets; leaves do only their packet.
 - Prefer `fork_turns: "none"` for self-contained packets; do not use `fork_context`.
 - Tell workers not to overwrite others' work.
 - Parent integrates, verifies, arbitrates, owns choices.
-- Do not create a second Codex goal during execution; planning owns default goal-backed setup and execution preserves the active native goal state.
+- Do not create a Codex goal during execution; planning owns default goal-backed setup and execution preserves the active native goal state. If direct execution lacks native goal state, route through `planning` before mutation unless the packet already includes a verified matching active goal.
 - On integrated work, update the shared phase bundle and continue to `verification`. Fix ordinary in-scope implementation failures directly. Use `request_user_input` only when the fix expands scope, changes side effects, creates ownership overlap, or leaves a material risk choice.
 
 ## Stop

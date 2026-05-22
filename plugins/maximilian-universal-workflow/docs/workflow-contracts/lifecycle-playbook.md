@@ -37,7 +37,7 @@ Use `request-user-input.md` for material decision gates, prompt shape, and stabl
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then uses native goal tools. It compares active goal state to the planned objective with `get_goal`, resolves goal conflicts and proceed choices through `request_user_input`, and calls `create_goal` only when no current goal exists and proceed intent is clear.
+`planning` outputs the plan first, then uses native goal tools as the default workflow mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. A normal workflow invocation supplies goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Transitions
 
