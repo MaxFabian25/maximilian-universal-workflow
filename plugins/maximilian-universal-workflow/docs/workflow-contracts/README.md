@@ -34,4 +34,4 @@ Human-facing authority for Maximilian Universal Workflow.
 - Subagents: use `explorer` read-only fanout and `worker` isolated ownership when the work is independent, bounded, and improves confidence, speed, critique, or isolation. Use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
 - Phase transition: every phase consumes and updates the shared `phase-bundle.md` state, then routes through `phase-transition.md`.
-- Artifacts: `workflow-artifacts/` supports evidence and handoff. Interactive HTML is the default support artifact for substantial workflow runs. Source, tests, docs, branches, commits, and PRs are primary.
+- Artifacts: follow `artifact-floor.md` for requirements and exceptions, and `html-artifact-template.md` for HTML shape. Source, tests, docs, branches, commits, and PRs are primary.

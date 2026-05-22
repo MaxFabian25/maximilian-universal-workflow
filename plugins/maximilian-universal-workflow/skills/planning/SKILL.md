@@ -23,7 +23,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 - Use root-thread `request_user_input` for major planning tradeoffs, scope, ownership, and verification choices when there are 2-3 concrete options; otherwise proceed from approved evidence and plan constraints.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Decide whether execution uses the current branch or `git-worktrees`; route to `git-worktrees` when current-branch mutation is not approved or isolated state improves safety.
-- Use `workflow-artifacts/` only for supporting plans, evidence, ledgers, or handoff notes.
+- Apply `../../docs/workflow-contracts/artifact-floor.md` for supporting plans, evidence, ledgers, or handoff notes.
 - If the user asked the plugin to carry the workflow forward, set `continue_now: yes` when approval, goal state, worktree state, and ownership are clear; otherwise provide the exact next prompt.
 
 ## Stop

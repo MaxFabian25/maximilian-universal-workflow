@@ -27,8 +27,7 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 - Treat acceptance criteria as the thread running through planning, execution, verification, review, and handoff.
 - Continue directly into the next phase when the user asked Codex to do the work and the bundle proves approval, ownership, evidence, and safety are sufficient.
 - Use `request_user_input` before crossing a material side-effect, scope, ownership, goal, verification, review, or closeout decision.
-- For substantial runs, create or update `workflow-artifacts/YYYY-MM-DD-<slug>.html` with the current bundle, decisions, evidence, and next phase.
-- Substantial runs include multi-phase work, multi-agent work, goal-backed execution, non-trivial verification, review ledgers, and handoff reports.
+- Apply `artifact-floor.md` for substantial-run artifact requirements and exceptions.
 - Trivial single-step work may report the changed bundle fields in the final response without an HTML artifact.
 
 ## Pass/Fail Routing

@@ -52,8 +52,8 @@ Use `git-worktrees` before substantial write-owning execution when the current b
 
 ## Artifacts
 
-`./workflow-artifacts/YYYY-MM-DD-<slug>.html` is for supporting evidence, plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial runs. Repo files, tests, branches, commits, and PRs are the primary work surface.
+`artifact-floor.md` owns `workflow-artifacts/` policy and exceptions. Default durable support artifacts use `./workflow-artifacts/YYYY-MM-DD-<slug>.html`; source files, tests, docs, branches, commits, and PRs remain primary.
 
 ## Authority
 
-Human-facing workflow authority lives in `docs/workflow-contracts/`. Skills are compact phase front doors into those contracts and their direct references. Use `phase-bundle.md` for shared handoff state, `phase-transition.md` for routing, `request-user-input.md` for decisions, and `html-artifact-template.md` for substantial support artifacts.
+Human-facing workflow authority lives in `docs/workflow-contracts/`. Skills are compact phase front doors into those contracts and their direct references. Use `phase-bundle.md` for shared handoff state, `phase-transition.md` for routing, `request-user-input.md` for decisions, `artifact-floor.md` for artifact policy, and `html-artifact-template.md` for HTML artifact shape.

@@ -33,7 +33,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 ## Decisions
 
-Use root-thread `request_user_input` when a material ambiguity has 2-3 concrete options and affects scope, approval, ownership, side effects, verification, review, or closeout. Use `request-user-input.md` for the exact prompt shape.
+Use `request-user-input.md` for material decision gates, prompt shape, and stable decision ids.
 
 ## Goal-Backed Planning
 

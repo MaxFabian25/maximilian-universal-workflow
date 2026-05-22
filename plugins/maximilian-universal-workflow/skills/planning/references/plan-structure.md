@@ -51,4 +51,4 @@ Rules: the goal objective names the durable executed repo end state, is current-
 
 ## Artifact Use
 
-Use `./workflow-artifacts/YYYY-MM-DD-<slug>.html` for supporting evidence, plans, ledgers, and handoff reports in substantial runs. Follow `../../docs/workflow-contracts/html-artifact-template.md`. Source changes, tests, docs, commits, branches, and PRs remain the primary repo outputs.
+Apply `../../../docs/workflow-contracts/artifact-floor.md` for supporting artifact requirements and exceptions. Use `../../../docs/workflow-contracts/html-artifact-template.md` for HTML artifact shape.
