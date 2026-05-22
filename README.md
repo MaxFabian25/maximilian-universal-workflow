@@ -2,7 +2,7 @@
 
 Maximilian Universal Workflow is a public Codex marketplace repository for the `maximilian-universal-workflow` plugin.
 
-The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase carries outcome, acceptance criteria, allowed side effects, evidence, next phase, and artifact state:
+The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase consumes and updates a shared phase bundle with repo state, objective, acceptance criteria, side effects, evidence, decisions, goal state, artifact state, and next phase:
 
 ```text
 intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> verification -> review -> handoff
@@ -80,7 +80,7 @@ Subagents are encouraged:
 - Use `worker` for explicitly owned, isolated write/execution tasks.
 - Parent threads own user decisions, synthesis, integration, verification, review arbitration, and handoff.
 
-`git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and interactive HTML for substantial workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
+`git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
 
 ## Development
 

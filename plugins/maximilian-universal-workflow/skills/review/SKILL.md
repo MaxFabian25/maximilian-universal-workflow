@@ -17,7 +17,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/review-packets.
 - Use concrete repo evidence surfaces: `git status`, `git diff --stat`, `git diff`, changed tests, relevant `rg`, and read-only explorer review packets.
 - Apply the shared subagent role boundary: parent sends self-contained review packets; leaves do only their packet.
 - Parent arbitrates findings; review does not replace verification.
-- On no blocking findings, emit a phase-transition packet and continue to `handoff`. On findings, continue to `execution` or use `request_user_input`.
+- On no blocking findings, update the shared phase bundle and continue to `handoff`. On findings, continue to `execution` or use `request_user_input`.
 
 ## Stop
 

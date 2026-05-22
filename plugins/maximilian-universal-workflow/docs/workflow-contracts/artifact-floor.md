@@ -24,6 +24,8 @@ Every durable support artifact includes purpose, repo path, branch when known, i
 
 Create or update `workflow-artifacts/YYYY-MM-DD-<slug>.html` for substantial workflow runs. Substantial runs include multi-phase work, multi-agent work, goal-backed execution, non-trivial verification, review ledgers, and handoff reports. Keep the artifact supporting evidence, not authority.
 
+Use `html-artifact-template.md` for the default structure unless repo instructions name a different artifact format.
+
 Allowed interaction: static tabs, filters, collapsible evidence, severity toggles, task tables, acceptance-criteria status, and copyable next prompts. Avoid hidden state, remote dependencies, destructive controls, or requiring the artifact to understand the repo.
 
 ## Exceptions

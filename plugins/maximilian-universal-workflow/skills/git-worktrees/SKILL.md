@@ -21,7 +21,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/worktree-playbo
 - Create the worktree with `git worktree add` and switch execution context to the new path.
 - Run repo-appropriate setup and baseline verification in the worktree.
 - Use `request_user_input` for branch/location choices, dirty-state decisions, baseline failure disposition, and destructive cleanup.
-- Emit a phase-transition packet with worktree path, branch, baseline evidence, allowed side effects, artifact state, and next execution prompt.
+- Update the shared phase bundle with worktree path, branch, baseline evidence, allowed side effects, artifact state, and next execution prompt.
 
 ## Stop
 

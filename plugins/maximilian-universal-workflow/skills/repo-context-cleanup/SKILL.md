@@ -23,7 +23,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/cleanup-playboo
 - Actions: delete, archive, consolidate, rewrite as authority, or leave.
 - Use root-thread `request_user_input` liberally for delete vs archive vs report-only policy choices.
 - Do not delete uncertain items without explicit approval.
-- Emit a phase-transition packet returning to the blocked phase or handoff.
+- Update the shared phase bundle to return to the blocked phase or handoff.
 
 ## Stop
 

@@ -21,5 +21,5 @@ Convergence output:
 - risks;
 - acceptance criteria;
 - allowed side effects;
-- phase-transition packet;
+- updated phase bundle;
 - next planning questions.

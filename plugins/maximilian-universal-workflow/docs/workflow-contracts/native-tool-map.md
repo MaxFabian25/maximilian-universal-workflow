@@ -6,6 +6,7 @@ The public repository includes `.codex/config.toml` with the required feature fl
 
 - intake: `git status --short`, branch, `AGENTS.md`, `rg --files`.
 - phase loop: when the plugin is invoked generally, start at `intake` and continue through the next phase instead of returning only a route label.
+- phase bundle: every phase updates `phase-bundle.md`; `continue_now: yes` is the native handoff signal for immediate continuation.
 - exploration/review: local reads first; spawn read-only `explorer` leaves with `fork_turns: "none"` whenever fanout improves evidence, critique, or confidence.
 - every phase: call root-thread `request_user_input` for material choices, branch selection, approval, ownership, blockers, and closeout; use `request-user-input.md` for the prompt shape; children return decision payloads to the parent.
 - planning: cite fresh exploration or run it first; name ownership and verification; use native goal tools for goal setup.

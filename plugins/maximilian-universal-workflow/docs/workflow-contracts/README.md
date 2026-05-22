@@ -16,10 +16,12 @@ Human-facing authority for Maximilian Universal Workflow.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
+- `phase-bundle.md` defines the shared handoff state each phase consumes and updates.
 - `phase-runtime.md` defines per-phase tools, evidence, exits, and next phases.
 - `phase-transition.md` defines the packet passed between phases.
 - `request-user-input.md` defines the root-thread decision prompt shape.
 - `artifact-floor.md` defines supporting artifact requirements.
+- `html-artifact-template.md` defines the default standalone HTML support artifact shape.
 
 ## Rules
 
@@ -31,5 +33,5 @@ Human-facing authority for Maximilian Universal Workflow.
 - User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Use `request-user-input.md` for the exact choice shape.
 - Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
-- Phase transition: every phase hands off with outcome, acceptance criteria, allowed side effects, evidence, current phase result, next phase, open decisions, and artifact status.
+- Phase transition: every phase consumes and updates the shared `phase-bundle.md` state, then routes through `phase-transition.md`.
 - Artifacts: `workflow-artifacts/` supports evidence and handoff. Interactive HTML is the default support artifact for substantial workflow runs. Source, tests, docs, branches, commits, and PRs are primary.

@@ -18,7 +18,7 @@ Follow `../../docs/workflow-contracts/README.md`.
 - Treat child summaries and old output as inputs, not proof.
 - Call `get_goal` before `update_goal`; mark the goal complete only when the active objective matches the verified outcome and no required work remains.
 - If verification cannot run, state exactly why and what risk remains.
-- On pass, emit a phase-transition packet and continue to `review`. On fail, continue to `execution` or use `request_user_input`.
+- On pass, update the shared phase bundle and continue to `review`. On fail, continue to `execution` or use `request_user_input`.
 
 ## Stop
 

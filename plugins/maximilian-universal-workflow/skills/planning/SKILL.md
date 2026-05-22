@@ -15,7 +15,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
-- State goal, acceptance criteria, scope, files/areas, tasks, ownership, verification, review, handoff, and phase-transition packet.
+- Update the shared phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, verification, review, handoff, and next phase.
 - Use native goal tools: call `get_goal`, compare the current objective to the planned execution objective, resolve conflicts with `request_user_input`, and call `create_goal` only when no current goal exists and proceed intent is clear.
 - The goal objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Put long execution detail in the execution prompt body or a repo file, not in the goal objective.
@@ -24,7 +24,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Decide whether execution uses the current branch or `git-worktrees`; route to `git-worktrees` when current-branch mutation is not approved or isolated state improves safety.
 - Use `workflow-artifacts/` only for supporting plans, evidence, ledgers, or handoff notes.
-- If the user asked the plugin to carry the workflow forward, continue to execution when approval and ownership are clear; otherwise provide the exact next prompt.
+- If the user asked the plugin to carry the workflow forward, set `continue_now: yes` when approval, goal state, worktree state, and ownership are clear; otherwise provide the exact next prompt.
 
 ## Stop
 

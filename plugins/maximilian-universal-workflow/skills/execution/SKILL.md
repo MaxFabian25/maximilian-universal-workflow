@@ -23,7 +23,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/worker-packets.
 - Tell workers not to overwrite others' work.
 - Parent integrates, verifies, arbitrates, owns choices.
 - Do not create a Codex goal unless the invocation includes `/goal` or explicitly asks for that action.
-- On integrated work, emit a phase-transition packet and continue to `verification`. On failure or ownership overlap, use `request_user_input`.
+- On integrated work, update the shared phase bundle and continue to `verification`. On failure or ownership overlap, use `request_user_input`.
 
 ## Stop
 

@@ -41,11 +41,11 @@ Use root-thread `request_user_input` liberally for material options, ambiguity, 
 
 ## Phase Transitions
 
-Use `phase-transition.md` for phase handoffs, stop payloads, and substantial workflow artifacts. Carry acceptance criteria from ideation and planning into execution, verification, review, and handoff.
+Use `phase-bundle.md` for shared handoff state and `phase-transition.md` for routing. Carry acceptance criteria from ideation and planning into execution, verification, review, and handoff.
 
 ## Worktree Isolation
 
-Use `git-worktrees` after planning and before execution when current-branch mutation is not explicitly approved or when isolated filesystem state improves safety, reviewability, or parallel work. It owns worktree path selection, branch creation, setup, baseline verification, and the execution handoff packet.
+Use `git-worktrees` after planning and before execution when current-branch mutation is not explicitly approved or when isolated filesystem state improves safety, reviewability, or parallel work. It owns worktree path selection, branch creation, setup, baseline verification, and the execution handoff bundle.
 
 ## Stop
 

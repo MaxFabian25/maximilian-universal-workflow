@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.14
+
+- Adds the shared phase bundle contract, routes phase transitions through `continue_now`, and adds a standalone HTML artifact template for substantial workflow evidence dashboards.
+
 ## 0.1.13
 
 - Corrects the lifecycle playbook headline chain to include `git-worktrees` between planning and execution.
