@@ -35,7 +35,7 @@ Evidence: `create_*_tool`, v2 handlers, result structs, output-schema tests, rej
 
 `close_agent` rejects root, returns `previous_status`, shuts down target plus live descendants, removes registry entries, and releases the slot.
 
-Current plugin runtime contract sets max concurrent threads to `32`. Current tool schema/local config use wait default/min/max `900_000`/`600_000`/`3_600_000` ms. `agents.max_threads` conflicts with v2. `hide_spawn_agent_metadata` removes role/model/reasoning/service-tier controls. `non_code_mode_only` uses `DirectModelOnly`.
+Current plugin runtime contract sets max concurrent threads to `32` and wait default/min/max to `900_000`/`600_000`/`3_600_000` ms. `agents.max_threads` conflicts with v2. `hide_spawn_agent_metadata` removes role/model/reasoning/service-tier controls. `non_code_mode_only` uses `DirectModelOnly`.
 
 `features.multi_agent_v2.root_agent_usage_hint_text` and `subagent_usage_hint_text` are injected as standalone developer messages when MultiAgentV2 is enabled. Root threads receive only root guidance; `SessionSource::SubAgent(ThreadSpawn)` receives only subagent guidance. Full-history forks filter parent MultiAgentV2 usage-hint developer messages so children receive a fresh hint matching their own session source/config.
 

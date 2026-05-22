@@ -1,6 +1,6 @@
 ---
 name: multi-agent-v2
-description: "Use when coordinating MultiAgentV2 task paths, result collection, stalled agents, recovery, or spawn_agent/list_agents/followup_task/close_agent debugging."
+description: "Use when coordinating MultiAgentV2 task paths, CSV row fanout, result collection, stalled agents, recovery, or spawn_agent/list_agents/followup_task/close_agent debugging."
 ---
 
 # Multi-Agent V2
@@ -15,7 +15,7 @@ Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, dec
 
 ## Delegate
 
-Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Use multiple agents for independent questions or disjoint edit scopes. For edits, assign ownership and tell workers not to revert others' changes.
+Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries. Use multiple agents for independent questions or disjoint edit scopes. Use `spawn_agents_on_csv` for independent row-manifest work with structured result collection. For edits, assign ownership and tell workers not to revert others' changes.
 
 ## Spawn
 

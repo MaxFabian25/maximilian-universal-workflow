@@ -1,4 +1,4 @@
 interface:
   display_name: "Git Worktrees"
-  short_description: "Create isolated git worktrees before execution."
-  default_prompt: "Create an isolated git worktree for this plan, verify baseline state, update worktree state and phase footer, and hand off to execution."
+  short_description: "Resolve branch safety before execution."
+  default_prompt: "Resolve branch safety for this plan: record approved current-branch execution or create an isolated worktree, verify baseline state, update worktree state and phase footer, and hand off to execution."

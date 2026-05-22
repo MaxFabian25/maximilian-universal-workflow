@@ -1,4 +1,4 @@
 interface:
   display_name: "Exploration"
   short_description: "Gather repo evidence with read-only exploration and explorer fanout."
-  default_prompt: "Explore this repository task, gather cited evidence, identify acceptance criteria implications, update the phase bundle and phase footer, and continue to ideation or planning."
+  default_prompt: "Explore this repository task, gather cited evidence, identify acceptance criteria implications, update the phase bundle and phase footer, and continue to ideation."

@@ -16,7 +16,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/disposition-led
 - Read the full review before acting on any individual point.
 - Confirm repo, branch, status, instructions, and review source.
 - Verify each item against code, tests, docs, specs, artifacts, and current branch evidence.
-- Decide per item: fix, push back with evidence, or return `decision_needed` through root-thread `request_user_input`.
+- Decide per item: fix, push back with evidence, or return a child `decision_needed` payload for the parent to convert into root-thread `request_user_input`.
 - Implement accepted fixes one item at a time; then run fresh verification for each fixed item.
 - Reply with concise dispositions and supporting evidence.
 - Update the shared phase bundle for execution, verification, review, or handoff after disposition.

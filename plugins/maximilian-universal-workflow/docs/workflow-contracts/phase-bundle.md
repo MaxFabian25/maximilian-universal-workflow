@@ -4,6 +4,14 @@ Use this shared state object when a phase starts, hands off, stops for a decisio
 
 The bundle is prose authority, not a hidden schema or a run-state file. Preserve useful fields from prior phases and update only what the current phase can prove. Do not edit this contract file as the live bundle for a workflow run.
 
+## Bundle Ownership
+
+The root thread or current orchestrator owns the live phase bundle. Spawned children return evidence, proposed field updates, and `decision_needed` payloads; they do not overwrite the bundle or artifact unless their packet explicitly assigns them an artifact section.
+
+For trivial runs, the live bundle may exist only as the phase footer plus changed fields in the thread, final response, or next-phase packet. For substantial runs, the current HTML artifact stores the complete bundle, while the thread still carries the compact phase footer for routing.
+
+When merging child results, preserve parent-owned decisions, acceptance criteria, allowed side effects, and verification status unless fresh parent-side evidence changes them. Record conflicting child evidence under `evidence.subagents` or `decision_gate` instead of silently choosing a side.
+
 ## Fields
 
 ```text
@@ -74,4 +82,4 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, goal, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the parent has fresh current-state evidence.
-- Use `artifact_state.path` for substantial runs; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.
+- Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.

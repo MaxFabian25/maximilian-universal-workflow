@@ -6,7 +6,24 @@ Use this playbook to set up a branch plus filesystem workspace for isolated exec
 
 - Planning has identified outcome, acceptance criteria, allowed side effects, and execution ownership.
 - Repo root, current branch, status, remotes, and applicable `AGENTS.md` are known.
-- The current branch is not already explicitly approved for the planned mutation.
+
+## Isolation Decision
+
+Before execution, record one of:
+
+- `current-branch`: current-branch execution is explicitly approved and no mandatory worktree trigger applies.
+- `worktree-needed`: isolation is required by the rules below.
+- `decision-needed`: no mandatory trigger applies, but current-branch approval is missing or ambiguous.
+
+Require `worktree-needed` when any of these are true:
+
+- The user, repo instructions, or phase bundle requires isolated execution.
+- The current branch is protected, default, release-like, or branch policy is unknown and current-branch mutation is not explicitly approved.
+- `git status --short` shows unrelated changes outside the planned ownership scope.
+- Execution uses write-owning worker fanout or mutable ownership across multiple independent areas.
+- The plan includes destructive cleanup, generated artifacts plus source edits, or other side effects that should remain reviewable away from the source branch.
+
+Use root-thread `request_user_input` for `decision-needed`; offer current branch, isolated worktree, or stop with evidence.
 
 ## Location Policy
 
@@ -17,13 +34,13 @@ Choose the worktree parent in this order:
 3. Worktree location named by `AGENTS.md` or repo docs.
 4. Root-thread `request_user_input` with 2-3 concrete locations.
 
-For a project-local parent, confirm it is ignored before creation:
+For a project-local parent, confirm the selected parent is ignored before creation:
 
 ```bash
-git check-ignore -q .worktrees || git check-ignore -q worktrees
+git check-ignore -q -- <selected-parent>/
 ```
 
-When the selected project-local parent is not ignored, use `request_user_input` to choose adding the ignore rule, selecting another location, or stopping.
+Check only the selected parent. When the selected project-local parent is not ignored, use `request_user_input` to choose adding the ignore rule, selecting another location, or stopping.
 
 ## Branch And Path
 
@@ -67,7 +84,7 @@ Report command, exit status, and key output lines. If baseline fails, use `reque
 
 ```text
 Header: Baseline
-ID: baseline_disposition
+ID: baseline_failure
 Question: How should execution proceed with the failing baseline?
 Options:
 Investigate (Recommended): Stop execution and route to exploration/debugging before mutation.
