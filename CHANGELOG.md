@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.13
+
+- Corrects the lifecycle playbook headline chain to include `git-worktrees` between planning and execution.
+
 ## 0.1.12
 
 - Adds `git-worktrees` for isolated branch workspaces before execution and wires worktree setup into the repo phase contracts.

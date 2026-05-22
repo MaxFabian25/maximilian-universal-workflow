@@ -2,7 +2,7 @@
 
 Repeatable git-repo lifecycle:
 
-`intake -> exploration -> ideation -> planning -> execution -> verification -> review -> handoff`
+`intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> verification -> review -> handoff`
 
 `repo-context-cleanup` supports any phase blocked by stale context.
 
