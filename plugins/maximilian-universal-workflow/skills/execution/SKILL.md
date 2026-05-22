@@ -1,6 +1,6 @@
 ---
 name: execution
-description: Use when executing approved repo changes, coordinating workers, and handing off to verification.
+description: Use when approved repo plans need implementation, integration, ownership control, and verification handoff.
 ---
 
 # Execution

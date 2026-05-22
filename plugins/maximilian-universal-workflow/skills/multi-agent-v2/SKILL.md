@@ -1,6 +1,6 @@
 ---
 name: multi-agent-v2
-description: Use when coordinating MultiAgentV2 subagents, collecting results, recovering stalls, or debugging task paths.
+description: "Use when coordinating MultiAgentV2 task paths, result collection, stalled agents, recovery, or spawn_agent/list_agents/followup_task/close_agent debugging."
 ---
 
 # Multi-Agent V2
@@ -15,7 +15,7 @@ Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, dec
 
 ## Delegate
 
-Spawn subagents whenever they improve speed, breadth, critique, or isolation. Use multiple agents for independent questions or disjoint edit scopes. For edits, assign ownership and tell workers not to revert others' changes.
+Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Use multiple agents for independent questions or disjoint edit scopes. For edits, assign ownership and tell workers not to revert others' changes.
 
 ## Spawn
 

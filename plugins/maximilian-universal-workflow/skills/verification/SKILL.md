@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Use when proving repo completion claims with fresh commands, acceptance evidence, and failure routing.
+description: Use when execution claims need fresh parent-side proof mapped to acceptance criteria and goal state.
 ---
 
 # Verification

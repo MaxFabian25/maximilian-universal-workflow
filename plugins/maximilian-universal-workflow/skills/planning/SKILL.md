@@ -20,7 +20,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 - The goal objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Put long execution detail in the execution prompt body or a repo file, not in the goal objective.
 - Inspect repo conventions first.
-- Use root-thread `request_user_input` liberally for major planning tradeoffs, scope, ownership, and verification choices.
+- Use root-thread `request_user_input` for major planning tradeoffs, scope, ownership, and verification choices when there are 2-3 concrete options; otherwise proceed from approved evidence and plan constraints.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Decide whether execution uses the current branch or `git-worktrees`; route to `git-worktrees` when current-branch mutation is not approved or isolated state improves safety.
 - Use `workflow-artifacts/` only for supporting plans, evidence, ledgers, or handoff notes.

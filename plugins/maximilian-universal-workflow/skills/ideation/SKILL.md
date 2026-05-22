@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Use when generating repo-grounded options and choosing a branch through request_user_input.
+description: Use when repo evidence needs implementation options, tradeoffs, and a root-thread direction choice before planning.
 ---
 
 # Ideation
@@ -14,7 +14,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/ideation-branch
 ## Do
 
 - Tie each option to repo evidence, constraints, risks, and tradeoffs.
-- Use root-thread `request_user_input` liberally for concrete branch choices.
+- Use root-thread `request_user_input` to choose among 2-3 concrete implementation paths.
 - Use the root thread for user-facing choices; child agents return `decision_needed`.
 - Update the shared phase bundle with selected direction, acceptance criteria, rejected alternatives worth preserving, and a planning-ready next phase.
 

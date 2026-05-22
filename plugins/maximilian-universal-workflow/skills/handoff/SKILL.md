@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Use when closing verified repo work with evidence, risks, owners, and next actions.
+description: Use when verified or stopped repo work needs outcome, branch, evidence, risk, owner, and closeout reporting.
 ---
 
 # Handoff

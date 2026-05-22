@@ -27,9 +27,11 @@ Phase skills consume and update the current phase bundle state described by `pha
 | receiving-review | full review text, repo reads, `explorer` checks when useful, root `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
 | handoff | status, branch/PR commands, root `request_user_input` | changed paths, verification, review, risks, closeout choice | operator has next action and owner | done |
 
-## Fanout Bias
+## Fanout Rubric
 
-Use subagents whenever they improve speed, breadth, critique, or isolation. Prefer `explorer` for read-only evidence and review. Prefer `worker` for isolated write ownership. The limiting rules are ownership, role boundary, and native tool correctness, not token cost.
+Use subagents when the work is independent enough to improve speed, breadth, critique, or isolation. Prefer `explorer` for read-only evidence and review. Prefer `worker` for isolated write ownership.
+
+Before fanout, name the expected output, ownership boundary, maximum useful children, timeout or collection point, and merge/overlap risk. Prefer 1-3 children unless the task naturally splits into more independent packets. Token and time cost are explicit tradeoffs to record; ownership, role boundary, native tool correctness, and coordination value remain the hard limits.
 
 ## Decision Gates
 

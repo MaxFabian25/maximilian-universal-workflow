@@ -4,9 +4,9 @@ Source evidence for `SKILL.md` and `references/contract.md`.
 
 ## Pin
 
-`@openai/codex@0.132.0-alpha.1` maps to GitHub prerelease `rust-v0.132.0-alpha.1`, published 2026-05-18. Annotated tag `893a67c630b066e109c0331b399c492c3052d7f1` -> commit `74e0161c21701fad2dab450cedecfedff8f9b8c3`.
+`@openai/codex@0.133.0-alpha.4` maps to GitHub prerelease `rust-v0.133.0-alpha.4`, published 2026-05-21. Release target is `main`; use the release URL and raw GitHub source at the tag for source-backed refreshes.
 
-Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.132.0-alpha.1`.
+Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.133.0-alpha.4`.
 
 ## Tool Contracts
 
@@ -35,10 +35,10 @@ Evidence: `create_*_tool`, v2 handlers, result structs, output-schema tests, rej
 
 `close_agent` rejects root, returns `previous_status`, shuts down target plus live descendants, removes registry entries, and releases the slot.
 
-Defaults: max concurrent threads `4`; wait default/min/max `30_000`/`10_000`/`3_600_000` ms. `agents.max_threads` conflicts with v2. `hide_spawn_agent_metadata` removes role/model/reasoning/service-tier controls. `non_code_mode_only` uses `DirectModelOnly`.
+Current plugin runtime contract sets max concurrent threads to `32`. Current tool schema/local config use wait default/min/max `900_000`/`600_000`/`3_600_000` ms. `agents.max_threads` conflicts with v2. `hide_spawn_agent_metadata` removes role/model/reasoning/service-tier controls. `non_code_mode_only` uses `DirectModelOnly`.
 
 `features.multi_agent_v2.root_agent_usage_hint_text` and `subagent_usage_hint_text` are injected as standalone developer messages when MultiAgentV2 is enabled. Root threads receive only root guidance; `SessionSource::SubAgent(ThreadSpawn)` receives only subagent guidance. Full-history forks filter parent MultiAgentV2 usage-hint developer messages so children receive a fresh hint matching their own session source/config.
 
 `features.multi_agent_v2.usage_hint_text` is appended to the `spawn_agent` tool description when usage hints are enabled. User-defined agent roles are declared as `[agents.<role>]` with `description` and optional `config_file`. Role files can set `developer_instructions`; user-defined roles override built-in role declarations with the same name, including `default`, `explorer`, and `worker`.
 
-Observed failures: acknowledgement-only completion despite correct `last_task_message`; follow-up ending in `shutdown` without useful text; repeated `running` through waits; close failing after disappearance. Refresh with `npm view @openai/codex dist-tags version --json`, `gh release view rust-v0.132.0-alpha.1 --repo openai/codex --json tagName,name,publishedAt,url,isPrerelease,targetCommitish`, and raw `gh api ...contents/<path>?ref=rust-v0.132.0-alpha.1`.
+Observed failures: acknowledgement-only completion despite correct `last_task_message`; follow-up ending in `shutdown` without useful text; repeated `running` through waits; close failing after disappearance. Refresh with `npm view @openai/codex dist-tags version --json`, `gh release view rust-v0.133.0-alpha.4 --repo openai/codex --json tagName,name,publishedAt,url,isPrerelease,targetCommitish`, and raw `gh api ...contents/<path>?ref=rust-v0.133.0-alpha.4`.
