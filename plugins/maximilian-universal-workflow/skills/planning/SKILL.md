@@ -22,6 +22,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/plan-structure.
 - Inspect repo conventions first.
 - Use root-thread `request_user_input` liberally for major planning tradeoffs, scope, ownership, and verification choices.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
+- Decide whether execution uses the current branch or `git-worktrees`; route to `git-worktrees` when current-branch mutation is not approved or isolated state improves safety.
 - Use `workflow-artifacts/` only for supporting plans, evidence, ledgers, or handoff notes.
 - If the user asked the plugin to carry the workflow forward, continue to execution when approval and ownership are clear; otherwise provide the exact next prompt.
 

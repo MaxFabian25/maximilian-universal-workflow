@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.12
+
+- Adds `git-worktrees` for isolated branch workspaces before execution and wires worktree setup into the repo phase contracts.
+
 ## 0.1.11
 
 - Adds shared phase-transition and request-user-input contracts, makes substantial runs artifact-backed, tightens native goal identity handling, and carries acceptance criteria through verification and handoff.

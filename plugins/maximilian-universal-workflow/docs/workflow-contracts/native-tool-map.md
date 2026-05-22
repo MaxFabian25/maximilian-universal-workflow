@@ -10,6 +10,7 @@ The public repository includes `.codex/config.toml` with the required feature fl
 - every phase: call root-thread `request_user_input` for material choices, branch selection, approval, ownership, blockers, and closeout; use `request-user-input.md` for the prompt shape; children return decision payloads to the parent.
 - planning: cite fresh exploration or run it first; name ownership and verification; use native goal tools for goal setup.
 - goal tools: `get_goal` compares current goal state to the planned or verified objective; `create_goal` creates the goal only when no current goal exists after a complete plan and clear proceed intent; `update_goal` marks completion only after goal identity matches and verification proves no required work remains.
+- git-worktrees: use `git worktree list --porcelain`, `git branch --list`, `git check-ignore`, `git worktree add`, setup commands, and baseline verification; use `request_user_input` for location, dirty state, collision, baseline failure, and destructive cleanup choices.
 - execution: spawn `worker` freely for isolated ownership; `fork_turns: "none"`; no `fork_context`. Goal bundles are binding context, not implicit create-goal permission.
 - multi-agent-v2: use the bundled skill for task-path mechanics, stalled-agent recovery, collection diagnostics, or source-backed MultiAgentV2 contracts.
 - verification: parent current-state commands/checklists; child summaries and old output are not proof; complete active goals only after `get_goal` identity check and proof.

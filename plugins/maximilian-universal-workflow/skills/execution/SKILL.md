@@ -14,6 +14,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/worker-packets.
 ## Do
 
 - Check branch/status and instructions before mutation.
+- If planned mutation should not happen on the current branch, invoke `git-worktrees` before editing.
 - Preserve and verify goal-backed planning objectives.
 - When launched from planning with native goal state or `/goal`, treat the goal objective as the execution success target, not as a request to re-plan.
 - Execute against the plan acceptance criteria and allowed side effects.
@@ -26,4 +27,4 @@ Follow `../../docs/workflow-contracts/README.md` and `references/worker-packets.
 
 ## Stop
 
-Stop when the plan is incomplete, branch safety is unclear, ownership overlaps, verification is missing, or execution requires unapproved external capability.
+Stop when the plan is incomplete, branch safety is unclear, required worktree isolation is missing, ownership overlaps, verification is missing, or execution requires unapproved external capability.

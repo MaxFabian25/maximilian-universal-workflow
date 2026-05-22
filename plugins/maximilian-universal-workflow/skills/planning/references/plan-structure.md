@@ -13,6 +13,7 @@ Use this structure for decision-complete, goal-backed repo plans.
 - Files or areas to create/modify
 - Task order
 - Ownership model
+- Worktree decision: current branch approved, isolated worktree required, or decision needed
 - Verification commands or checklists
 - Review expectations
 - Handoff target

@@ -18,6 +18,7 @@ Descriptions: one short sentence each explaining impact or tradeoff
 - phase routing when more than one phase is plausible;
 - ideation branch selection;
 - goal conflict or proceed decisions;
+- git worktree location, branch collision, dirty-state, baseline failure, and cleanup decisions;
 - worker ownership overlap;
 - verification failure disposition;
 - review finding disposition;

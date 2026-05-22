@@ -5,7 +5,7 @@ Maximilian Universal Workflow is a prose-first plugin for universal, phase-orien
 The default lifecycle is:
 
 ```text
-intake -> exploration -> ideation -> planning -> execution -> verification -> review -> handoff
+intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> verification -> review -> handoff
 ```
 
 ## Skills
@@ -14,6 +14,7 @@ intake -> exploration -> ideation -> planning -> execution -> verification -> re
 - `exploration`
 - `ideation`
 - `planning`
+- `git-worktrees`
 - `execution`
 - `verification`
 - `review`
@@ -44,6 +45,10 @@ Use `receiving-review` when review feedback, PR comments, reviewer findings, CI 
 ## Goal-Backed Planning
 
 Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts and proceed choices with `request_user_input`, and creates the goal only when no current goal exists and proceed intent is clear.
+
+## Worktree Isolation
+
+Use `git-worktrees` before substantial write-owning execution when the current branch has not been approved for mutation. It creates an isolated branch workspace, runs setup and baseline verification, then hands off to `execution`.
 
 ## Artifacts
 

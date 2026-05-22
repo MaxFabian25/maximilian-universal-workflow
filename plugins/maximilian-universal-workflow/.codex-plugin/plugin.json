@@ -1,6 +1,6 @@
 {
   "name": "maximilian-universal-workflow",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
   "author": {
     "name": "Max Fabian",
@@ -14,6 +14,7 @@
     "workflow",
     "git",
     "repository",
+    "worktrees",
     "subagents",
     "multi-agent",
     "goals"
@@ -22,7 +23,7 @@
   "interface": {
     "displayName": "Maximilian Universal Workflow",
     "shortDescription": "Universal repo-phase workflows for Codex",
-    "longDescription": "Universal Codex workflow phases for git repository workspaces with explorer, worker, goal-backed planning, and MultiAgentV2 coordination lanes.",
+    "longDescription": "Universal Codex workflow phases for git repository workspaces with explorer, worker, git worktree isolation, goal-backed planning, and MultiAgentV2 coordination lanes.",
     "developerName": "Max Fabian",
     "category": "Developer Tools",
     "capabilities": [
@@ -35,7 +36,7 @@
     "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "defaultPrompt": [
       "Run the repo phase loop with outcome, acceptance criteria, allowed side effects, evidence, next phase, and artifact state.",
-      "Plan from repo evidence, set up native goal-backed execution, and continue when ownership and approval are clear.",
+      "Plan from repo evidence, set up native goal-backed execution, choose worktree isolation, and continue when clear.",
       "Coordinate subagents, update workflow artifacts for substantial runs, verify, review, and hand off with closeout choices."
     ],
     "brandColor": "#2563EB",

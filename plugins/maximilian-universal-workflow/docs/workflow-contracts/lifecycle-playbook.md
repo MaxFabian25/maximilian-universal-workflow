@@ -8,6 +8,8 @@ Repeatable git-repo lifecycle:
 
 `receiving-review` supports review feedback received from the user, a PR, CI, a reviewer, or another agent before execution or handoff continues.
 
+`git-worktrees` supports the planning-to-execution boundary when work should move into an isolated branch workspace.
+
 `multi-agent-v2` supports any phase that needs native subagent task-path coordination or debugging.
 
 See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
@@ -20,6 +22,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | exploration and read-only fanout | `exploration` |
 | ideation and branch selection | `ideation` |
 | planning downstream of exploration evidence and native goal setup | `planning` |
+| isolated branch workspace before execution | `git-worktrees` |
 | implementation, execution, creation, production | `execution` |
 | fresh evidence and completion claims | `verification` |
 | read-only review | `review` |
@@ -39,6 +42,10 @@ Use root-thread `request_user_input` liberally for material options, ambiguity, 
 ## Phase Transitions
 
 Use `phase-transition.md` for phase handoffs, stop payloads, and substantial workflow artifacts. Carry acceptance criteria from ideation and planning into execution, verification, review, and handoff.
+
+## Worktree Isolation
+
+Use `git-worktrees` after planning and before execution when current-branch mutation is not explicitly approved or when isolated filesystem state improves safety, reviewability, or parallel work. It owns worktree path selection, branch creation, setup, baseline verification, and the execution handoff packet.
 
 ## Stop
 

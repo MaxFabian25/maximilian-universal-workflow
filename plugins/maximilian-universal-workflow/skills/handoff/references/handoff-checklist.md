@@ -1,6 +1,6 @@
 # Handoff Checklist
 
-Report: outcome delivered, acceptance criteria status, repo path, branch/base, phase, changed files/artifacts, verification, review resolution, decisions, residual risks, stop condition, next action, owner.
+Report: outcome delivered, acceptance criteria status, repo path, worktree path when used, branch/base, phase, changed files/artifacts, verification, review resolution, decisions, residual risks, stop condition, next action, owner.
 
 Use this final shape:
 
