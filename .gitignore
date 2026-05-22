@@ -1,6 +1,7 @@
 .DS_Store
 .idea/
 .vscode/
+.codex-marketplace-install.json
 
 workflow-artifacts/
 **/workflow-artifacts/
