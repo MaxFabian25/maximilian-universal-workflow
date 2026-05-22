@@ -1,6 +1,6 @@
 ---
 name: ideation
-description: Use when repo ideation is needed.
+description: Use when generating repo-grounded options and choosing a branch through request_user_input.
 ---
 
 # Ideation

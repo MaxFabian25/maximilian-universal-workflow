@@ -1,4 +1,4 @@
 interface:
   display_name: "Verification"
   short_description: "Require fresh repo evidence before completion claims."
-  default_prompt: "Verify this repository workflow result against acceptance criteria with fresh parent-side evidence, update matching goals only after proof, and continue to review."
+  default_prompt: "Verify this repository workflow result against acceptance criteria with fresh parent-side evidence, update matching goals only after proof, update the phase footer, and continue to review."

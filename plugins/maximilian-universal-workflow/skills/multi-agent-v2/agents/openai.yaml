@@ -1,4 +1,4 @@
 interface:
   display_name: "Multi-Agent V2"
-  short_description: "Use Codex sub-agents effectively"
-  default_prompt: "Use $multi-agent-v2 to delegate a codebase investigation with bounded sub-agent tasks."
+  short_description: "Coordinate Codex MultiAgentV2 task paths."
+  default_prompt: "Use the bundled Multi-Agent V2 workflow to delegate bounded subagent tasks, collect results through list_agents, recover stuck agents once, and close finished children."

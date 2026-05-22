@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Use when repo closeout is needed.
+description: Use when closing verified repo work with evidence, risks, owners, and next actions.
 ---
 
 # Handoff

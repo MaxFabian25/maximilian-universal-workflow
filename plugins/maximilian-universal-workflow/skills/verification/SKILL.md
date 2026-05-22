@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Use when repo verification is needed.
+description: Use when proving repo completion claims with fresh commands, acceptance evidence, and failure routing.
 ---
 
 # Verification

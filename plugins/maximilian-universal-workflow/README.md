@@ -29,7 +29,7 @@ Assume the active workspace is a git repository. Start by reading applicable `AG
 
 ## Runtime Config
 
-The public repository includes `.codex/config.toml` and `.codex/agents/*.toml` as the required Codex runtime config for this plugin. Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment. Keep machine-local paths, MCP servers, secrets, marketplaces, and unrelated policy in the operator's own config.
+The source repository root includes `.codex/config.toml` and `.codex/agents/*.toml` as the required Codex runtime config for this plugin. These files are not part of the installable plugin root; they are the public setup contract for operators and marketplace maintainers. Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment. Keep machine-local paths, MCP servers, secrets, marketplaces, and unrelated policy in the operator's own config.
 
 ## Subagent Lanes
 

@@ -1,6 +1,6 @@
 ---
 name: execution
-description: Use when repo execution is needed.
+description: Use when executing approved repo changes, coordinating workers, and handing off to verification.
 ---
 
 # Execution

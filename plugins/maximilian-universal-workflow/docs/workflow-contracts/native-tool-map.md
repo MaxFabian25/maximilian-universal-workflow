@@ -2,11 +2,11 @@
 
 `AGENTS.md` and repo instructions outrank this map.
 
-The public repository includes `.codex/config.toml` with the required feature flags and `default`, `explorer`, and `worker` role mappings.
+The source repository root includes `.codex/config.toml` and `.codex/agents/*.toml` with the required feature flags and `default`, `explorer`, and `worker` role mappings. Install or merge them into the active Codex home before relying on this map.
 
 - intake: `git status --short`, branch, `AGENTS.md`, `rg --files`.
 - phase loop: when the plugin is invoked generally, start at `intake` and continue through the next phase instead of returning only a route label.
-- phase bundle: every phase updates `phase-bundle.md`; `continue_now: yes` is the native handoff signal for immediate continuation.
+- phase bundle: every phase updates the current phase bundle state described by `phase-bundle.md`; do not edit that contract file as run state. `continue_now: yes` in the phase footer is the native handoff signal for immediate continuation.
 - exploration/review: local reads first; spawn read-only `explorer` leaves with `fork_turns: "none"` whenever fanout improves evidence, critique, or confidence.
 - every phase: call root-thread `request_user_input` for material choices, branch selection, approval, ownership, blockers, and closeout; use `request-user-input.md` for the prompt shape; children return decision payloads to the parent.
 - planning: cite fresh exploration or run it first; name ownership and verification; use native goal tools for goal setup.

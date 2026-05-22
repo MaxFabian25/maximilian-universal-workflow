@@ -1,6 +1,6 @@
 ---
 name: intake
-description: Use when the plugin is invoked generally, repo phase routing is needed, or the workflow loop should start.
+description: Use when starting the repo workflow loop, routing phases, and opening material decisions.
 ---
 
 # Intake

@@ -1,6 +1,6 @@
 ---
 name: planning
-description: Use when repo planning is needed, including native goal-backed execution setup.
+description: Use when turning repo evidence into an executable plan with goal and worktree decisions.
 ---
 
 # Planning

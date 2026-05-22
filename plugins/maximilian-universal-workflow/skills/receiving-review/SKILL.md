@@ -1,6 +1,6 @@
 ---
 name: receiving-review
-description: Use when review feedback, PR comments, CI review notes, or user critique has been received and must be triaged before repo changes.
+description: Use when triaging user, PR, CI, reviewer, or agent feedback before repo changes continue.
 ---
 
 # Receiving Review

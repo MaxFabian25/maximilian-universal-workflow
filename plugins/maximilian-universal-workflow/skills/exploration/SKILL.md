@@ -1,6 +1,6 @@
 ---
 name: exploration
-description: Use when repo exploration is needed.
+description: Use when gathering read-only repo evidence before ideation, planning, or execution.
 ---
 
 # Exploration

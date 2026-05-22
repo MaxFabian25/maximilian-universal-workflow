@@ -1,6 +1,6 @@
 ---
 name: git-worktrees
-description: Use when repo work needs an isolated git worktree, a new branch plus filesystem workspace, or branch safety before execution.
+description: Use when creating isolated git worktrees and baseline checks before execution.
 ---
 
 # Git Worktrees

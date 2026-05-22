@@ -12,7 +12,7 @@ Human-facing authority for Maximilian Universal Workflow.
 
 ## Files
 
-- Repository `.codex/config.toml` defines the required Codex runtime features and agent role mapping.
+- Source repository `.codex/config.toml` defines the required Codex runtime features and agent role mapping; source repository `.codex/agents/*.toml` defines the bundled `default`, `explorer`, and `worker` role instructions.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
@@ -26,7 +26,7 @@ Human-facing authority for Maximilian Universal Workflow.
 ## Rules
 
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
-- Runtime config: keep `default_mode_request_user_input`, `goals`, `remote_plugin`, `mentions_v2`, `child_agents_md`, and `features.multi_agent_v2.enabled` enabled for this plugin.
+- Runtime config: install or merge the source repository `.codex/config.toml` and `.codex/agents/*.toml` into the active Codex home; keep `default_mode_request_user_input`, `goals`, `remote_plugin`, `mentions_v2`, `child_agents_md`, and `features.multi_agent_v2.enabled` enabled for this plugin.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
 - Goal-backed planning: `planning` outputs the plan first, then uses native goal tools. Use `get_goal` to compare current goal state against the planned objective. Use `create_goal` only when no current goal exists and proceed intent is clear. If a different current goal exists, call `request_user_input` for the goal conflict choice.
 - Worktree isolation: use `git-worktrees` between planning and execution when substantial mutation should happen away from the current branch or current-branch execution is not approved.

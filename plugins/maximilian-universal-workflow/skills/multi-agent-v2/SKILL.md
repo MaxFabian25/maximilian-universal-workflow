@@ -1,6 +1,6 @@
 ---
 name: multi-agent-v2
-description: "Use when coordinating MultiAgentV2 tools (spawn_agent, wait_agent, list_agents, send_message, followup_task, close_agent) for parallel sub-agent work, result collection, stalled agents, or task-path debugging."
+description: Use when coordinating MultiAgentV2 subagents, collecting results, recovering stalls, or debugging task paths.
 ---
 
 # Multi-Agent V2

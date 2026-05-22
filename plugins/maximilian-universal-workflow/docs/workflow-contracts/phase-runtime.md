@@ -10,7 +10,7 @@ Runtime loop:
 
 A general invocation of the plugin starts at `intake` and advances through the loop in the same turn when the next phase is clear. Do not stop after naming the next phase unless a user decision, missing evidence, permission boundary, or safety stop requires it.
 
-Phase skills consume and update `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when `continue_now: yes` and the user asked Codex to do the work.
+Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes` and the user asked Codex to do the work.
 
 ## Phase Table
 
@@ -48,4 +48,4 @@ Use root-thread `request_user_input` whenever a phase has 2-3 concrete paths and
 
 ## Stop Output Contract
 
-When stopping instead of continuing, update the phase bundle with: blocker, evidence checked, uncertainty, decision owner, recommended option, 2-3 choices for `request_user_input` when a decision is required, `continue_now: no`, and the exact next prompt if a later turn should continue the workflow.
+When stopping instead of continuing, update the phase bundle and phase footer with: blocker, evidence checked, uncertainty, decision owner, recommended option, 2-3 choices for `request_user_input` when a decision is required, `continue_now: no`, and the exact next prompt if a later turn should continue the workflow.

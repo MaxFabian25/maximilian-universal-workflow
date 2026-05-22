@@ -1,6 +1,6 @@
 ---
 name: repo-context-cleanup
-description: Use when stale repo context needs cleanup.
+description: Use when cleaning stale repo context, generated evidence, abandoned plans, or workflow residue.
 ---
 
 # Repo Context Cleanup

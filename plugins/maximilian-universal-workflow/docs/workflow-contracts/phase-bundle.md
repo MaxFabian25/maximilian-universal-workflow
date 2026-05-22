@@ -2,7 +2,7 @@
 
 Use this shared state object when a phase starts, hands off, stops for a decision, or updates a substantial HTML artifact.
 
-The bundle is prose authority, not a hidden schema. Preserve useful fields from prior phases and update only what the current phase can prove.
+The bundle is prose authority, not a hidden schema or a run-state file. Preserve useful fields from prior phases and update only what the current phase can prove. Do not edit this contract file as the live bundle for a workflow run.
 
 ## Fields
 
@@ -51,9 +51,26 @@ continue_now: <yes/no>
 next_prompt: <exact prompt for later continuation or none>
 ```
 
+## Phase Footer
+
+When a phase stops or continues, emit or update this compact footer in the thread, plan, or artifact:
+
+```text
+Phase footer:
+phase: <current phase>
+next_phase: <phase name or done>
+continue_now: <yes/no>
+decision_gate: <none or request_user_input id/question>
+artifact_state: <path and updated/not-needed>
+next_prompt: <exact prompt for later continuation or none>
+```
+
+Use the full bundle for substantial artifacts. Use the footer for turn-to-turn routing so the next phase does not depend on rereading a long report.
+
 ## Rules
 
 - Keep `objective` tied to the executed repository end state, not to planning itself.
+- Every phase stop or continuation includes the phase footer.
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, goal, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the parent has fresh current-state evidence.

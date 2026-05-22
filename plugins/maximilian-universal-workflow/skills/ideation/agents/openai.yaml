@@ -1,4 +1,4 @@
 interface:
   display_name: "Ideation"
   short_description: "Brainstorm repo-backed alternatives and converge on a direction."
-  default_prompt: "Generate repo-backed options, use request_user_input for the branch choice, capture acceptance criteria and allowed side effects, then prepare the planning transition."
+  default_prompt: "Generate repo-backed options, use request_user_input for the branch choice, capture acceptance criteria and allowed side effects, update the phase footer, and prepare the planning transition."

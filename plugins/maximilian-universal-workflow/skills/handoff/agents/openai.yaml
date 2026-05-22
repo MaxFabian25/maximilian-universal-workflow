@@ -1,4 +1,4 @@
 interface:
   display_name: "Handoff"
   short_description: "Close verified repo work with evidence and branch decisions."
-  default_prompt: "Prepare the final repository workflow handoff with outcome, acceptance criteria status, evidence, risks, artifact state, owner, and closeout choices."
+  default_prompt: "Prepare the final repository workflow handoff with outcome, acceptance criteria status, evidence, risks, artifact state, owner, closeout choices, and final phase footer."

@@ -1,10 +1,26 @@
 # Phase Transition
 
-Use `phase-bundle.md` whenever one phase hands work to the next phase, stops for a decision, or writes a durable support artifact.
+Use the phase bundle state described by `phase-bundle.md` whenever one phase hands work to the next phase, stops for a decision, or writes a durable support artifact.
 
 ## Bundle
 
-The phase bundle is the handoff packet. A phase may report only fields that changed for trivial work, but substantial runs should preserve the complete bundle in the HTML artifact.
+The phase bundle is the handoff packet. A phase may report only fields that changed for trivial work, but substantial runs should preserve the complete bundle in the HTML artifact. Do not edit `phase-bundle.md` as live workflow state.
+
+Every phase stop or continuation includes the compact phase footer from `phase-bundle.md`. Treat `continue_now: yes` in that footer as the handoff signal for immediate continuation.
+
+## Transition Checklist
+
+Before a phase hands off, asks, or stops:
+
+- update acceptance criteria status or state why it is still unknown;
+- record new evidence, commands, changed paths, and unresolved uncertainty;
+- record decisions already made and the next decision gate, if any;
+- update artifact state for substantial runs or state why no artifact is needed;
+- set `next_phase` to one phase name or `done`;
+- set `continue_now` to `yes` only when no material decision gate remains;
+- include the phase footer in the response, artifact, or next-phase packet.
+
+If `decision_gate` is not `none`, call `request_user_input` before continuing. If `decision_gate` is `none` and `continue_now` is `yes`, continue immediately into `next_phase`. If `continue_now` is `no`, stop with the current evidence and exact next prompt.
 
 ## Rules
 

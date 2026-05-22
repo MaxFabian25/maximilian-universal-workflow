@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow Evidence</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --border: #d9e2ec;
+      --text: #111827;
+      --muted: #52606d;
+      --pass: #0f766e;
+      --fail: #b91c1c;
+      --pending: #92400e;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: var(--bg); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    header, section { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 16px; margin: 0 0 16px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: 24px; line-height: 1.2; margin-bottom: 8px; }
+    h2 { font-size: 17px; margin-bottom: 12px; }
+    h3 { font-size: 14px; margin-bottom: 8px; }
+    .eyebrow { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    dl { margin: 0; }
+    dt { color: var(--muted); font-size: 12px; font-weight: 700; }
+    dd { margin: 2px 0 10px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border-top: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; }
+    code, pre { background: #f1f5f9; border-radius: 6px; }
+    code { padding: 1px 4px; }
+    pre { margin: 0; overflow: auto; padding: 12px; white-space: pre-wrap; }
+    details { border-top: 1px solid var(--border); padding: 10px 0; }
+    details:first-of-type { border-top: 0; }
+    summary { cursor: pointer; font-weight: 700; }
+    .badge { border-radius: 999px; display: inline-block; font-size: 12px; font-weight: 700; padding: 2px 8px; }
+    .pass { background: #ccfbf1; color: var(--pass); }
+    .fail { background: #fee2e2; color: var(--fail); }
+    .pending { background: #fef3c7; color: var(--pending); }
+    .muted { color: var(--muted); }
+    .timeline { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); list-style: none; margin: 0; padding: 0; }
+    .timeline li { border: 1px solid var(--border); border-radius: 8px; padding: 8px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Workflow Evidence</p>
+    <h1><!-- objective --></h1>
+    <div class="grid">
+      <dl>
+        <dt>Repository</dt><dd><!-- absolute repo path --></dd>
+        <dt>Branch</dt><dd><!-- branch --></dd>
+      </dl>
+      <dl>
+        <dt>Current Phase</dt><dd><!-- phase --></dd>
+        <dt>Next Phase</dt><dd><!-- next phase --></dd>
+      </dl>
+      <dl>
+        <dt>Generated</dt><dd><!-- timestamp --></dd>
+        <dt>Owner</dt><dd><!-- next owner --></dd>
+      </dl>
+    </div>
+  </header>
+
+  <section id="phase-footer">
+    <h2>Phase Footer</h2>
+    <pre><!-- compact phase footer --></pre>
+  </section>
+
+  <section id="timeline">
+    <h2>Phase Timeline</h2>
+    <ol class="timeline">
+      <li>intake<br><span class="badge pending">pending</span></li>
+      <li>exploration<br><span class="badge pending">pending</span></li>
+      <li>ideation<br><span class="badge pending">pending</span></li>
+      <li>planning<br><span class="badge pending">pending</span></li>
+      <li>git-worktrees<br><span class="badge pending">pending</span></li>
+      <li>execution<br><span class="badge pending">pending</span></li>
+      <li>verification<br><span class="badge pending">pending</span></li>
+      <li>review<br><span class="badge pending">pending</span></li>
+      <li>handoff<br><span class="badge pending">pending</span></li>
+    </ol>
+  </section>
+
+  <section id="criteria">
+    <h2>Acceptance Criteria</h2>
+    <table><thead><tr><th>Criterion</th><th>Proof</th><th>Status</th><th>Owner</th></tr></thead><tbody><!-- rows --></tbody></table>
+  </section>
+
+  <section id="decisions">
+    <h2>Decision Gates</h2>
+    <table><thead><tr><th>ID</th><th>Question</th><th>Selected Option</th><th>Status</th></tr></thead><tbody><!-- rows --></tbody></table>
+  </section>
+
+  <section id="evidence">
+    <h2>Evidence</h2>
+    <details open><summary>Commands</summary><table><thead><tr><th>Command</th><th>Exit</th><th>Key Output</th></tr></thead><tbody><!-- rows --></tbody></table></details>
+    <details><summary>Files</summary><table><thead><tr><th>Path</th><th>Lines</th><th>Use</th></tr></thead><tbody><!-- rows --></tbody></table></details>
+    <details><summary>Subagents</summary><table><thead><tr><th>Task</th><th>Role</th><th>Result</th></tr></thead><tbody><!-- rows --></tbody></table></details>
+  </section>
+
+  <section id="goal-worktree">
+    <h2>Goal And Worktree State</h2>
+    <div class="grid">
+      <pre><!-- goal state --></pre>
+      <pre><!-- worktree state --></pre>
+    </div>
+  </section>
+
+  <section id="verification-review">
+    <h2>Verification And Review</h2>
+    <table><thead><tr><th>Check</th><th>Evidence</th><th>Status</th><th>Follow-up</th></tr></thead><tbody><!-- rows --></tbody></table>
+  </section>
+
+  <section id="handoff">
+    <h2>Handoff</h2>
+    <pre><!-- risks, closeout choices, next prompt --></pre>
+  </section>
+</main>
+</body>
+</html>
