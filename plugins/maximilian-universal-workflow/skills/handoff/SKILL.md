@@ -9,7 +9,7 @@ Close with evidence, risks, branch state, and operator choices.
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checklist.md`.
+Read `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/handoff-checklist.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 

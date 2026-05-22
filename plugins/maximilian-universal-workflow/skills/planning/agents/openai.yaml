@@ -1,4 +1,4 @@
 interface:
   display_name: "Planning"
   short_description: "Write repo plans and set up native goals."
-  default_prompt: "Use repo evidence to write a decision-complete plan with acceptance criteria, resolve native goal state, create the goal when clear, update the phase footer, and prepare execution."
+  default_prompt: "Use repo evidence to write a decision-complete plan, resolve native goal state, create the default goal, update the phase footer, and hand off through git-worktrees before execution."

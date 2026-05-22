@@ -8,7 +8,7 @@ Repeatable git-repo lifecycle:
 
 `receiving-review` supports review feedback received from the user, a PR, CI, a reviewer, or another agent before execution or handoff continues.
 
-`git-worktrees` supports the planning-to-execution boundary when work should move into an isolated branch workspace.
+`git-worktrees` owns the planning-to-execution branch-safety boundary, whether execution stays on the current branch or moves into an isolated worktree.
 
 `multi-agent-v2` supports any phase that needs native subagent task-path coordination or debugging.
 
@@ -37,7 +37,7 @@ Use `request-user-input.md` for material decision gates, prompt shape, and stabl
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then uses native goal tools. It compares active goal state to the planned objective with `get_goal`, resolves goal conflicts and proceed choices through `request_user_input`, and calls `create_goal` only when no current goal exists and proceed intent is clear.
+`planning` outputs the plan first, then uses native goal tools as the default workflow mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. A normal workflow invocation supplies goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Transitions
 
@@ -45,7 +45,7 @@ Use `phase-bundle.md` for shared handoff state and `phase-transition.md` for rou
 
 ## Worktree Isolation
 
-Use `git-worktrees` after planning and before execution when current-branch mutation is not explicitly approved or when isolated filesystem state improves safety, reviewability, or parallel work. It owns worktree path selection, branch creation, setup, baseline verification, and the execution handoff bundle.
+Use `git-worktrees` after planning and before execution. It records explicit current-branch approval as `worktree_state.mode: current-branch`, or it owns worktree path selection, branch creation, setup, baseline verification, and the execution handoff bundle.
 
 ## Stop
 

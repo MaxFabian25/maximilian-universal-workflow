@@ -1,6 +1,6 @@
 # Maximilian Universal Workflow
 
-Maximilian Universal Workflow is a prose-first plugin for universal, phase-oriented, repeatable Codex-native workflows in git repository workspaces.
+Maximilian Universal Workflow is an outcome-first, prose-first plugin for repeatable Codex-native workflows in git repository workspaces.
 
 The default lifecycle is:
 
@@ -35,6 +35,8 @@ The marketplace/source repository root includes `.codex/config.toml` and `.codex
 
 - Use `explorer` when read-only repository investigation, critique, review, or evidence fanout is independent enough to improve confidence or speed.
 - Use `worker` when write/execution tasks have explicitly owned, non-overlapping mutable scope.
+- Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries.
+- Before spawning, name the reason for fanout, expected output, ownership boundary, and collection point.
 - Child agents never ask the user directly; they return `decision_needed` to the parent.
 - Use `multi-agent-v2` when the native subagent coordination mechanics, task paths, collection, recovery, or debugging are themselves the work.
 
@@ -44,15 +46,17 @@ Use `receiving-review` when review feedback, PR comments, reviewer findings, CI 
 
 ## Goal-Backed Planning
 
-Use `planning` for repo plans and native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts and proceed choices with `request_user_input`, and creates the goal only when no current goal exists and proceed intent is clear.
+Use `planning` for repo plans and default native goal-backed execution setup. Planning inspects active goal state, resolves active-goal conflicts with `request_user_input`, and creates the goal when no current goal exists after the plan is decision-complete. A normal workflow invocation is enough goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Worktree Isolation
 
-Use `git-worktrees` before substantial write-owning execution when the current branch has not been approved for mutation. It creates an isolated branch workspace, runs setup and baseline verification, then hands off to `execution`.
+Use `git-worktrees` after planning and before write-owning execution. It records explicit current-branch approval or creates an isolated branch workspace, runs setup and baseline verification, then hands off to `execution`.
 
 ## Artifacts
 
 `artifact-floor.md` owns `workflow-artifacts/` policy and exceptions. Default durable support artifacts use `./workflow-artifacts/YYYY-MM-DD-<slug>.html`; source files, tests, docs, branches, commits, and PRs remain primary.
+
+Prefer HTML over Markdown for durable workflow support artifacts unless repo instructions or the user explicitly require another format.
 
 ## Authority
 

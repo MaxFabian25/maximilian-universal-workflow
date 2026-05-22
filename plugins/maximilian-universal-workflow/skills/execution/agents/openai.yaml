@@ -1,4 +1,4 @@
 interface:
   display_name: "Execution"
   short_description: "Execute approved repo plans inline or with isolated workers."
-  default_prompt: "Execute this approved repository plan within allowed side effects, preserve acceptance criteria, integrate worker outputs, update the phase bundle and phase footer, and continue to verification."
+  default_prompt: "Execute this approved repository plan after git-worktrees branch-safety handoff, preserve acceptance criteria, integrate worker outputs, update the phase bundle and phase footer, and continue to verification."

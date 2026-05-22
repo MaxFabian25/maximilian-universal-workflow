@@ -15,6 +15,7 @@
       --pass: #0f766e;
       --fail: #b91c1c;
       --pending: #92400e;
+      --active: #1d4ed8;
     }
     * { box-sizing: border-box; }
     body { margin: 0; font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--text); background: var(--bg); }
@@ -24,8 +25,15 @@
     h1 { font-size: 24px; line-height: 1.2; margin-bottom: 8px; }
     h2 { font-size: 17px; margin-bottom: 12px; }
     h3 { font-size: 14px; margin-bottom: 8px; }
+    button { appearance: none; background: #fff; border: 1px solid var(--border); border-radius: 6px; color: var(--text); cursor: pointer; font: inherit; min-height: 32px; padding: 5px 10px; }
+    button:hover { border-color: var(--active); }
+    button[aria-selected="true"], button.is-active { background: #dbeafe; border-color: var(--active); color: #1e3a8a; font-weight: 700; }
+    [hidden] { display: none !important; }
     .eyebrow { color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
     .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .toolbar { align-items: center; display: flex; flex-wrap: wrap; gap: 8px; }
+    .toolbar-group { align-items: center; display: flex; flex-wrap: wrap; gap: 6px; }
+    .toolbar-label { color: var(--muted); font-size: 12px; font-weight: 700; margin-right: 2px; }
     dl { margin: 0; }
     dt { color: var(--muted); font-size: 12px; font-weight: 700; }
     dd { margin: 2px 0 10px; }
@@ -45,6 +53,7 @@
     .muted { color: var(--muted); }
     .timeline { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); list-style: none; margin: 0; padding: 0; }
     .timeline li { border: 1px solid var(--border); border-radius: 8px; padding: 8px; }
+    .section-head { align-items: center; display: flex; gap: 12px; justify-content: space-between; }
   </style>
 </head>
 <body>
@@ -68,44 +77,63 @@
     </div>
   </header>
 
-  <section id="phase-footer">
+  <section id="view-controls">
+    <div class="toolbar">
+      <div class="toolbar-group" role="tablist" aria-label="Artifact views">
+        <span class="toolbar-label">View</span>
+        <button type="button" data-tab="overview" aria-selected="true">Overview</button>
+        <button type="button" data-tab="evidence" aria-selected="false">Evidence</button>
+        <button type="button" data-tab="verification" aria-selected="false">Verification</button>
+        <button type="button" data-tab="handoff" aria-selected="false">Handoff</button>
+      </div>
+      <div class="toolbar-group" aria-label="Status filters">
+        <span class="toolbar-label">Status</span>
+        <button type="button" data-filter="all" class="is-active">All</button>
+        <button type="button" data-filter="pass">Pass</button>
+        <button type="button" data-filter="fail">Fail</button>
+        <button type="button" data-filter="pending">Pending</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="phase-footer" data-panel="overview">
     <h2>Phase Footer</h2>
     <pre><!-- compact phase footer --></pre>
   </section>
 
-  <section id="timeline">
+  <section id="timeline" data-panel="overview">
     <h2>Phase Timeline</h2>
     <ol class="timeline">
-      <li>intake<br><span class="badge pending">pending</span></li>
-      <li>exploration<br><span class="badge pending">pending</span></li>
-      <li>ideation<br><span class="badge pending">pending</span></li>
-      <li>planning<br><span class="badge pending">pending</span></li>
-      <li>git-worktrees<br><span class="badge pending">pending</span></li>
-      <li>execution<br><span class="badge pending">pending</span></li>
-      <li>verification<br><span class="badge pending">pending</span></li>
-      <li>review<br><span class="badge pending">pending</span></li>
-      <li>handoff<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">intake<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">exploration<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">ideation<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">planning<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">git-worktrees<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">execution<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">verification<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">review<br><span class="badge pending">pending</span></li>
+      <li data-status="pending">handoff<br><span class="badge pending">pending</span></li>
     </ol>
   </section>
 
-  <section id="criteria">
+  <section id="criteria" data-panel="overview">
     <h2>Acceptance Criteria</h2>
     <table><thead><tr><th>Criterion</th><th>Proof</th><th>Status</th><th>Owner</th></tr></thead><tbody><!-- rows --></tbody></table>
   </section>
 
-  <section id="decisions">
+  <section id="decisions" data-panel="overview">
     <h2>Decision Gates</h2>
     <table><thead><tr><th>ID</th><th>Question</th><th>Selected Option</th><th>Status</th></tr></thead><tbody><!-- rows --></tbody></table>
   </section>
 
-  <section id="evidence">
+  <section id="evidence" data-panel="evidence" hidden>
     <h2>Evidence</h2>
     <details open><summary>Commands</summary><table><thead><tr><th>Command</th><th>Exit</th><th>Key Output</th></tr></thead><tbody><!-- rows --></tbody></table></details>
     <details><summary>Files</summary><table><thead><tr><th>Path</th><th>Lines</th><th>Use</th></tr></thead><tbody><!-- rows --></tbody></table></details>
     <details><summary>Subagents</summary><table><thead><tr><th>Task</th><th>Role</th><th>Result</th></tr></thead><tbody><!-- rows --></tbody></table></details>
   </section>
 
-  <section id="goal-worktree">
+  <section id="goal-worktree" data-panel="verification" hidden>
     <h2>Goal And Worktree State</h2>
     <div class="grid">
       <pre><!-- goal state --></pre>
@@ -113,15 +141,58 @@
     </div>
   </section>
 
-  <section id="verification-review">
+  <section id="verification-review" data-panel="verification" hidden>
     <h2>Verification And Review</h2>
     <table><thead><tr><th>Check</th><th>Evidence</th><th>Status</th><th>Follow-up</th></tr></thead><tbody><!-- rows --></tbody></table>
   </section>
 
-  <section id="handoff">
-    <h2>Handoff</h2>
-    <pre><!-- risks, closeout choices, next prompt --></pre>
+  <section id="handoff" data-panel="handoff" hidden>
+    <div class="section-head">
+      <h2>Handoff</h2>
+      <button type="button" data-copy-target="next-prompt">Copy Next Prompt</button>
+    </div>
+    <pre><!-- risks and closeout choices --></pre>
+    <h3>Next Prompt</h3>
+    <pre id="next-prompt"><!-- exact next prompt --></pre>
   </section>
 </main>
+<script>
+  const panels = Array.from(document.querySelectorAll("[data-panel]"));
+  const tabButtons = Array.from(document.querySelectorAll("[data-tab]"));
+  const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+
+  function setActiveTab(name) {
+    tabButtons.forEach((button) => {
+      button.setAttribute("aria-selected", String(button.dataset.tab === name));
+    });
+    panels.forEach((panel) => {
+      panel.hidden = panel.dataset.panel !== name;
+    });
+  }
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => setActiveTab(button.dataset.tab));
+  });
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+      document.querySelectorAll("[data-status]").forEach((item) => {
+        item.hidden = filter !== "all" && item.dataset.status !== filter;
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-copy-target]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const target = document.getElementById(button.dataset.copyTarget);
+      if (!target) return;
+      await navigator.clipboard.writeText(target.textContent.trim());
+      button.textContent = "Copied";
+      window.setTimeout(() => { button.textContent = "Copy Next Prompt"; }, 1500);
+    });
+  });
+</script>
 </body>
 </html>

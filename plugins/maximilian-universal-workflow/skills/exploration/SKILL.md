@@ -9,7 +9,7 @@ Gather repo evidence before decisions, edits, verification, review.
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md` and `references/explorer-packets.md`.
+Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, and `references/explorer-packets.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 
@@ -17,7 +17,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/explorer-packet
 - Parent sends self-contained explorer packets; leaves do only their packet.
 - Cite file, command, branch/status, test, log, or source evidence.
 - Update the shared phase bundle with evidence, uncertainty, next phase, and artifact state.
-- When evidence is sufficient, continue to ideation or planning. When evidence conflicts, use `request_user_input` for the next probe or stop path.
+- When evidence is sufficient, continue to `ideation`. When evidence conflicts, use `request_user_input` for the next probe or stop path.
 
 ## Stop
 

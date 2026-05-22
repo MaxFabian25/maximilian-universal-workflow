@@ -1,4 +1,4 @@
 interface:
   display_name: "Intake"
   short_description: "Start the repo workflow loop and advance to the right phase."
-  default_prompt: "Run the repo workflow loop: confirm state, update the phase bundle and phase footer, choose the current phase, and continue until a decision, evidence gap, or stop condition is reached."
+  default_prompt: "Run the repo workflow loop: confirm state, update the phase bundle and phase footer, continue general invocations to exploration, and only route to a narrower phase when explicitly selected or already owned by the bundle."

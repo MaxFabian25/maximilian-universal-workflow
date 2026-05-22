@@ -1,6 +1,6 @@
 {
   "name": "maximilian-universal-workflow",
-  "version": "0.1.15+codex.20260522134911",
+  "version": "0.1.15+codex.20260522142832",
   "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
   "author": {
     "name": "Max Fabian",
@@ -22,8 +22,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Maximilian Universal Workflow",
-    "shortDescription": "Universal repo-phase workflows for Codex",
-    "longDescription": "Universal Codex workflow phases for git repository workspaces with phase bundles, explorer and worker fanout, git worktree isolation, goal-backed planning, HTML evidence dashboards, and MultiAgentV2 coordination lanes.",
+    "shortDescription": "Outcome-first repo workflow guidance for Codex",
+    "longDescription": "Outcome-first Codex workflow guidance for git repository workspaces with phase-state handoffs, bounded explorer and worker fanout, git worktree isolation, default native goal-backed execution, proportional evidence artifacts, and MultiAgentV2 coordination lanes.",
     "developerName": "Max Fabian",
     "category": "Developer Tools",
     "capabilities": [
@@ -35,9 +35,9 @@
     "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "defaultPrompt": [
-      "Run the repo phase loop with a shared phase bundle, decisions, native goal state, evidence, next phase, and artifact state.",
-      "Plan from repo evidence, set up native goal-backed execution, choose worktree isolation, and continue when clear.",
-      "Coordinate subagents, update HTML evidence, verify, review, and hand off with closeout choices."
+      "Complete the repo task with branch, instruction, safety, goal, and verification boundaries.",
+      "Use default goal-backed planning to create the default goal, then route through worktrees, execution, reviews, or handoff.",
+      "Preserve native goal state and keep subagents and HTML evidence proportional to task risk."
     ],
     "brandColor": "#2563EB",
     "screenshots": []
