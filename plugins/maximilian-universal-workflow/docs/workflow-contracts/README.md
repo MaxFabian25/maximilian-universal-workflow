@@ -15,12 +15,16 @@ Human-facing authority for Maximilian Universal Workflow.
 - Marketplace/source repository root `.codex/config.toml` defines the required Codex runtime features and agent role mapping; `.codex/agents/*.toml` defines the bundled `default`, `explorer`, and `worker` role instructions.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
+- `multi-agent-v2-contract.md` defines the expanded MultiAgentV2 operating contract.
 - `multi-agent-v2-source-notes.md` preserves source-backed MultiAgentV2 diagnostics without making them part of the `multi-agent-v2` skill's normal deferred payload.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
+- `phase-core.md` defines the compact active contract phase skills read before escalating to detailed contracts.
 - `phase-bundle.md` defines the shared handoff state each phase consumes and updates.
+- `plan-structure.md` defines the expanded goal-backed planning payload and native goal gates.
 - `phase-runtime.md` defines per-phase tools, evidence, exits, and next phases.
 - `phase-transition.md` defines the packet passed between phases.
 - `request-user-input.md` defines the root-thread decision prompt shape.
+- `worktree-playbook.md` defines the expanded branch and filesystem isolation contract.
 - `artifact-floor.md` defines supporting artifact requirements.
 - `html-artifact-template.md` defines the default standalone HTML support artifact shape.
 

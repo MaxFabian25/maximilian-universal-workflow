@@ -1,111 +1,25 @@
 # Worktree Playbook
 
-Use this playbook to set up a branch plus filesystem workspace for isolated execution.
+Use this compact gate before write-owning execution. Extended contract: `../../../docs/workflow-contracts/worktree-playbook.md`.
 
-## Preconditions
+## Decide
 
-- Planning has identified outcome, acceptance criteria, allowed side effects, and execution ownership.
-- Repo root, current branch, status, remotes, and applicable `AGENTS.md` are known.
+Record one mode: `current-branch`, `worktree-needed`, or `decision-needed`.
 
-## Isolation Decision
+Require `worktree-needed` for isolation requirements, protected/default/release-like or unknown branch policy without explicit approval, unrelated dirty state, write-owning worker fanout, multiple mutable ownership areas, destructive cleanup, or generated artifacts plus source edits.
 
-Before execution, record one of:
-
-- `current-branch`: current-branch execution is explicitly approved and no mandatory worktree trigger applies.
-- `worktree-needed`: isolation is required by the rules below.
-- `decision-needed`: no mandatory trigger applies, but current-branch approval is missing or ambiguous.
-
-Require `worktree-needed` when any of these are true:
-
-- The user, repo instructions, or phase bundle requires isolated execution.
-- The current branch is protected, default, release-like, or branch policy is unknown and current-branch mutation is not explicitly approved.
-- `git status --short` shows unrelated changes outside the planned ownership scope.
-- Execution uses write-owning worker fanout or mutable ownership across multiple independent areas.
-- The plan includes destructive cleanup, generated artifacts plus source edits, or other side effects that should remain reviewable away from the source branch.
-
-Use root-thread `request_user_input` for `decision-needed`; offer current branch, isolated worktree, or stop with evidence. Child agents return the same choice as `decision_needed`.
-
-## Location Policy
-
-Choose the worktree parent in this order:
-
-1. Worktree location named by `AGENTS.md` or repo docs.
-2. Existing `.worktrees/`.
-3. Existing `worktrees/`.
-4. Root-thread `request_user_input` with 2-3 concrete locations, or child `decision_needed`.
-
-For a project-local parent, confirm the selected parent is ignored before creation:
-
-```bash
-git check-ignore -q -- <selected-parent>/
-```
-
-Check only the selected parent. When the selected project-local parent is not ignored, root threads use `request_user_input` to choose adding the ignore rule, selecting another location, or stopping; child agents return `decision_needed`.
-
-## Branch And Path
-
-Use the repo's branch naming convention. Otherwise use:
-
-```text
-codex/<short-slug>
-```
-
-Use a path that combines the selected parent and the branch slug:
-
-```text
-<parent>/<short-slug>
-```
-
-Before creation, inspect:
-
-```bash
-git worktree list --porcelain
-git branch --list <branch>
-test -e <path>
-```
-
-Resolve collisions with root-thread `request_user_input` or child `decision_needed`; do not overwrite existing branches, worktrees, or paths.
+Root threads resolve `decision-needed` with `request_user_input` offering current branch, isolated worktree, or stop with evidence. Child agents return `decision_needed`.
 
 ## Create
 
-Run from the source repo:
+Choose parent by priority: repo instruction, existing `.worktrees/`, existing `worktrees/`, then root-thread `request_user_input`. For project-local parents, verify ignore protection with `git check-ignore -q -- <parent>/`.
 
-```bash
-git worktree add <path> -b <branch>
-```
+Name branches from repo convention, otherwise `codex/<short-slug>`. Inspect worktrees, branch, and path before creation; never overwrite branches, worktrees, or paths.
 
-Then run all setup and baseline commands from `<path>`.
-
-## Setup And Baseline
-
-Infer setup and baseline commands from repo evidence such as package manifests, lockfiles, Makefiles, task runners, CI config, and AGENTS.md. Use the lightest command that proves the checkout is usable before mutation.
-
-Report command, exit status, and key output lines. If baseline fails, root threads use `request_user_input`; child agents return `decision_needed`:
-
-```text
-Header: Baseline
-ID: baseline_failure
-Question: How should execution proceed with the failing baseline?
-Options:
-Investigate (Recommended): Stop execution and route to exploration/debugging before mutation.
-Proceed Known Red: Continue execution while preserving the failing baseline as explicit risk.
-Stop With Evidence: Hand off the worktree, branch, command, and failure evidence.
-```
+Run `git worktree add <path> -b <branch>` from the source repo; run setup and baseline from `<path>`.
 
 ## Output
 
-Return:
+Update the phase bundle with mode, path, branch, source repo, dirty-state disposition, setup/baseline results, allowed side effects, artifact path, and exact execution prompt.
 
-- worktree path;
-- branch name;
-- source repo path;
-- baseline command and result;
-- setup command and result;
-- dirty-state disposition;
-- allowed side effects;
-- artifact path for substantial runs;
-- exact next `maximilian-universal-workflow:execution` prompt.
-
-## Cleanup
-
-Do not delete worktrees, remove branches, prune, or discard changes without root-thread `request_user_input` and explicit destructive-action confirmation.
+Do not delete worktrees, branches, or changes without root-thread `request_user_input` and explicit destructive confirmation.

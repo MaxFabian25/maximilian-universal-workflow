@@ -7,32 +7,32 @@ description: "Use when coordinating MultiAgentV2 task paths, row-manifest fanout
 
 ## Read
 
-Read `references/contract.md` for the full operational contract and `../../docs/workflow-contracts/multi-agent-v2-source-notes.md` only for source-backed diagnostics.
+Read `references/contract.md`. Read `../../docs/workflow-contracts/multi-agent-v2-source-notes.md` only for source-backed diagnostics.
 
 ## Rule
 
-Treat MultiAgentV2 as task-path coordination, not a result queue. `wait_agent` reports mailbox activity or timeout; `list_agents` collects results.
+Treat MultiAgentV2 as task-path coordination. `wait_agent` reports mailbox activity or timeout; `list_agents` collects results.
 
 ## Role Boundary
 
-Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, decide whether you are the orchestrator for agents you spawned. If you are any spawned agent and the task did not explicitly assign descendant orchestration, you are a leaf: do not wait for siblings, collect sibling results, or close agents. A child that intentionally spawns descendants may coordinate only those descendants.
+Before waiting, listing, following up, or closing, confirm you are coordinating agents you spawned. Spawned leaves do not collect sibling state unless assigned descendant orchestration.
 
 ## Delegate
 
-Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries. Use multiple agents for independent questions, disjoint edit scopes, or independent row-manifest work; spawn bounded `spawn_agent` packets directly and keep structured result collection in the parent. For edits, assign ownership and tell workers not to revert others' changes.
+Spawn only when speed, breadth, critique, or isolation justify coordination cost. Default to none for narrow work and 1-3 for ordinary fanout; exceed 3 only for partitioned tasks with bounded synthesis. For edits, assign ownership and forbid reverting others' work.
 
 ## Spawn
 
-Use stable lowercase snake_case `task_name`, prefer `fork_turns: "none"` for self-contained packets, leave model/reasoning overrides unset unless explicitly needed, and make prompts self-contained.
+Use stable lowercase snake_case `task_name`, prefer `fork_turns: "none"`, never use `fork_context`, leave overrides unset unless needed, and make prompts self-contained.
 
 ## Collect
 
-Track returned task names, use `path_prefix` where useful, and inspect completed text in `list_agents` target `agent_status`. `send_message` queues only; `followup_task` triggers a non-root turn. On timeout, avoid blind loops.
+Track returned task names, use `path_prefix` where useful, and read completed text from `list_agents` `agent_status`. `send_message` queues; `followup_task` triggers a non-root turn. On timeout, avoid blind loops.
 
 ## Recover
 
-Recover by checking required fields, `fork_turns`, full-history override limits, and target paths. For unusable completion, send one evidence-focused `followup_task`; if it fails again, close and continue with partial evidence.
+Check required fields, `fork_turns`, full-history override limits, and target paths. For unusable completion, send one evidence-focused follow-up, then close and continue with partial evidence.
 
 ## Close
 
-Close finished, unusable, or abandoned agents. Use `previous_status` as a last chance to capture text. Do not close `/root`.
+Close finished, unusable, or abandoned agents. Use `previous_status` as a last chance. Do not close `/root`.

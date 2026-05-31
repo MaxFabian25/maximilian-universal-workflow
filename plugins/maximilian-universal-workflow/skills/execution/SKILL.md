@@ -9,22 +9,19 @@ Execute approved repo plans with clear ownership and verification.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, `../../docs/workflow-contracts/native-tool-map.md`, and `references/worker-packets.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
+Read `../../docs/workflow-contracts/phase-core.md` and `references/worker-packets.md`. Use other workflow-contract files only when the core or local reference requires deeper authority.
 
 ## Do
 
 - Check branch/status and instructions before mutation.
-- Require a completed `git-worktrees` handoff before write-owning mutation. If it is missing, invoke `git-worktrees` before editing.
-- Preserve and verify goal-backed planning objectives.
-- When launched from planning with native goal state, treat the goal objective as the execution success target, not as a request to re-plan.
+- Require a completed `git-worktrees` handoff before write-owning mutation; invoke `git-worktrees` first when the handoff is missing.
+- Preserve active native goal state. When launched from planning, treat the goal objective as the execution success target, not a re-plan request.
 - Execute against the plan acceptance criteria and allowed side effects.
-- Parent sends isolated worker packets; leaves do only their packet.
-- Prefer `fork_turns: "none"` for self-contained packets; do not use `fork_context`.
-- Tell workers not to overwrite others' work.
-- Parent integrates, verifies, arbitrates, owns choices.
-- Do not create a Codex goal during execution; planning owns default goal-backed setup and execution preserves the active native goal state. If direct execution lacks native goal state, route through `planning` before mutation unless the packet already includes a verified matching active goal.
-- On integrated work, update the shared phase bundle and continue to `verification`. Fix ordinary in-scope implementation failures directly. Use `request_user_input` only when the fix expands scope, changes side effects, creates ownership overlap, or leaves a material risk choice.
+- Parent sends self-contained, non-overlapping worker packets with `fork_turns: "none"`; leaves do only their packet and never overwrite others' work.
+- Parent integrates, verifies, arbitrates, and owns final choices.
+- Do not create goals during execution. If direct execution lacks a verified matching active goal, route through `planning` before mutation.
+- Update the shared phase bundle and continue to `verification`. Fix ordinary in-scope failures directly. Use `request_user_input` only for scope, side-effect, ownership, or material risk changes.
 
 ## Stop
 
-Stop when the plan is incomplete, branch safety is unclear, required worktree isolation is missing, ownership overlaps, verification is missing, or execution requires unapproved external capability.
+Stop when the plan is incomplete, branch safety or required isolation is unresolved, ownership overlaps, verification is missing, or execution needs unapproved external capability.

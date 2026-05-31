@@ -9,23 +9,20 @@ Turn an approved direction into an executable, goal-backed repo plan.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, `../../docs/workflow-contracts/native-tool-map.md`, and `references/plan-structure.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
+Read `../../docs/workflow-contracts/phase-core.md` and `references/plan-structure.md`. Use other workflow-contract files only when the core or local reference requires deeper authority.
 
 ## Do
 
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
-- Update the shared phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, verification, review, handoff, and next phase.
-- Use native goal tools by default under `references/plan-structure.md` Goal Tool Gates: call `get_goal`, compare the current objective to the planned execution objective, resolve conflicts with `request_user_input`, and call `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocations use default goal-backed planning unless the user asks for planning-only, no-goal, or stop-with-evidence.
-- The goal objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
-- Put long execution detail in the execution prompt body or a repo file, not in the goal objective.
-- Inspect repo conventions first.
-- Use root-thread `request_user_input` for major planning tradeoffs, scope, ownership, and verification choices when there are 2-3 concrete options; otherwise proceed from approved evidence and plan constraints.
+- Update the phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, worktree decision, verification, review, handoff, and next phase.
+- Follow `references/plan-structure.md` for required payload and Goal Tool Gates.
+- Use default goal-backed planning unless the user asks for planning-only, no-goal, or stop-with-evidence. Keep the goal objective durable, repo-scoped, verifiable, concise, and under 4,000 characters.
+- Inspect repo conventions and use root-thread `request_user_input` for material tradeoffs, scope, ownership, active-goal, and verification choices when 2-3 concrete options remain.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
-- Decide whether execution is approved on the current branch or needs an isolated worktree, then route to `git-worktrees` either way so the branch-safety handoff is explicit.
-- Apply `../../docs/workflow-contracts/artifact-floor.md` for supporting plans, evidence, ledgers, or handoff notes.
-- Set `continue_now: yes` when approval, goal state, worktree state, and ownership are clear; otherwise provide the exact next prompt. For normal workflow invocations, establish native goal state after decision-complete planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+- Decide current-branch approval versus isolated worktree, route to `git-worktrees`, and apply `../../docs/workflow-contracts/artifact-floor.md` for support artifacts.
+- Set `continue_now: yes` only when approval, goal state, worktree state, and ownership are clear; otherwise give the exact next prompt.
 
 ## Stop
 
-Stop with a decision-ready payload when direction, ownership, active-goal conflict, explicit planning-only/no-goal/stop-with-evidence intent, or verification is unclear. Use native goal tools for default goal-backed planning.
+Stop with a decision-ready payload when direction, ownership, active-goal conflict, planning mode, or verification is unclear.
