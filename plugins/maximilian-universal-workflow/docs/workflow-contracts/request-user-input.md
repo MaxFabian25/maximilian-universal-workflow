@@ -45,7 +45,7 @@ The parent converts this payload into root-thread `request_user_input` when the 
 
 - phase routing when more than one phase is plausible;
 - ideation implementation-path selection and branch/worktree approval;
-- active-goal conflicts or explicit planning-only/no-goal decisions;
+- active-goal conflicts or explicit planning-only/no-goal/stop-with-evidence decisions;
 - git worktree location, branch collision, dirty-state, baseline failure, and cleanup decisions;
 - worker ownership overlap;
 - verification failure disposition;
@@ -60,7 +60,7 @@ The parent converts this payload into root-thread `request_user_input` when the 
 | `phase_route` | Phase | intake has multiple plausible phases after read-only state | Continue With <phase> (Recommended) |
 | `ideation_direction` | Direction | ideation has 2-3 viable repo-grounded implementation paths | Select <direction> (Recommended) |
 | `active_goal_conflict` | Goal | an active goal conflicts with the planned or verified objective | Keep Current Goal (Recommended) |
-| `planning_proceed` | Plan | planning is complete but proceed/worktree/no-goal choice changes side effects | Proceed To Execution (Recommended) |
+| `planning_disposition` | Plan | explicit planning-only/no-goal/stop-with-evidence or worktree side-effect choice remains after planning | Continue To Worktree (Recommended) |
 | `worktree_location` | Worktree | branch or worktree isolation has 2-3 safe locations | Create Worktree (Recommended) |
 | `dirty_state` | Dirty State | uncommitted changes affect planned mutation | Preserve And Isolate (Recommended) |
 | `baseline_failure` | Baseline | baseline setup/check fails before mutation | Stop With Evidence (Recommended) |

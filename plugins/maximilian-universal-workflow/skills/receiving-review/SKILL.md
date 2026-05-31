@@ -9,15 +9,16 @@ Triage received review feedback before changing repo code, docs, artifacts, or w
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md` and `references/disposition-ledger.md`.
+Follow `../../docs/workflow-contracts/README.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, and `references/disposition-ledger.md`.
 
 ## Do
 
 - Read the full review before acting on any individual point.
 - Confirm repo, branch, status, instructions, and review source.
 - Verify each item against code, tests, docs, specs, artifacts, and current branch evidence.
-- Decide per item: fix, push back with evidence, or return a child `decision_needed` payload for the parent to convert into root-thread `request_user_input`.
-- Implement accepted fixes one item at a time; then run fresh verification for each fixed item.
+- Decide per item: fix, push back with evidence, use root-thread `request_user_input`, or return a child `decision_needed` payload for the parent to convert into root-thread `request_user_input`.
+- Before mutating repo files, confirm branch safety is already resolved through `git-worktrees` or explicit current-branch approval; otherwise route to `git-worktrees` or stop with the disposition ledger.
+- Implement accepted fixes one item at a time only after branch safety is resolved; then run fresh verification for each fixed item.
 - Reply with concise dispositions and supporting evidence.
 - Update the shared phase bundle for execution, verification, review, or handoff after disposition.
 - For GitHub inline review comments, reply in the inline thread, not as a top-level PR comment.

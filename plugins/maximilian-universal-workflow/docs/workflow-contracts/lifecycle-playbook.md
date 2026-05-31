@@ -21,7 +21,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | intake and repo state | `intake` |
 | exploration and read-only fanout | `exploration` |
 | ideation and implementation-path selection | `ideation` |
-| planning downstream of exploration evidence and native goal setup | `planning` |
+| planning downstream of exploration evidence with default goal-backed state | `planning` |
 | isolated branch workspace before execution | `git-worktrees` |
 | implementation, execution, creation, production | `execution` |
 | fresh evidence and completion claims | `verification` |
@@ -37,7 +37,7 @@ Use root-thread `request_user_input` when a material decision gate has 2-3 concr
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then uses native goal tools as the default workflow mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. A normal workflow invocation supplies goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+`planning` outputs the plan first, then uses native goal tools as the default workflow mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocations use goal-backed setup unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Transitions
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Git Worktrees"
   short_description: "Resolve branch safety before execution."
-  default_prompt: "Resolve branch safety for this plan: record approved current-branch execution or create an isolated worktree, verify baseline state, update worktree state and phase footer, and hand off to execution."
+  default_prompt: "Use $maximilian-universal-workflow:git-worktrees to resolve branch safety for this plan: record approved current-branch execution or create an isolated worktree, verify baseline state, update worktree state and phase footer, and hand off to execution."

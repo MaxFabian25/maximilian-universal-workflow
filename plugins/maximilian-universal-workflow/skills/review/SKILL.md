@@ -17,7 +17,8 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - Use concrete repo evidence surfaces: `git status`, `git diff --stat`, `git diff`, changed tests, relevant `rg`, and read-only explorer review packets.
 - Apply the shared subagent role boundary: parent sends self-contained review packets; leaves do only their packet.
 - Parent arbitrates findings; review does not replace verification.
-- On no blocking findings, update the shared phase bundle and continue to `handoff`. Send valid in-scope findings to `execution`; use `request_user_input` only for accepting, rejecting, deferring, or broadening findings when the choice remains material.
+- Spawned review leaves return findings, no-findings summaries, and proposed bundle updates to the parent.
+- When the parent review has no blocking findings, update the shared phase bundle and continue to `handoff`. Send valid in-scope findings to `execution`; use `request_user_input` only for accepting, rejecting, deferring, or broadening findings when the choice remains material.
 
 ## Stop
 

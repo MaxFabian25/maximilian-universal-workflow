@@ -36,7 +36,7 @@
     "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
     "defaultPrompt": [
       "Complete the repo task with branch, instruction, safety, goal, and verification boundaries.",
-      "Use default goal-backed planning to create the default goal, then route through worktrees, execution, reviews, or handoff.",
+      "Use goal-backed planning; create goals only at gates; route through worktrees, execution, verification, review, or handoff.",
       "Preserve native goal state and keep subagents and HTML evidence proportional to task risk."
     ],
     "brandColor": "#2563EB",

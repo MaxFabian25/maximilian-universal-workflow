@@ -10,7 +10,7 @@ Runtime loop:
 
 A general invocation of the plugin starts at `intake` and advances through the loop in the same turn when the next phase satisfies the Decision Precedence in `phase-transition.md`. Do not stop after naming the next phase unless a user-owned decision, missing evidence, permission boundary, or safety stop requires it.
 
-Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes`; a workflow invocation is enough continuation and goal setup intent unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes`. Normal workflow invocations continue through clear phase handoffs and use default goal-backed planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Table
 
@@ -33,7 +33,7 @@ Use subagents when the work is independent enough to improve speed, breadth, cri
 
 Before fanout, name the expected output, ownership boundary, maximum useful children, timeout or collection point, and merge/overlap risk. Prefer 1-3 children unless the task naturally splits into more independent packets. Ownership, role boundary, native tool correctness, and coordination value remain the hard limits.
 
-Use `spawn_agents_on_csv` when a CSV row manifest defines independent, repeatable worker packets and structured result collection is more important than bespoke parent orchestration.
+When a CSV row manifest defines independent, repeatable worker packets, the parent parses rows into bounded self-contained `spawn_agent` packets and keeps structured result collection in the owning phase.
 
 ## Decision Gates
 
@@ -42,12 +42,12 @@ Use root-thread `request_user_input` proactively whenever a phase has 2-3 concre
 - intake (`phase_route`): choose current phase or approve mutation after read-only state is known.
 - exploration (`phase_route`): choose deeper probe, ideation, or stop with evidence when evidence is incomplete but actionable.
 - ideation (`ideation_direction`): choose one implementation path from 2-3 repo-grounded options.
-- planning (`active_goal_conflict`, `planning_proceed`): choose active-goal conflict disposition, handle explicit planning-only or no-goal requests, use worktree isolation, revise plan, or stop with plan. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence.
+- planning (`active_goal_conflict`, `planning_disposition`): choose active-goal conflict disposition, handle explicit planning-only, no-goal, or stop-with-evidence requests, use worktree isolation, revise plan, or stop with plan. Normal workflow invocations create the default goal after decision-complete planning without a separate continuation decision.
 - git-worktrees (`worktree_location`, `dirty_state`, `baseline_failure`): choose worktree location, dirty-state disposition, baseline failure disposition, or stop with evidence.
 - execution (`ownership_overlap`): choose parent integration path when worker ownership overlaps or side effects expand.
 - verification (`verification_failure`): choose fix failures, accept residual risk, or stop with evidence.
 - review (`review_finding`): choose fix findings, accept findings, or request more review.
-- receiving-review (`review_finding`): choose fix, push back, or `decision_needed` when feedback changes scope.
+- receiving-review (`review_finding`): choose fix, push back, or root-thread `request_user_input` when feedback changes scope; child agents return `decision_needed`.
 - handoff (`handoff_closeout`, `cleanup_choice`): choose 2-3 relevant options from stage/commit, push/create PR, keep branch, stop with evidence, or user-owned remaining git work; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
 
 ## Stop Output Contract

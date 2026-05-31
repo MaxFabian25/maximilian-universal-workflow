@@ -16,7 +16,7 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
 - Update the shared phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, verification, review, handoff, and next phase.
-- Use native goal tools by default under `references/plan-structure.md` Goal Tool Gates: call `get_goal`, compare the current objective to the planned execution objective, resolve conflicts with `request_user_input`, and call `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence.
+- Use native goal tools by default under `references/plan-structure.md` Goal Tool Gates: call `get_goal`, compare the current objective to the planned execution objective, resolve conflicts with `request_user_input`, and call `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocations use default goal-backed planning unless the user asks for planning-only, no-goal, or stop-with-evidence.
 - The goal objective describes the desired executed repo end state; keep it durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Put long execution detail in the execution prompt body or a repo file, not in the goal objective.
 - Inspect repo conventions first.
@@ -24,8 +24,8 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Decide whether execution is approved on the current branch or needs an isolated worktree, then route to `git-worktrees` either way so the branch-safety handoff is explicit.
 - Apply `../../docs/workflow-contracts/artifact-floor.md` for supporting plans, evidence, ledgers, or handoff notes.
-- Set `continue_now: yes` when approval, goal state, worktree state, and ownership are clear; otherwise provide the exact next prompt. Treat a normal workflow invocation as permission to establish native goal state unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+- Set `continue_now: yes` when approval, goal state, worktree state, and ownership are clear; otherwise provide the exact next prompt. For normal workflow invocations, establish native goal state after decision-complete planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Stop
 
-Stop with a decision-ready payload when direction, ownership, active-goal conflict, explicit planning-only/no-goal intent, or verification is unclear. Use native goal tools for default goal setup.
+Stop with a decision-ready payload when direction, ownership, active-goal conflict, explicit planning-only/no-goal/stop-with-evidence intent, or verification is unclear. Use native goal tools for default goal-backed planning.

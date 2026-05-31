@@ -18,12 +18,12 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - Record `worktree_state.mode: current-branch` when current-branch execution is explicitly approved and no mandatory isolation trigger applies.
 - Create an isolated worktree when `references/worktree-playbook.md` records `worktree-needed`.
 - Use root-thread `request_user_input` when `references/worktree-playbook.md` records `decision-needed`.
-- Choose location by priority: existing `.worktrees/`, existing `worktrees/`, AGENTS.md rule, then root-thread `request_user_input`.
+- Choose location by priority: AGENTS.md or repo-doc rule, existing `.worktrees/`, existing `worktrees/`, then root-thread `request_user_input`.
 - Verify the selected project-local worktree directory is ignored before creating a worktree.
 - Name the branch from the plan outcome using repo conventions; avoid overwriting existing branches or worktrees.
 - Create the worktree with `git worktree add` and switch execution context to the new path.
 - Run repo-appropriate setup and baseline verification in the worktree.
-- Use `request_user_input` for branch/location choices, dirty-state decisions, baseline failure disposition, and destructive cleanup only when 2-3 concrete options remain.
+- Root threads use `request_user_input` for branch/location choices, dirty-state decisions, baseline failure disposition, and destructive cleanup only when 2-3 concrete options remain; child agents return `decision_needed`.
 - Update the shared phase bundle with worktree path, branch, baseline evidence, allowed side effects, artifact state, and next execution prompt.
 
 ## Stop

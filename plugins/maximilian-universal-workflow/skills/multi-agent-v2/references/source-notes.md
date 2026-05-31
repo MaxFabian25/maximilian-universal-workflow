@@ -4,9 +4,9 @@ Source evidence for `../SKILL.md` and `contract.md`.
 
 ## Pin
 
-`@openai/codex@0.133.0-alpha.4` maps to GitHub prerelease `rust-v0.133.0-alpha.4`, published 2026-05-21. Release target is `main`; use the release URL and raw GitHub source at the tag for source-backed refreshes.
+`@openai/codex@0.136.0-alpha.1` maps to GitHub prerelease `rust-v0.136.0-alpha.1`, published 2026-05-29. Release target is `main`; use the release URL and raw GitHub source at the tag for source-backed refreshes. The local `codex --version` used for this refresh reported `codex-cli 0.136.0-alpha.1`.
 
-Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.133.0-alpha.4`.
+Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.136.0-alpha.1`. The current handler directory contains `close_agent.rs`, `followup_task.rs`, `list_agents.rs`, `message_tool.rs`, `send_message.rs`, `spawn.rs`, and `wait.rs`.
 
 ## Tool Contracts
 
@@ -41,4 +41,4 @@ Current plugin runtime contract sets max concurrent threads to `32` and wait def
 
 `features.multi_agent_v2.usage_hint_text` is appended to the `spawn_agent` tool description when usage hints are enabled. User-defined agent roles are declared as `[agents.<role>]` with `description` and optional `config_file`. Role files can set `developer_instructions`; user-defined roles override built-in role declarations with the same name, including `default`, `explorer`, and `worker`.
 
-Observed failures: acknowledgement-only completion despite correct `last_task_message`; follow-up ending in `shutdown` without useful text; repeated `running` through waits; close failing after disappearance. Refresh with `npm view @openai/codex dist-tags version --json`, `gh release view rust-v0.133.0-alpha.4 --repo openai/codex --json tagName,name,publishedAt,url,isPrerelease,targetCommitish`, and raw `gh api ...contents/<path>?ref=rust-v0.133.0-alpha.4`.
+Observed failures: acknowledgement-only completion despite correct `last_task_message`; follow-up ending in `shutdown` without useful text; repeated `running` through waits; close failing after disappearance. Refresh with `npm view @openai/codex dist-tags version --json`, `gh release view rust-v0.136.0-alpha.1 --repo openai/codex --json tagName,name,publishedAt,url,isPrerelease,targetCommitish`, and raw `gh api ...contents/<path>?ref=rust-v0.136.0-alpha.1`.

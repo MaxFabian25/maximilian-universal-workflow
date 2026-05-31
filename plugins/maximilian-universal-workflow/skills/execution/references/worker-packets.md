@@ -22,5 +22,5 @@ Constraints: Stay inside ownership. If overlap is needed, stop and return decisi
 Leaf rule: no agent coordination or sibling waits.
 Verification: Run or describe <focused check>.
 Output: changed paths, acceptance criteria status, verification, assumptions, overlap concerns, decision_needed if any, follow-up.
-Decision payload: when blocked, return header, id, question, 2-3 options, recommended option, evidence, and blocking_phase.
+Decision payload: when blocked, return a `decision_needed:` block with `header`, `id`, `question`, `options`, `recommended_option`, `evidence`, and `blocking_phase`.
 ```

@@ -17,7 +17,7 @@ It also bundles `multi-agent-v2` as the canonical future copy for Codex native s
 Add this repository as a Codex plugin marketplace, then install the plugin from that marketplace:
 
 ```bash
-codex plugin marketplace add MaxFabian25/maximilian-universal-workflow --ref main
+codex plugin marketplace add --enable remote_plugin MaxFabian25/maximilian-universal-workflow --ref main
 codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 ```
 
@@ -72,7 +72,7 @@ plugins/maximilian-universal-workflow/
 
 ## Workflow Contract
 
-The plugin assumes the active workspace is a git repository. If repo mechanics are missing, establish a repository or worktree before using the phase workflows.
+The plugin assumes the active workspace is a git repository. If repo mechanics are missing, establish a repository or worktree before using the phase workflows, or stop.
 
 Subagents are encouraged:
 
@@ -92,7 +92,7 @@ jq empty plugins/maximilian-universal-workflow/.codex-plugin/plugin.json
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/maximilian-universal-workflow
 ```
 
-Run skill validation and Plugin Eval:
+Run skill validation and Plugin Eval when those local tools are available; Plugin Eval budget warnings are acceptable if structural checks pass:
 
 ```bash
 for skill in plugins/maximilian-universal-workflow/skills/*; do

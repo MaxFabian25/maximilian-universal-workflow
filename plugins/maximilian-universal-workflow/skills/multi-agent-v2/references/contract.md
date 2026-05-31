@@ -8,13 +8,13 @@ Treat MultiAgentV2 as task-path coordination, not a result queue. `wait_agent` r
 
 ## Role Boundary
 
-Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, decide whether you are the orchestrator for agents you spawned. If you are a spawned explorer/worker or one agent in a parallel fanout, you are a leaf: do not wait for sibling agents, do not collect sibling results, and do not close agents. Finish your assigned task and return your result to the parent.
+Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, decide whether you are the orchestrator for agents you spawned. If you are any spawned agent and the task did not explicitly assign descendant orchestration, you are a leaf: do not wait for sibling agents, do not collect sibling results, and do not close agents. Finish your assigned task and return your result to the parent.
 
 If a child intentionally spawns its own descendants, it may coordinate only those descendants. Track the returned task names and ignore unrelated live agents. Do not treat root-spawned siblings as blockers.
 
 ## Delegation
 
-Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries. Use multiple agents for independent questions or disjoint edit scopes. Use `spawn_agents_on_csv` for independent row-manifest work with structured result collection. For edits, assign ownership and tell workers not to revert others' changes.
+Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries. Use multiple agents for independent questions, disjoint edit scopes, or independent row-manifest work. For row manifests, the parent turns rows into bounded self-contained `spawn_agent` packets and keeps structured result collection itself. For edits, assign ownership and tell workers not to revert others' changes.
 
 ## Spawn
 

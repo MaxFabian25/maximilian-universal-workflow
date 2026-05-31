@@ -1,4 +1,4 @@
 interface:
   display_name: "Repo Context Cleanup"
   short_description: "Inventory and clean stale agent planning residue."
-  default_prompt: "Inventory stale repo context, classify it, use request_user_input for cleanup policy choices, and return an updated phase bundle and phase footer."
+  default_prompt: "Use $maximilian-universal-workflow:repo-context-cleanup to inventory stale repo context, classify it, use request_user_input for cleanup policy choices, and return an updated phase bundle and phase footer."

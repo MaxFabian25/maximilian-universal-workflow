@@ -1,4 +1,4 @@
 interface:
   display_name: "Review"
   short_description: "Run read-only reviews before handoff."
-  default_prompt: "Review this repository workflow output read-only against acceptance criteria, report evidence-backed findings, update the phase footer, and continue to handoff or execution."
+  default_prompt: "Use $maximilian-universal-workflow:review to review this repository workflow output read-only against acceptance criteria, report evidence-backed findings, update the phase footer, and continue to handoff or execution."

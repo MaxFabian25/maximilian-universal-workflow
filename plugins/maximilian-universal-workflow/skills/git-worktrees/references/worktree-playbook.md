@@ -23,16 +23,16 @@ Require `worktree-needed` when any of these are true:
 - Execution uses write-owning worker fanout or mutable ownership across multiple independent areas.
 - The plan includes destructive cleanup, generated artifacts plus source edits, or other side effects that should remain reviewable away from the source branch.
 
-Use root-thread `request_user_input` for `decision-needed`; offer current branch, isolated worktree, or stop with evidence.
+Use root-thread `request_user_input` for `decision-needed`; offer current branch, isolated worktree, or stop with evidence. Child agents return the same choice as `decision_needed`.
 
 ## Location Policy
 
 Choose the worktree parent in this order:
 
-1. Existing `.worktrees/`.
-2. Existing `worktrees/`.
-3. Worktree location named by `AGENTS.md` or repo docs.
-4. Root-thread `request_user_input` with 2-3 concrete locations.
+1. Worktree location named by `AGENTS.md` or repo docs.
+2. Existing `.worktrees/`.
+3. Existing `worktrees/`.
+4. Root-thread `request_user_input` with 2-3 concrete locations, or child `decision_needed`.
 
 For a project-local parent, confirm the selected parent is ignored before creation:
 
@@ -40,7 +40,7 @@ For a project-local parent, confirm the selected parent is ignored before creati
 git check-ignore -q -- <selected-parent>/
 ```
 
-Check only the selected parent. When the selected project-local parent is not ignored, use `request_user_input` to choose adding the ignore rule, selecting another location, or stopping.
+Check only the selected parent. When the selected project-local parent is not ignored, root threads use `request_user_input` to choose adding the ignore rule, selecting another location, or stopping; child agents return `decision_needed`.
 
 ## Branch And Path
 
@@ -64,7 +64,7 @@ git branch --list <branch>
 test -e <path>
 ```
 
-Resolve collisions with `request_user_input`; do not overwrite existing branches, worktrees, or paths.
+Resolve collisions with root-thread `request_user_input` or child `decision_needed`; do not overwrite existing branches, worktrees, or paths.
 
 ## Create
 
@@ -80,7 +80,7 @@ Then run all setup and baseline commands from `<path>`.
 
 Infer setup and baseline commands from repo evidence such as package manifests, lockfiles, Makefiles, task runners, CI config, and AGENTS.md. Use the lightest command that proves the checkout is usable before mutation.
 
-Report command, exit status, and key output lines. If baseline fails, use `request_user_input`:
+Report command, exit status, and key output lines. If baseline fails, root threads use `request_user_input`; child agents return `decision_needed`:
 
 ```text
 Header: Baseline

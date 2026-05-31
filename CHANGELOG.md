@@ -2,7 +2,9 @@
 
 ## 0.1.15
 
-- Refreshes Codex `0.133.0-alpha.4` MultiAgentV2 source notes, clarifies runtime setup paths, aligns native tool mappings with current goal and subagent tools, tightens interactive choice gates, and bounds subagent fanout guidance.
+- Refreshes Codex `0.136.0-alpha.1` MultiAgentV2 source notes, clarifies runtime setup paths, aligns native tool mappings with current goal and subagent tools, tightens interactive choice gates, and bounds subagent fanout guidance.
+- Aligns source docs and skills with the v0.1.15 default goal-backed workflow semantics: normal invocations create the default native goal after decision-complete planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+- Removes stale `spawn_agents_on_csv` guidance, makes planning goal creation conditional in the agent prompt, and adds phase-bundle/transition reads to mutating review and cleanup side paths.
 
 ## 0.1.14
 
@@ -26,7 +28,7 @@
 
 ## 0.1.9
 
-- Requires native goal tools for goal-backed planning and removes non-native goal setup paths.
+- Requires native goal tools for goal-backed planning and removes non-native goal paths.
 
 ## 0.1.8
 
