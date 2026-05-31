@@ -44,7 +44,7 @@ The parent converts this payload into root-thread `request_user_input` when the 
 ## Use For
 
 - phase routing when more than one phase is plausible;
-- ideation branch selection and branch/worktree approval;
+- ideation implementation-path selection and branch/worktree approval;
 - active-goal conflicts or explicit planning-only/no-goal decisions;
 - git worktree location, branch collision, dirty-state, baseline failure, and cleanup decisions;
 - worker ownership overlap;
@@ -58,7 +58,7 @@ The parent converts this payload into root-thread `request_user_input` when the 
 | ID | Header | When | Recommended Option |
 | --- | --- | --- | --- |
 | `phase_route` | Phase | intake has multiple plausible phases after read-only state | Continue With <phase> (Recommended) |
-| `ideation_branch` | Direction | ideation has 2-3 viable repo-grounded directions | Select <direction> (Recommended) |
+| `ideation_direction` | Direction | ideation has 2-3 viable repo-grounded implementation paths | Select <direction> (Recommended) |
 | `active_goal_conflict` | Goal | an active goal conflicts with the planned or verified objective | Keep Current Goal (Recommended) |
 | `planning_proceed` | Plan | planning is complete but proceed/worktree/no-goal choice changes side effects | Proceed To Execution (Recommended) |
 | `worktree_location` | Worktree | branch or worktree isolation has 2-3 safe locations | Create Worktree (Recommended) |

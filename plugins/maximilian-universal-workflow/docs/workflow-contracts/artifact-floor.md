@@ -26,7 +26,7 @@ Create or update `workflow-artifacts/YYYY-MM-DD-<slug>.html` for substantial wor
 
 Prefer HTML over Markdown for durable workflow support artifacts. Use Markdown only when repo instructions name it, the user explicitly asks for it, or the artifact must stay plain text for a specific downstream tool.
 
-Prefer copying `assets/workflow-artifact-template.html` and filling its placeholders. Use `html-artifact-template.md` for required sections and rules unless repo instructions name a different artifact format.
+Prefer copying `../../assets/workflow-artifact-template.html` and filling its placeholders. Use `html-artifact-template.md` for required sections and rules unless repo instructions name a different artifact format.
 
 Allowed interaction: static tabs, filters, collapsible evidence, severity toggles, task tables, acceptance-criteria status, and copyable next prompts. Avoid hidden state, remote dependencies, destructive controls, or requiring the artifact to understand the repo.
 

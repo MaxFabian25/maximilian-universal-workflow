@@ -42,6 +42,14 @@ worktree_state:
   mode: <current-branch/worktree-needed/worktree-ready/not-applicable>
   path: <worktree path or none>
   branch: <worktree branch or none>
+git_closeout_state:
+  status: <clean/unstaged/staged/unpushed/pr-open/user-owned/not-applicable>
+  branch: <current branch>
+  upstream: <upstream branch or none>
+  changed_paths: <unstaged/staged/untracked summary or none>
+  unpushed_commits: <count or unknown>
+  pr: <url/needed/not-needed/unknown>
+  decision: <request_user_input id or explicit user-owned stop>
 subagent_state:
   mode: <none/explorer/worker/mixed>
   ownership: <read-only or non-overlapping mutable ownership>
@@ -82,4 +90,5 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, active-goal conflict, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the parent has fresh current-state evidence.
+- Do not set `next_phase: done` while `git_closeout_state.status` is `unstaged`, `staged`, `unpushed`, or `pr-open` unless the user explicitly selected a user-owned stop or no further git closeout is needed.
 - Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.

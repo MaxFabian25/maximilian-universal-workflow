@@ -18,20 +18,20 @@ Phase skills consume and update the current phase bundle state described by `pha
 | --- | --- | --- | --- | --- |
 | intake | `git status --short`, branch command, `rg --files`, `AGENTS.md` reads | repo/worktree, branch, status, instructions, requested outcome | repo mechanics and phase are known | exploration |
 | exploration | `rg`, reads, non-mutating commands, `explorer` fanout | cited files, commands, branch/status, uncertainty | evidence is enough for a decision or plan | ideation |
-| ideation | repo evidence, root `request_user_input`, `explorer` critique when useful | 2-3 branch choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
+| ideation | repo evidence, root `request_user_input`, `explorer` critique when useful | 2-3 implementation-path choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
 | planning | repo reads, `explorer` checks when useful, root `request_user_input`, native goal tools | exploration evidence, acceptance criteria, scope, task order, ownership, verification, native goal state | implementation plan and goal-backed setup are decision-complete | git-worktrees |
 | git-worktrees | `git worktree`, branch/status commands, setup command, baseline command, root `request_user_input` | branch safety, worktree mode/path when used, branch, ignore check, setup result, baseline result | branch safety is resolved and current branch or worktree is ready | execution |
 | execution | `worker` fanout, `apply_patch`, commands, integration | ownership map, changed paths, local checks, blockers | work is integrated and ready to prove | verification |
 | verification | parent-side commands/checklists, `get_goal`, `update_goal` after proof | acceptance criteria mapped to command/check results in current repo state | claims are proven or failures reported | review or execution |
 | review | `git status`, `git diff --stat`, `git diff`, tests, `rg`, `explorer` fanout | findings with file/line evidence and severity | findings resolved or accepted | handoff or execution |
 | receiving-review | full review text, repo reads, `explorer` checks when useful, root `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
-| handoff | status, branch/PR commands, root `request_user_input` | changed paths, verification, review, risks, closeout choice | operator has next action and owner | done |
+| handoff | `git status --short`, branch/upstream commands, branch/PR commands, root `request_user_input` | changed paths, verification, review, risks, git closeout state, closeout choice | git state is clean, PR/branch closeout is complete, or remaining git work is explicitly user-owned | done |
 
 ## Fanout Rubric
 
 Use subagents when the work is independent enough to improve speed, breadth, critique, or isolation. Prefer `explorer` for read-only evidence and review. Prefer `worker` for isolated write ownership.
 
-Before fanout, name the expected output, ownership boundary, maximum useful children, timeout or collection point, and merge/overlap risk. Prefer 1-3 children unless the task naturally splits into more independent packets. Token and time cost are explicit tradeoffs to record; ownership, role boundary, native tool correctness, and coordination value remain the hard limits.
+Before fanout, name the expected output, ownership boundary, maximum useful children, timeout or collection point, and merge/overlap risk. Prefer 1-3 children unless the task naturally splits into more independent packets. Ownership, role boundary, native tool correctness, and coordination value remain the hard limits.
 
 Use `spawn_agents_on_csv` when a CSV row manifest defines independent, repeatable worker packets and structured result collection is more important than bespoke parent orchestration.
 
@@ -41,14 +41,14 @@ Use root-thread `request_user_input` proactively whenever a phase has 2-3 concre
 
 - intake (`phase_route`): choose current phase or approve mutation after read-only state is known.
 - exploration (`phase_route`): choose deeper probe, ideation, or stop with evidence when evidence is incomplete but actionable.
-- ideation (`ideation_branch`): choose one branch from 2-3 repo-grounded options.
+- ideation (`ideation_direction`): choose one implementation path from 2-3 repo-grounded options.
 - planning (`active_goal_conflict`, `planning_proceed`): choose active-goal conflict disposition, handle explicit planning-only or no-goal requests, use worktree isolation, revise plan, or stop with plan. Normal workflow invocation is goal setup intent unless the user asks for planning-only, no-goal, or stop-with-evidence.
 - git-worktrees (`worktree_location`, `dirty_state`, `baseline_failure`): choose worktree location, dirty-state disposition, baseline failure disposition, or stop with evidence.
 - execution (`ownership_overlap`): choose parent integration path when worker ownership overlaps or side effects expand.
 - verification (`verification_failure`): choose fix failures, accept residual risk, or stop with evidence.
 - review (`review_finding`): choose fix findings, accept findings, or request more review.
 - receiving-review (`review_finding`): choose fix, push back, or `decision_needed` when feedback changes scope.
-- handoff (`handoff_closeout`, `cleanup_choice`): choose stop with evidence, keep branch, or create PR; ask again before merge, push, delete, discard, or destructive cleanup.
+- handoff (`handoff_closeout`, `cleanup_choice`): choose 2-3 relevant options from stage/commit, push/create PR, keep branch, stop with evidence, or user-owned remaining git work; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
 
 ## Stop Output Contract
 

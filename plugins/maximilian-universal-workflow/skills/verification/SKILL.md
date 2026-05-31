@@ -22,4 +22,4 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 
 ## Stop
 
-Stop when verification fails, the proving command is unknown, or running it would require unapproved destructive/external action.
+Stop when the proving command is unknown, running it would require unapproved destructive/external action, or verification fails without an approved execution route or user disposition.
