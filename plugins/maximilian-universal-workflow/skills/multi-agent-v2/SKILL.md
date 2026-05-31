@@ -5,9 +5,13 @@ description: "Use when coordinating MultiAgentV2 task paths, row-manifest fanout
 
 # Multi-Agent V2
 
+## Read
+
+Read `references/contract.md` for the full operational contract and `references/source-notes.md` only for source-backed diagnostics.
+
 ## Rule
 
-Treat MultiAgentV2 as task-path coordination, not a result queue. `wait_agent` reports mailbox activity or timeout; `list_agents` collects results. Read `references/contract.md` for the full operational contract and `references/source-notes.md` only for source-backed diagnostics.
+Treat MultiAgentV2 as task-path coordination, not a result queue. `wait_agent` reports mailbox activity or timeout; `list_agents` collects results.
 
 ## Role Boundary
 
