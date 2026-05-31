@@ -1,6 +1,6 @@
 ---
 name: review
-description: Use when reviewing repo changes or artifacts read-only for correctness, scope, tests, and handoff readiness.
+description: Use when verified work needs read-only correctness, scope, test, risk, artifact, and handoff-readiness review.
 ---
 
 # Review

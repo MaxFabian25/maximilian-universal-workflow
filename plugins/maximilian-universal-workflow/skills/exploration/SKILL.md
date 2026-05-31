@@ -1,6 +1,6 @@
 ---
 name: exploration
-description: Use when gathering read-only repo evidence before ideation, planning, or execution.
+description: Use when repo evidence is missing or uncertain and read-only investigation or explorer fanout should precede later phases.
 ---
 
 # Exploration

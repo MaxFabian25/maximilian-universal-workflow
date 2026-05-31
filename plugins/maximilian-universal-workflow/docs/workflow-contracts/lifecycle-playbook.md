@@ -20,7 +20,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | --- | --- |
 | intake and repo state | `intake` |
 | exploration and read-only fanout | `exploration` |
-| ideation and branch selection | `ideation` |
+| ideation and implementation-path selection | `ideation` |
 | planning downstream of exploration evidence and native goal setup | `planning` |
 | isolated branch workspace before execution | `git-worktrees` |
 | implementation, execution, creation, production | `execution` |
@@ -33,7 +33,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 ## Decisions
 
-Use root-thread `request_user_input` liberally for material options, ambiguity, approvals, ownership, and closeout choices. Use `request-user-input.md` for the exact prompt shape.
+Use root-thread `request_user_input` when a material ambiguity has 2-3 concrete options and affects scope, approval, ownership, side effects, verification, review, or closeout. Use `request-user-input.md` for the exact prompt shape.
 
 ## Goal-Backed Planning
 

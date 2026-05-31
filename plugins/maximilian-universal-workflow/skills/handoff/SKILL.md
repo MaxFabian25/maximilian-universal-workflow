@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Use when closing verified repo work with evidence, risks, owners, and next actions.
+description: Use when verified or stopped repo work needs outcome, branch, evidence, risk, owner, and closeout reporting.
 ---
 
 # Handoff
@@ -14,10 +14,12 @@ Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checkli
 ## Do
 
 - Report outcome delivered, acceptance criteria status, repo path, worktree path when used, branch, changed paths, verification commands with exit status, review disposition, risks, unverified gaps, stop condition, and next owner.
-- Use root-thread `request_user_input` for non-destructive closeout choices first: stop with evidence, keep branch, or create PR.
-- Do not discard, delete, merge, or push without approval and verification.
+- Inspect and report git closeout state: unstaged, staged, untracked, unpushed, upstream, PR state when available, and current owner.
+- Use root-thread `request_user_input` for closeout choices: stop with evidence, keep branch, stage and commit, push/create PR, or user-owned remaining git work.
+- Do not stage, commit, discard, delete, merge, push, or create PR without approval and verification.
 - Use `workflow-artifacts/` for evidence and handoff support, and update the interactive HTML artifact for substantial runs.
+- Update the shared phase bundle and include the final phase footer.
 
 ## Stop
 
-Stop when verification failed, blockers remain, base branch is unclear, or destructive closeout lacks confirmation.
+Stop when verification failed, blockers remain, base branch is unclear, git closeout is pending without a selected owner, or a mutating/destructive closeout action lacks confirmation.

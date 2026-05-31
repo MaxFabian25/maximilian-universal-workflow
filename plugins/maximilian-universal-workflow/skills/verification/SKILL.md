@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Use when proving repo completion claims with fresh commands, acceptance evidence, and failure routing.
+description: Use when execution claims need fresh parent-side proof mapped to acceptance criteria and goal state.
 ---
 
 # Verification
@@ -22,4 +22,4 @@ Follow `../../docs/workflow-contracts/README.md`.
 
 ## Stop
 
-Stop when verification fails, the proving command is unknown, or running it would require unapproved destructive/external action.
+Stop when the proving command is unknown, running it would require unapproved destructive/external action, or verification fails without an approved execution route or user disposition.

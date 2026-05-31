@@ -29,12 +29,12 @@ Assume the active workspace is a git repository. Start by reading applicable `AG
 
 ## Runtime Config
 
-The source repository root includes `.codex/config.toml` and `.codex/agents/*.toml` as the required Codex runtime config for this plugin. These files are not part of the installable plugin root; they are the public setup contract for operators and marketplace maintainers. Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment. Keep machine-local paths, MCP servers, secrets, marketplaces, and unrelated policy in the operator's own config.
+The marketplace/source repository root includes `.codex/config.toml` and `.codex/agents/*.toml` as the required Codex runtime config for this plugin. In an installed marketplace checkout, those files live beside `.agents/plugins/marketplace.json`, not inside this plugin package directory. Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment. Keep machine-local paths, MCP servers, secrets, marketplaces, and unrelated policy in the operator's own config.
 
 ## Subagent Lanes
 
-- Use `explorer` freely for read-only repository investigation, critique, review, and evidence fanout.
-- Use `worker` freely for explicitly owned, isolated write/execution tasks.
+- Use `explorer` when read-only repository investigation, critique, review, or evidence fanout is independent enough to improve confidence or speed.
+- Use `worker` when write/execution tasks have explicitly owned, non-overlapping mutable scope.
 - Child agents never ask the user directly; they return `decision_needed` to the parent.
 - Use `multi-agent-v2` when the native subagent coordination mechanics, task paths, collection, recovery, or debugging are themselves the work.
 

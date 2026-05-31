@@ -43,4 +43,5 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 - Verification fail -> execution or `request_user_input`.
 - Review pass -> handoff.
 - Review findings -> execution or `request_user_input`.
-- Handoff choice selected -> done, PR, branch continuation, or user-owned next action.
+- Handoff git closeout incomplete -> `request_user_input` or user-owned stop with evidence.
+- Handoff git closeout clean, PR complete, branch continuation selected, or user-owned stop selected -> done.

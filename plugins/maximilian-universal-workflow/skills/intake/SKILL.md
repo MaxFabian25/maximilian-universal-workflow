@@ -15,11 +15,11 @@ Follow `../../docs/workflow-contracts/README.md`.
 
 - Confirm git repo, branch, `git status --short`, and applicable `AGENTS.md` before mutation.
 - When the user invokes the plugin generally, run the phase loop; do not stop at classification.
-- Route to the narrowest phase: exploration, ideation, planning, execution, verification, review, receiving-review, handoff, or cleanup.
+- Route to the narrowest phase: exploration, ideation, planning, execution, verification, review, receiving-review, handoff, or repo-context-cleanup.
 - Create or update the shared phase bundle with repo state, objective, acceptance criteria if known, allowed side effects, evidence, chosen phase, and open decisions.
 - Continue into the next phase when evidence, approval, and permissions are already sufficient.
 - If continuation needs a later user turn, provide the exact next skill invocation prompt.
-- Call root-thread `request_user_input` liberally for routing, approval, ambiguity, and material choices.
+- Call root-thread `request_user_input` for routing, approval, ambiguity, and material choices only when there are 2-3 concrete paths; keep gathering read-only evidence when that can resolve the ambiguity.
 - Child agents never ask the user directly; they return `decision_needed`.
 
 ## Stop

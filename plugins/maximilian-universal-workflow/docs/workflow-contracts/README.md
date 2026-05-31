@@ -12,7 +12,7 @@ Human-facing authority for Maximilian Universal Workflow.
 
 ## Files
 
-- Source repository `.codex/config.toml` defines the required Codex runtime features and agent role mapping; source repository `.codex/agents/*.toml` defines the bundled `default`, `explorer`, and `worker` role instructions.
+- Marketplace/source repository root `.codex/config.toml` defines the required Codex runtime features and agent role mapping; `.codex/agents/*.toml` defines the bundled `default`, `explorer`, and `worker` role instructions.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
@@ -30,8 +30,8 @@ Human-facing authority for Maximilian Universal Workflow.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
 - Goal-backed planning: `planning` outputs the plan first, then uses native goal tools. Use `get_goal` to compare current goal state against the planned objective. Use `create_goal` only when no current goal exists and proceed intent is clear. If a different current goal exists, call `request_user_input` for the goal conflict choice.
 - Worktree isolation: use `git-worktrees` between planning and execution when substantial mutation should happen away from the current branch or current-branch execution is not approved.
-- User choices: call root-thread `request_user_input` liberally for material ambiguity, branch choices, approval, ownership, and closeout. Use `request-user-input.md` for the exact choice shape.
-- Subagents: encourage `explorer` read-only fanout and `worker` isolated ownership whenever useful; use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
+- User choices: call root-thread `request_user_input` when there are 2-3 concrete paths and the choice affects scope, side effects, ownership, goal state, verification, review, or closeout. Use `request-user-input.md` for the exact choice shape.
+- Subagents: use `explorer` read-only fanout and `worker` isolated ownership when the work is independent, bounded, and improves confidence, speed, critique, or isolation. Use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results or `decision_needed`.
 - MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
 - Phase transition: every phase consumes and updates the shared `phase-bundle.md` state, then routes through `phase-transition.md`.
 - Artifacts: `workflow-artifacts/` supports evidence and handoff. Interactive HTML is the default support artifact for substantial workflow runs. Source, tests, docs, branches, commits, and PRs are primary.

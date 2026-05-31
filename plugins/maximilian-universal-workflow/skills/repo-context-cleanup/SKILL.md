@@ -1,6 +1,6 @@
 ---
 name: repo-context-cleanup
-description: Use when cleaning stale repo context, generated evidence, abandoned plans, or workflow residue.
+description: Use when stale generated plans, scratch artifacts, duplicate notes, or uncertain repo context block a phase.
 ---
 
 # Repo Context Cleanup
@@ -21,7 +21,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/cleanup-playboo
 - Identify `AGENTS.md`, cleanup conventions, and authority first.
 - Classify as authority, archive, stale bloat, generated evidence, or uncertain.
 - Actions: delete, archive, consolidate, rewrite as authority, or leave.
-- Use root-thread `request_user_input` liberally for delete vs archive vs report-only policy choices.
+- Use root-thread `request_user_input` when cleanup policy has concrete delete, archive, consolidate, or report-only options.
 - Do not delete uncertain items without explicit approval.
 - Update the shared phase bundle to return to the blocked phase or handoff.
 

@@ -24,7 +24,7 @@ Descriptions: one short sentence each explaining impact or tradeoff
 ## Use For
 
 - phase routing when more than one phase is plausible;
-- ideation branch selection and branch/worktree approval;
+- ideation implementation-path selection and branch/worktree approval;
 - goal conflict or proceed decisions;
 - git worktree location, branch collision, dirty-state, baseline failure, and cleanup decisions;
 - worker ownership overlap;
