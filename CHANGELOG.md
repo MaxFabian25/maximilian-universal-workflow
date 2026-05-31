@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.15
+
+- Refreshes Codex `0.133.0-alpha.4` MultiAgentV2 source notes, clarifies runtime setup paths, aligns native tool mappings with current goal and subagent tools, tightens interactive choice gates, and bounds subagent fanout guidance.
+
 ## 0.1.14
 
 - Adds the shared phase bundle contract, routes phase transitions through `continue_now`, and adds a standalone HTML artifact template for substantial workflow evidence dashboards.

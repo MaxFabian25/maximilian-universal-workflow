@@ -13,6 +13,7 @@ Acceptance criteria: <criteria to preserve or prove>.
 Constraints: Do not edit files, ask the user, coordinate agents, or wait for siblings.
 Check: correctness, scope, tests/evidence, integration risks, unsupported claims, handoff gaps.
 Output findings by severity with evidence.
+Decision payload: when blocked, return header, id, question, 2-3 options, recommended option, evidence, and blocking_phase.
 ```
 
 ## Severity

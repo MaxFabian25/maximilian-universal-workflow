@@ -9,7 +9,7 @@ Generate repo-grounded options, then converge through root-thread user choice.
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md` and `references/ideation-branches.md`.
+Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/ideation-branches.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 

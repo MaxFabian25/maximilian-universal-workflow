@@ -14,7 +14,7 @@ If a child intentionally spawns its own descendants, it may coordinate only thos
 
 ## Delegation
 
-Spawn subagents whenever they improve speed, breadth, critique, or isolation. Use multiple agents for independent questions or disjoint edit scopes. For edits, assign ownership and tell workers not to revert others' changes.
+Spawn subagents when they improve speed, breadth, critique, or isolation enough to justify coordination cost. Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries. Use multiple agents for independent questions or disjoint edit scopes. Use `spawn_agents_on_csv` for independent row-manifest work with structured result collection. For edits, assign ownership and tell workers not to revert others' changes.
 
 ## Spawn
 

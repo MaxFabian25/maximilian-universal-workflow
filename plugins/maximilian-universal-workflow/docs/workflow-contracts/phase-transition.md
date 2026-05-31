@@ -8,6 +8,15 @@ The phase bundle is the handoff packet. A phase may report only fields that chan
 
 Every phase stop or continuation includes the compact phase footer from `phase-bundle.md`. Treat `continue_now: yes` in that footer as the handoff signal for immediate continuation.
 
+## Decision Precedence
+
+When stopping, asking, and continuing are all plausible, apply this order:
+
+1. Stop only for a hard blocker: missing repo/worktree, unknown governing instructions, unsafe or unapproved side effect, unresolved ownership overlap, unavailable required tool, failed required verification, or a user instruction to stop.
+2. Ask with root-thread `request_user_input` for any material user-owned choice with 2-3 concrete options, including choices that affect scope, side effects, ownership, active-goal conflict disposition, verification confidence, review disposition, or closeout.
+3. Continue when repo state is known, governing instructions are known, allowed side effects cover the next phase, ownership is non-overlapping, and no material user-owned choice remains.
+4. Treat explicit user wording such as planning-only, no-goal, stop-with-evidence, current-branch approved, or worktree required as an already-made decision; record it in the phase bundle instead of asking again.
+
 ## Transition Checklist
 
 Before a phase hands off, asks, or stops:
@@ -25,19 +34,18 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 ## Rules
 
 - Treat acceptance criteria as the thread running through planning, execution, verification, review, and handoff.
-- Continue directly into the next phase when the user asked Codex to do the work and the bundle proves approval, ownership, evidence, and safety are sufficient.
-- Use `request_user_input` before crossing a material side-effect, scope, ownership, goal, verification, review, or closeout decision.
-- For substantial runs, create or update `workflow-artifacts/YYYY-MM-DD-<slug>.html` with the current bundle, decisions, evidence, and next phase.
-- Substantial runs include multi-phase work, multi-agent work, goal-backed execution, non-trivial verification, review ledgers, and handoff reports.
+- Continue directly into the next phase when Decision Precedence proves approval, ownership, evidence, and safety are sufficient; workflow invocation is enough continuation and goal setup intent unless the user explicitly asked for planning-only, no-goal, or stop-with-evidence behavior.
+- Use `request_user_input` before crossing a material side-effect, scope, ownership, active-goal conflict disposition, verification, review, or closeout decision.
+- Apply `artifact-floor.md` for substantial-run artifact requirements and exceptions.
 - Trivial single-step work may report the changed bundle fields in the final response without an HTML artifact.
 
 ## Pass/Fail Routing
 
-- Exploration sufficient -> ideation or planning.
+- Intake complete -> exploration.
+- Exploration sufficient -> ideation.
 - Ideation selected -> planning.
-- Planning complete, goal state settled, and `worktree_state.mode` is `current-branch` -> execution.
-- Planning complete and `worktree_state.mode` is `worktree-needed` -> git-worktrees.
-- Git worktree ready -> execution.
+- Planning complete and goal state settled -> git-worktrees.
+- Git-worktrees complete with `worktree_state.mode` as `current-branch` or `worktree-ready` -> execution.
 - Execution integrated -> verification.
 - Verification pass -> review.
 - Verification fail -> execution or `request_user_input`.
@@ -45,3 +53,9 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 - Review findings -> execution or `request_user_input`.
 - Handoff git closeout incomplete -> `request_user_input` or user-owned stop with evidence.
 - Handoff git closeout clean, PR complete, branch continuation selected, or user-owned stop selected -> done.
+
+## Auxiliary Routing
+
+- `receiving-review` may interrupt execution, verification, review, or handoff when feedback arrives. After triage, route to execution, verification, review, handoff, or `request_user_input`.
+- `repo-context-cleanup` may interrupt any phase when stale repo context blocks reliable work. After cleanup, return to the blocked phase with refreshed evidence.
+- `multi-agent-v2` is an auxiliary coordination skill for fanout mechanics, task-path debugging, stalled-agent handling, and collection. Return to the owning phase after coordination evidence is collected.

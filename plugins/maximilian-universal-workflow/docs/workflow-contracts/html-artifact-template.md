@@ -28,6 +28,7 @@ When changing the support artifact shape, update this contract and the asset in 
 
 - Prefer tables for scan-heavy evidence and `pre` blocks for command output or the phase bundle.
 - Keep copyable next prompts visible in the handoff section.
+- Keep the template controls working: tabs use `data-tab` and `data-panel`, status filters use `data-filter` with optional row-level `data-status`, and next prompts use `data-copy-target`.
 - Use simple CSS in the file; do not require build tools.
 - Preserve useful earlier phase evidence when updating the artifact.
 - If the artifact would duplicate a richer repo-native report, link or summarize that report instead of recreating it.

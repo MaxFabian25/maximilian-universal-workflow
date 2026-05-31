@@ -9,7 +9,7 @@ Close with evidence, risks, branch state, and operator choices.
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checklist.md`.
+Read `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/handoff-checklist.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 
@@ -17,7 +17,7 @@ Follow `../../docs/workflow-contracts/README.md` and `references/handoff-checkli
 - Inspect and report git closeout state: unstaged, staged, untracked, unpushed, upstream, PR state when available, and current owner.
 - Use root-thread `request_user_input` for 2-3 relevant closeout choices selected from: stop with evidence, keep branch, stage and commit, push/create PR, or user-owned remaining git work.
 - Do not stage, commit, discard, delete, merge, push, or create PR without approval and verification.
-- Use `workflow-artifacts/` for evidence and handoff support, and update the interactive HTML artifact for substantial runs.
+- Apply `../../docs/workflow-contracts/artifact-floor.md` for substantial handoff support artifacts.
 - Update the shared phase bundle and include the final phase footer.
 
 ## Stop

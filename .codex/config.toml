@@ -23,6 +23,9 @@ mentions_v2 = true
 [features.multi_agent_v2]
 enabled = true
 max_concurrent_threads_per_session = 32
+min_wait_timeout_ms = 600000
+default_wait_timeout_ms = 900000
+max_wait_timeout_ms = 3600000
 usage_hint_enabled = true
 usage_hint_text = """When using MultiAgentV2, spawn only self-contained packets. Use fork_turns:"none" unless a history fork is explicitly needed. Record the task_name returned by spawn_agent. A parent coordinates only its own returned task names, lists with path_prefix when possible, sends at most one focused follow-up for unusable results, closes stuck or acknowledgement-only agents, and continues with partial evidence. A spawned leaf must never wait for siblings or collect fanout results."""
 root_agent_usage_hint_text = """MultiAgentV2 root guidance: you are the orchestrator only for agents you personally spawned. Track returned task_names, use path_prefix when listing, ignore unrelated live agents, close stuck or acknowledgement-only children, and report partial evidence instead of waiting for every child. Send children self-contained packets; do not ask them to read workflow references."""

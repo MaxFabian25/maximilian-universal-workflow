@@ -23,7 +23,7 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 
 ## Required Codex Config
 
-This repository includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`.
+The marketplace/repository root includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`. After marketplace install, these files live beside `.agents/plugins/marketplace.json`, not under `plugins/maximilian-universal-workflow/`.
 
 Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment for this plugin. Do not replace personal machine paths, MCP servers, secrets, marketplace state, or unrelated local policy with the repository file.
 
