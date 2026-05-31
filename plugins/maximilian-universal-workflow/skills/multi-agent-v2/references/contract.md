@@ -25,7 +25,7 @@ Spawn subagents when they improve speed, breadth, critique, or isolation enough 
 
 ## Message
 
-Use `send_message` for queue-only updates; it accepts relative or canonical targets and does not trigger a turn. From a child, `send_message` may target `/root` for handoff. Use `followup_task` for a non-root agent's new turn; never target `/root`. Use relative targets only within the current branch and canonical paths across branches.
+Use `send_message` for queue-only updates; it accepts relative or canonical targets and does not trigger a turn. Send child handoffs to the current parent/orchestrator; target `/root` only when `/root` is the immediate orchestrator for that child. Use `followup_task` for a non-root agent's new turn; never target `/root`. Use relative targets only within the current branch and canonical paths across branches.
 
 ## Collect
 

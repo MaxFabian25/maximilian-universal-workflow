@@ -9,7 +9,7 @@ Resolve branch safety before write-owning execution.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/native-tool-map.md`, and `references/worktree-playbook.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
+Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, `../../docs/workflow-contracts/native-tool-map.md`, and `references/worktree-playbook.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 

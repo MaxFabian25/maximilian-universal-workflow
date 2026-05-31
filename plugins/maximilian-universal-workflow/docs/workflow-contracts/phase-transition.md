@@ -48,7 +48,7 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 - Git-worktrees complete with `worktree_state.mode` as `current-branch` or `worktree-ready` -> execution.
 - Execution integrated -> verification.
 - Verification pass -> review.
-- Verification fail -> execution or `request_user_input`.
+- Verification fail -> execution, `request_user_input`, or handoff after an explicit stop-with-evidence or accepted-risk disposition.
 - Review pass -> handoff.
 - Review findings -> execution or `request_user_input`.
 - Handoff git closeout incomplete -> `request_user_input` or user-owned stop with evidence.

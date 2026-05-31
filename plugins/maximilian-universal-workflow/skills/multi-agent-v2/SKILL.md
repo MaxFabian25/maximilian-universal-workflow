@@ -7,7 +7,7 @@ description: "Use when coordinating MultiAgentV2 task paths, row-manifest fanout
 
 ## Read
 
-Read `references/contract.md` for the full operational contract and `references/source-notes.md` only for source-backed diagnostics.
+Read `references/contract.md` for the full operational contract and `../../docs/workflow-contracts/multi-agent-v2-source-notes.md` only for source-backed diagnostics.
 
 ## Rule
 

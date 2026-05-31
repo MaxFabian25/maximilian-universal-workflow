@@ -1,6 +1,6 @@
 # MultiAgentV2 Source Notes
 
-Source evidence for `../SKILL.md` and `contract.md`.
+Source evidence for `../../skills/multi-agent-v2/SKILL.md` and `../../skills/multi-agent-v2/references/contract.md`.
 
 ## Pin
 

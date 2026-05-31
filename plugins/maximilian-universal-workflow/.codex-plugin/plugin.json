@@ -1,6 +1,6 @@
 {
   "name": "maximilian-universal-workflow",
-  "version": "0.1.15+codex.20260522142832",
+  "version": "0.1.15+codex.20260531153850",
   "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
   "author": {
     "name": "Max Fabian",
@@ -32,8 +32,8 @@
       "Write"
     ],
     "websiteURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
-    "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
-    "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow",
+    "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow/blob/main/TERMS.md",
     "defaultPrompt": [
       "Complete the repo task with branch, instruction, safety, goal, and verification boundaries.",
       "Use goal-backed planning; create goals only at gates; route through worktrees, execution, verification, review, or handoff.",
