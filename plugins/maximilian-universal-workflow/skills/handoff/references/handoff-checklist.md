@@ -13,9 +13,9 @@ Git closeout: <clean/unstaged/staged/unpushed/pr-open/user-owned with branch, up
 Risks: <remaining risks or none>
 Unverified gaps: <none or specific gaps>
 Next owner: <user/agent/team>
-Recommended closeout: <stop with evidence/keep branch/create PR>
+Recommended closeout: <2-3 relevant options from stop with evidence/keep branch/stage and commit/push or create PR/user-owned remaining git work>
 ```
 
 Do not report `Status: done` while the repo still has uncommitted changes, staged changes, unpushed commits, or missing PR closeout unless the user explicitly selected a user-owned stop and the handoff names the remaining git work.
 
-First closeout prompt names the next git action clearly: stop with evidence, keep branch, stage and commit, push/create PR, or user-owned remaining git work. Stage, commit, merge, push, discard, delete, PR creation, or destructive cleanup requires explicit user approval and current verification.
+First closeout prompt names 2-3 relevant next git actions selected from: stop with evidence, keep branch, stage and commit, push/create PR, or user-owned remaining git work. Stage, commit, merge, push, discard, delete, PR creation, or destructive cleanup requires explicit user approval and current verification.

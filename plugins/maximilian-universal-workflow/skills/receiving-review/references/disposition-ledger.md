@@ -16,6 +16,6 @@ Use this structure when review feedback contains multiple items or when the fina
 
 - `Fixed in <path>: <what changed>. Verified with <command/check>.`
 - `Keeping current approach: <evidence-backed reason>.`
-- `Need decision on <item>: <specific branch choice, missing evidence, or owner>.`
+- `Need decision on <item>: <specific implementation-path choice, missing evidence, or owner>.`
 
 Keep replies technical and brief. Do not use social filler as a substitute for a disposition.

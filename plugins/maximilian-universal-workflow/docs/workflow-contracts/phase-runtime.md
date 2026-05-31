@@ -39,14 +39,14 @@ Use root-thread `request_user_input` whenever a phase has 2-3 concrete paths and
 
 - intake: choose current phase or approve mutation after read-only state is known.
 - exploration: choose deeper probe, ideation, or planning when evidence is incomplete but actionable.
-- ideation: choose one branch from 2-3 repo-grounded options.
+- ideation: choose one implementation path from 2-3 repo-grounded options.
 - planning: choose active-goal conflict disposition, create goal, use worktree isolation, proceed to execution, revise plan, or stop with plan.
 - git-worktrees: choose worktree location, dirty-state disposition, baseline failure disposition, or stop with evidence.
 - execution: choose parent integration path when worker ownership overlaps or side effects expand.
 - verification: choose fix failures, accept residual risk, or stop with evidence.
 - review: choose fix findings, accept findings, or request more review.
 - receiving-review: choose fix, push back, or `decision_needed` when feedback changes scope.
-- handoff: choose stage/commit, push/create PR, keep branch, or stop with evidence; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
+- handoff: choose 2-3 relevant options from stage/commit, push/create PR, keep branch, stop with evidence, or user-owned remaining git work; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
 
 ## Stop Output Contract
 

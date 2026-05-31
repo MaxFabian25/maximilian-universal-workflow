@@ -1,8 +1,8 @@
-# Ideation Branches
+# Ideation Paths
 
 Use repo evidence to create options across axes such as conservative/balanced/ambitious, minimal/complete, local/systemic, quick fix/refactor, artifact-only/source-changing, and sequential/subagent-owned.
 
-Each branch choice should include:
+Each implementation-path choice should include:
 
 - label;
 - what it optimizes for;
