@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "description": "Thresholds for the maximilian-universal-workflow Plugin Eval Scenario Suite benchmark gate.",
+  "baseline": {
+    "source": "Repeated Scenario Suite live benchmarks on 2026-05-31",
+    "lower_observed_average_total_tokens": 144994.33,
+    "lower_observed_read_only_regression_review_total_tokens": 155910,
+    "lower_observed_goal_backed_planning_gate_total_tokens": 167308,
+    "lower_observed_weak_match_boundary_total_tokens": 111765,
+    "repeat_observed_average_total_tokens": 241902.33,
+    "repeat_observed_read_only_regression_review_total_tokens": 276019,
+    "repeat_observed_goal_backed_planning_gate_total_tokens": 256620,
+    "repeat_observed_weak_match_boundary_total_tokens": 193068,
+    "phase_core_live_smoke_total_tokens": 316048,
+    "pre_phase_core_total_tokens": 365430,
+    "initial_compaction_regression_total_tokens": 552239
+  },
+  "thresholds": {
+    "expectedScenarioCount": 3,
+    "maxFailedScenarios": 0,
+    "requireUsage": true,
+    "maxAverageTotalTokens": 300000,
+    "maxScenarioTotalTokens": 330000,
+    "maxChangedFiles": 0,
+    "maxFailedShellCommands": 0,
+    "requireCompletedStatus": true
+  },
+  "scenarioThresholds": {
+    "read-only-regression-review": {
+      "maxTotalTokens": 330000,
+      "maxChangedFiles": 0
+    },
+    "goal-backed-planning-gate": {
+      "maxTotalTokens": 310000,
+      "maxChangedFiles": 0
+    },
+    "weak-match-boundary": {
+      "maxTotalTokens": 235000,
+      "maxChangedFiles": 0
+    }
+  }
+}

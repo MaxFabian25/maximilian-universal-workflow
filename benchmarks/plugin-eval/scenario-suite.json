@@ -1,0 +1,70 @@
+{
+  "kind": "plugin-eval-benchmark",
+  "schemaVersion": 2,
+  "version": 2,
+  "targetKind": "plugin",
+  "targetName": "maximilian-universal-workflow",
+  "runner": {
+    "type": "codex-cli",
+    "model": "gpt-5.4",
+    "sandbox": "workspace-write",
+    "approvalPolicy": "never",
+    "extraArgs": []
+  },
+  "workspace": {
+    "sourcePath": ".",
+    "setupMode": "copy",
+    "preserve": "on-failure"
+  },
+  "targetProvisioning": {
+    "mode": "workspace-plugin-marketplace"
+  },
+  "verifiers": {
+    "commands": []
+  },
+  "notes": [
+    "Scenario Suite benchmark gate for maximilian-universal-workflow performance regressions.",
+    "Run from the repository root with scripts/run_benchmark_gate.sh so workspace.sourcePath is rewritten to a clean current-tree snapshot.",
+    "Scenarios are intentionally read-only so token and latency signals are not distorted by implementation work."
+  ],
+  "setupQuestions": [
+    "Has the runner model changed from the committed baseline?",
+    "Should threshold updates be accepted because a behavior improvement intentionally costs more tokens?",
+    "Do new workflow phases require an additional representative read-only scenario?"
+  ],
+  "scenarios": [
+    {
+      "id": "read-only-regression-review",
+      "title": "Read-only regression review",
+      "purpose": "Measure whether the plugin can inspect active planning, git-worktrees, execution, and multi-agent-v2 read paths for token-load regression risk without nested benchmark work.",
+      "userInput": "Use the local Codex plugin \"maximilian-universal-workflow\" if it helps. Do not edit files. Do not run Plugin Eval, validators, or broad repository-wide searches. Inspect only the planning, git-worktrees, execution, and multi-agent-v2 active skill read paths plus directly referenced contracts needed to judge token-load performance regression risk. Return 2-3 repo-grounded options with tradeoffs, one recommended direction, and a compact phase footer with next_phase and continue_now.",
+      "successChecklist": [
+        "The run stays read-only.",
+        "The answer cites repo evidence from relevant active skill or workflow-contract files.",
+        "The answer provides concrete direction options and a phase footer."
+      ]
+    },
+    {
+      "id": "goal-backed-planning-gate",
+      "title": "Goal-backed planning gate",
+      "purpose": "Measure the planning path that turns evidence into an executable plan, including native-goal and branch-safety gates, without performing mutation.",
+      "userInput": "Use the local Codex plugin \"maximilian-universal-workflow\" if it helps. Do not edit files and do not create a goal. Plan how to add a small documentation-only change to this repository. Include repo evidence, acceptance criteria, ownership, verification commands, goal-tool disposition, worktree/current-branch disposition, and a compact phase footer.",
+      "successChecklist": [
+        "The run stays read-only and does not create a goal.",
+        "The answer includes planning evidence, acceptance criteria, ownership, and verification.",
+        "The answer explicitly handles goal and worktree/current-branch disposition."
+      ]
+    },
+    {
+      "id": "weak-match-boundary",
+      "title": "Weak-match boundary",
+      "purpose": "Measure whether the plugin narrows scope when the request is a weak fit instead of loading and executing unrelated workflow phases.",
+      "userInput": "This is a weak match for the local Codex plugin \"maximilian-universal-workflow\". Do not edit files. Explain what slice, if any, the plugin should own for a request to choose a desktop wallpaper. Keep unrelated repository work out of scope and include a compact phase footer.",
+      "successChecklist": [
+        "The run stays read-only.",
+        "The answer narrows or refuses the workflow scope instead of forcing a bad fit.",
+        "The answer identifies the plugin boundary clearly."
+      ]
+    }
+  ]
+}
