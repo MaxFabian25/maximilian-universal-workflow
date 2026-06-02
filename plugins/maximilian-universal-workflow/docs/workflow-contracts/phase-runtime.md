@@ -18,14 +18,14 @@ Phase skills consume and update the current phase bundle state described by `pha
 | --- | --- | --- | --- | --- |
 | intake | `git status --short`, branch command, `rg --files`, `AGENTS.md` reads | repo/worktree, branch, status, instructions, requested outcome | repo mechanics and phase are known | exploration |
 | exploration | `rg`, reads, non-mutating commands, `explorer` fanout | cited files, commands, branch/status, uncertainty | evidence is enough for a decision or plan | ideation |
-| ideation | repo evidence, root `request_user_input`, `explorer` critique when useful | 2-3 implementation-path choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
-| planning | repo reads, `explorer` checks when useful, root `request_user_input`, native goal tools | exploration evidence, acceptance criteria, scope, task order, ownership, verification, native goal state | implementation plan and goal-backed setup are decision-complete | git-worktrees |
-| git-worktrees | `git worktree`, branch/status commands, setup command, baseline command, root `request_user_input` | branch safety, worktree mode/path when used, branch, ignore check, setup result, baseline result | branch safety is resolved and current branch or worktree is ready | execution |
+| ideation | repo evidence, `request_user_input`, `explorer` critique when useful | 2-3 implementation-path choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
+| planning | repo reads, `explorer` checks when useful, `request_user_input`, native goal tools | exploration evidence, acceptance criteria, scope, task order, ownership, verification, native goal state | implementation plan and goal-backed setup are decision-complete | git-worktrees |
+| git-worktrees | `git worktree`, branch/status commands, setup command, baseline command, `request_user_input` | branch safety, worktree mode/path when used, branch, ignore check, setup result, baseline result | branch safety is resolved and current branch or worktree is ready | execution |
 | execution | `worker` fanout, `apply_patch`, commands, integration | ownership map, changed paths, local checks, blockers | work is integrated and ready to prove | verification |
 | verification | parent-side commands/checklists, `get_goal`, `update_goal` after proof | acceptance criteria mapped to command/check results in current repo state | claims are proven, failures are repaired, or a failed state has an explicit stop disposition | review, execution, or handoff |
 | review | `git status`, `git diff --stat`, `git diff`, tests, `rg`, `explorer` fanout | findings with file/line evidence and severity | findings resolved or accepted | handoff or execution |
-| receiving-review | full review text, repo reads, `explorer` checks when useful, root `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
-| handoff | `git status --short`, branch/upstream commands, branch/PR commands, root `request_user_input` | changed paths, verification, review, risks, git closeout state, closeout choice | git state is clean, PR/branch closeout is complete, or remaining git work is explicitly user-owned | done |
+| receiving-review | full review text, repo reads, `explorer` checks when useful, `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
+| handoff | `git status --short`, branch/upstream commands, branch/PR commands, `request_user_input` | changed paths, verification, review, risks, git closeout state, closeout choice | git state is clean, PR/branch closeout is complete, or remaining git work is explicitly user-owned | done |
 
 ## Fanout Rubric
 
@@ -37,7 +37,7 @@ When a CSV row manifest defines independent, repeatable worker packets, the pare
 
 ## Decision Gates
 
-Use root-thread `request_user_input` proactively whenever a phase has 2-3 concrete paths and the choice affects scope, ownership, side effects, active-goal conflict disposition, verification confidence, review disposition, or closeout. Include a recommended option first.
+Use `request_user_input` proactively whenever it is available and a phase has 2-3 concrete paths where the choice affects scope, ownership, side effects, active-goal conflict disposition, verification confidence, review disposition, or closeout. Include a recommended option first.
 
 - intake (`phase_route`): choose current phase or approve mutation after read-only state is known.
 - exploration (`phase_route`): choose deeper probe, ideation, or stop with evidence when evidence is incomplete but actionable.
@@ -47,7 +47,7 @@ Use root-thread `request_user_input` proactively whenever a phase has 2-3 concre
 - execution (`ownership_overlap`): choose parent integration path when worker ownership overlaps or side effects expand.
 - verification (`verification_failure`): choose fix failures, accept residual risk, or stop with evidence; accepted risk or stop-with-evidence routes to handoff without marking completion.
 - review (`review_finding`): choose fix findings, accept findings, or request more review.
-- receiving-review (`review_finding`): choose fix, push back, or root-thread `request_user_input` when feedback changes scope; child agents return `decision_needed`.
+- receiving-review (`review_finding`): choose fix, push back, or `request_user_input` when feedback changes scope; return `decision_needed` only when `request_user_input` is unavailable, the parent owns the choice, or sibling synthesis must happen first.
 - handoff (`handoff_closeout`, `cleanup_choice`): choose 2-3 relevant options from stage/commit, push/create PR, keep branch, stop with evidence, or user-owned remaining git work; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
 
 ## Stop Output Contract

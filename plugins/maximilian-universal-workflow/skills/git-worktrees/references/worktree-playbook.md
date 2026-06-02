@@ -8,7 +8,7 @@ Record one mode: `current-branch`, `worktree-needed`, or `decision-needed`.
 
 Require `worktree-needed` for isolation requirements, protected/default/release-like or unknown branch policy without explicit approval, unrelated dirty state, write-owning worker fanout, multiple mutable ownership areas, destructive cleanup, or generated artifacts plus source edits.
 
-Root threads resolve `decision-needed` with `request_user_input` offering current branch, isolated worktree, or stop with evidence. Child agents return `decision_needed`.
+Resolve `decision-needed` with `request_user_input` when available, offering current branch, isolated worktree, or stop with evidence. Return `decision_needed` only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
 
 ## Create
 

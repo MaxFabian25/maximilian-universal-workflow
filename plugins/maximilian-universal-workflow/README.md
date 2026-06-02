@@ -37,7 +37,7 @@ The marketplace/source repository root includes `.codex/config.toml` and `.codex
 - Use `worker` when write/execution tasks have explicitly owned, non-overlapping mutable scope.
 - Default to no subagents for narrow single-thread work and 1-3 subagents for ordinary fanout. Exceed 3 only when the task naturally partitions and the parent can synthesize bounded summaries.
 - Before spawning, name the reason for fanout, expected output, ownership boundary, and collection point.
-- Child agents never ask the user directly; they return `decision_needed` to the parent.
+- Spawned agents call `request_user_input` directly when they have the tool and need operator direction. They return `decision_needed` only when the tool is unavailable, the packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 - Use `multi-agent-v2` when the native subagent coordination mechanics, task paths, collection, recovery, or debugging are themselves the work.
 
 ## Review Reception

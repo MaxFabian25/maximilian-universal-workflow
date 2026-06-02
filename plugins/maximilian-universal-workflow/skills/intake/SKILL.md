@@ -19,8 +19,8 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 - Create or update the shared phase bundle with repo state, objective, acceptance criteria if known, allowed side effects, evidence, chosen phase, and open decisions.
 - Continue into the next phase when evidence, approval, and permissions are already sufficient.
 - If continuation needs a later user turn, provide the exact next skill invocation prompt.
-- Call root-thread `request_user_input` for routing, approval, ambiguity, and material choices only when there are 2-3 concrete paths; keep gathering read-only evidence when that can resolve the ambiguity.
-- Child agents never ask the user directly; they return `decision_needed`.
+- Call `request_user_input` for routing, approval, ambiguity, and material choices when the tool is available and there are 2-3 concrete paths; keep gathering read-only evidence when that can resolve the ambiguity.
+- Return `decision_needed` only when `request_user_input` is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 
 ## Stop
 

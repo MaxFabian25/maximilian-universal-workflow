@@ -1,6 +1,6 @@
 # Request User Input
 
-Use root-thread `request_user_input` for material choices. Children return a `decision_needed` payload to the parent; the parent converts it into `request_user_input` only when the decision is still needed after synthesis. Do not emulate the tool with markdown checkboxes or a prose menu.
+Use `request_user_input` for material choices whenever the tool is available to the running agent. Spawned children do not stop just because they are children; they call the tool directly when they need operator direction and can present 2-3 concrete options. Return a `decision_needed` payload only when `request_user_input` is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first. Do not emulate the tool with markdown checkboxes or a prose menu.
 
 ## Decision Rule
 
@@ -21,9 +21,9 @@ Recommended: first option label ends with "(Recommended)"
 Descriptions: one short sentence each explaining impact or tradeoff
 ```
 
-## Child Payload
+## Decision Payload
 
-Spawned children never call `request_user_input` directly. When blocked by a user-owned choice, return this payload to the parent:
+When `request_user_input` cannot be called in the current agent, return this payload to the parent:
 
 ```text
 decision_needed:
@@ -39,7 +39,7 @@ decision_needed:
   blocking_phase: <phase or task name>
 ```
 
-The parent converts this payload into root-thread `request_user_input` when the decision is still needed after synthesis.
+The parent converts this payload into `request_user_input` when the decision is still needed after synthesis.
 
 ## Use For
 
@@ -80,4 +80,4 @@ Revise Scope: Adjust the outcome, acceptance criteria, or ownership before conti
 Stop With Evidence: Stop now and hand off the current phase bundle and artifact.
 ```
 
-Child `decision_needed` payloads must use the Child Payload shape above.
+Fallback `decision_needed` payloads must use the Decision Payload shape above.

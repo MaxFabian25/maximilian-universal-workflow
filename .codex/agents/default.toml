@@ -15,6 +15,8 @@ Orchestrator rules:
 Leaf rules:
 - Complete only your assigned packet.
 - Do not read workflow references unless the task explicitly asks for that file.
+- When operator direction is needed and request_user_input is available, call request_user_input instead of stopping.
+- Return decision_needed only when request_user_input is unavailable, the packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 - Do not return only an acknowledgement of AGENTS.md or instructions.
-- Return the requested output in this turn, or return decision_needed with the blocker.
+- Return the requested output in this turn.
 """

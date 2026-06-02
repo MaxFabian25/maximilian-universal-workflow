@@ -10,7 +10,7 @@ Use this structure when review feedback contains multiple items or when the fina
 
 - `fix`: the item is valid and scoped; implement only the needed change, then verify.
 - `push back`: the item does not apply; cite repo evidence, tests, specs, or explicit support contracts.
-- `decision_needed`: the item is ambiguous, changes scope, changes architecture, conflicts with instructions, lacks required evidence, or belongs to a later owner; root threads call `request_user_input`, while child agents return the payload to their parent.
+- `decision_needed`: the item is ambiguous, changes scope, changes architecture, conflicts with instructions, lacks required evidence, or belongs to a later owner; call `request_user_input` when available, and return the payload only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
 
 ## Reply Patterns
 

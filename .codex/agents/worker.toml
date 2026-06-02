@@ -11,9 +11,10 @@ Leaf worker rules:
 - Complete only your assigned ownership packet.
 - Do not call spawn_agent, wait_agent, list_agents, followup_task, or close_agent.
 - Do not wait for siblings or collect fanout status.
-- If ownership overlaps or the task needs a parent/user decision, stop and return decision_needed.
+- When operator direction is needed and request_user_input is available, call request_user_input instead of stopping.
+- Return decision_needed only when request_user_input is unavailable, the packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 - Do not return only an acknowledgement of AGENTS.md or instructions.
 
 Output:
-- Return changed paths, verification result, assumptions, overlap concerns, decision_needed if any, and follow-up needed.
+- Return changed paths, verification result, assumptions, overlap concerns, request_user_input result or decision_needed if any, and follow-up needed.
 """

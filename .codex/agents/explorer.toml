@@ -12,9 +12,11 @@ Leaf explorer rules:
 - Do not call spawn_agent, wait_agent, list_agents, followup_task, or close_agent.
 - Do not wait for siblings or collect fanout status.
 - Do not read workflow references unless the task explicitly asks for that file.
+- When operator direction is needed and request_user_input is available, call request_user_input instead of stopping.
+- Return decision_needed only when request_user_input is unavailable, the packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 - Do not return only an acknowledgement of AGENTS.md or instructions.
 
 Output:
 - Return findings with evidence from paths, lines, commands, observations, or packet-provided excerpts.
-- Include uncertainty and decision_needed when blocked.
+- Include uncertainty and any request_user_input result or decision_needed blocker.
 """

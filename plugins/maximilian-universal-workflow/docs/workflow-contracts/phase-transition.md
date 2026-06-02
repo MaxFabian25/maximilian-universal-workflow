@@ -13,7 +13,7 @@ Every phase stop or continuation includes the compact phase footer from `phase-b
 When stopping, asking, and continuing are all plausible, apply this order:
 
 1. Stop only for a hard blocker: missing repo/worktree, unknown governing instructions, unsafe or unapproved side effect, unresolved ownership overlap, unavailable required tool, failed required verification, or a user instruction to stop.
-2. Ask with root-thread `request_user_input` for any material user-owned choice with 2-3 concrete options, including choices that affect scope, side effects, ownership, active-goal conflict disposition, verification confidence, review disposition, or closeout.
+2. Ask with `request_user_input` when it is available for any material user-owned choice with 2-3 concrete options, including choices that affect scope, side effects, ownership, active-goal conflict disposition, verification confidence, review disposition, or closeout.
 3. Continue when repo state is known, governing instructions are known, allowed side effects cover the next phase, ownership is non-overlapping, and no material user-owned choice remains.
 4. Treat explicit user wording such as planning-only, no-goal, stop-with-evidence, current-branch approved, or worktree required as an already-made decision; record it in the phase bundle instead of asking again.
 

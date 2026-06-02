@@ -36,7 +36,7 @@ Do not edit contract files as live state. Use a thread footer for trivial runs a
 
 ## Decisions
 
-Root threads call `request_user_input` for 2-3 concrete choices that affect scope, side effects, ownership, active-goal conflicts, worktree state, verification, review, cleanup, or handoff. Child agents return `decision_needed` instead.
+Any running agent with `request_user_input` available calls it for 2-3 concrete choices that affect scope, side effects, ownership, active-goal conflicts, worktree state, verification, review, cleanup, or handoff. Return `decision_needed` only when the tool is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 
 Continue without asking when the user already made the decision or repo evidence safely decides it. Stop only for missing repo mechanics, unknown governing instructions, unsafe or unapproved side effects, ownership overlap, unavailable required tools, failed required verification, or explicit stop instructions.
 

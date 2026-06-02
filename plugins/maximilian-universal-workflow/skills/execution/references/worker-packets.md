@@ -18,9 +18,9 @@ Agent type: worker.
 Ownership: You may edit only <paths or artifact section>.
 Context: Other agents or the parent may be working in the same repo. Do not revert, reformat, or overwrite their work.
 Acceptance criteria: <criteria this worker must satisfy or preserve>.
-Constraints: Stay inside ownership. If overlap is needed, stop and return decision_needed.
+Constraints: Stay inside ownership. If overlap needs operator direction and `request_user_input` is available, call it; return decision_needed only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
 Leaf rule: no agent coordination or sibling waits.
 Verification: Run or describe <focused check>.
-Output: changed paths, acceptance criteria status, verification, assumptions, overlap concerns, decision_needed if any, follow-up.
-Decision payload: when blocked, return a `decision_needed:` block with `header`, `id`, `question`, `options`, `recommended_option`, `evidence`, and `blocking_phase`.
+Output: changed paths, acceptance criteria status, verification, assumptions, overlap concerns, request_user_input result or decision_needed if any, follow-up.
+Decision payload: when `request_user_input` cannot be called in the current agent, return a `decision_needed:` block with `header`, `id`, `question`, `options`, `recommended_option`, `evidence`, and `blocking_phase`.
 ```

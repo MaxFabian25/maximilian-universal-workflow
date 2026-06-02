@@ -14,8 +14,8 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 ## Do
 
 - Tie each option to repo evidence, constraints, risks, and tradeoffs.
-- Use root-thread `request_user_input` to choose among 2-3 concrete implementation paths.
-- Use the root thread for user-facing choices; child agents return `decision_needed`.
+- Use `request_user_input` to choose among 2-3 concrete implementation paths when the tool is available.
+- Return `decision_needed` only when `request_user_input` is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
 - Update the shared phase bundle with selected direction, acceptance criteria, rejected alternatives worth preserving, and a planning-ready next phase.
 
 ## Stop

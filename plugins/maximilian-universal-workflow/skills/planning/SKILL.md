@@ -18,7 +18,7 @@ Read `../../docs/workflow-contracts/phase-core.md` and `references/plan-structur
 - Update the phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, worktree decision, verification, review, handoff, and next phase.
 - Follow `references/plan-structure.md` for required payload and Goal Tool Gates.
 - Use default goal-backed planning unless the user asks for planning-only, no-goal, or stop-with-evidence. Keep the goal objective durable, repo-scoped, verifiable, concise, and under 4,000 characters.
-- Inspect repo conventions and use root-thread `request_user_input` for material tradeoffs, scope, ownership, active-goal, and verification choices when 2-3 concrete options remain.
+- Inspect repo conventions and use `request_user_input` for material tradeoffs, scope, ownership, active-goal, and verification choices when the tool is available and 2-3 concrete options remain.
 - Worker-suitable tasks must have non-overlapping mutable ownership.
 - Decide current-branch approval versus isolated worktree, route to `git-worktrees`, and apply `../../docs/workflow-contracts/artifact-floor.md` for support artifacts.
 - Set `continue_now: yes` only when approval, goal state, worktree state, and ownership are clear; otherwise give the exact next prompt.

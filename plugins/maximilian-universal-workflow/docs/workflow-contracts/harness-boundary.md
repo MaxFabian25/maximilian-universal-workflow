@@ -8,17 +8,17 @@ Intake, repo state checks, exploration, ideation, goal-backed planning, git work
 
 ## Does Not Own
 
-Domain execution owned by a narrower skill/tool/process, work without an established repo/worktree, child-agent user decisions, or hidden code-policy authority.
+Domain execution owned by a narrower skill/tool/process, work without an established repo/worktree, or hidden code-policy authority.
 
 ## Narrower Skills
 
 When a narrower skill, tool, or repo-local process applies, use it for domain procedure, data handling, external-system rules, and artifact-specific validation. This workflow still owns repository lifecycle mechanics: repo state, phase routing, decision gates, worktree and goal coordination, evidence capture, verification routing, review arbitration, and handoff.
 
-If a narrower skill requires stricter safety, evidence, approval, or verification than this harness, follow the stricter requirement and record it in `allowed_side_effects`, `evidence`, or `decision_gate`. If the narrower skill conflicts with repo instructions or an explicit user decision, stop with `decision_needed` instead of silently choosing an authority.
+If a narrower skill requires stricter safety, evidence, approval, or verification than this harness, follow the stricter requirement and record it in `allowed_side_effects`, `evidence`, or `decision_gate`. If the narrower skill conflicts with repo instructions or an explicit user decision, use `request_user_input` when available; return `decision_needed` only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
 
 ## Human Decisions
 
-The root thread owns user-facing decisions. Child agents and drafting passes return unresolved choices to the parent as `decision_needed`.
+The running agent that has `request_user_input` available owns operator-facing decisions for its assigned task. Spawned children return unresolved choices to the parent as `decision_needed` only when the tool is unavailable, the packet explicitly assigns the choice to the parent, or sibling synthesis must happen first.
 
 ## Subagent Roles
 
