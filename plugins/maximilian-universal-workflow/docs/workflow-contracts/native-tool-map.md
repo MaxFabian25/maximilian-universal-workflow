@@ -19,6 +19,6 @@ The marketplace/source repository root includes `.codex/config.toml` and `.codex
 - receiving-review: read the full feedback, verify each item against repo evidence, then fix, push back, or escalate with a disposition ledger.
 - handoff: run `git status --short`, inspect branch/upstream and unpushed commits, record `git_closeout_state`, and do not finish as `done` while staging, commit, push, or PR work is pending unless the user explicitly owns that remaining closeout.
 
-Parent lifecycle: `spawn_agent`, `wait_agent`, `list_agents`, optional `send_message` for queue-only context, at most one focused `followup_task`, then `close_agent`. Close stuck children and report partial evidence.
+Parent lifecycle: `spawn_agent`, `wait_agent`, `list_agents`, optional `send_message` for queue-only context, at most one focused `assign_task`, then `close_agent`. Close stuck children and report partial evidence.
 
 Leaf rule: spawned explorers/workers do not coordinate fanout or wait on siblings unless explicitly assigned descendants. Parent owns choices, synthesis, verification, review arbitration, and handoff.

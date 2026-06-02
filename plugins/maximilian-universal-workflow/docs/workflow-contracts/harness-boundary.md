@@ -22,4 +22,4 @@ The root thread owns user-facing decisions. Child agents and drafting passes ret
 
 ## Subagent Roles
 
-The fanout parent owns bounded `wait_agent`, `list_agents`, `followup_task`, `close_agent`, synthesis, and arbitration. Stuck leaves are closed and reported as partial evidence. Spawned explorers/workers are leaves unless explicitly assigned descendants.
+The fanout parent owns bounded `wait_agent`, `list_agents`, `assign_task`, `close_agent`, synthesis, and arbitration. Stuck leaves are closed and reported as partial evidence. Spawned explorers/workers are leaves unless explicitly assigned descendants.

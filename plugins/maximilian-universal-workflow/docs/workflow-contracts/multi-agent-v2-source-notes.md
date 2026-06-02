@@ -4,15 +4,15 @@ Source evidence for `../../skills/multi-agent-v2/SKILL.md` and `../../skills/mul
 
 ## Pin
 
-`@openai/codex@0.136.0-alpha.1` maps to GitHub prerelease `rust-v0.136.0-alpha.1`, published 2026-05-29. Release target is `main`; use the release URL and raw GitHub source at the tag for source-backed refreshes. The local `codex --version` used for this refresh reported `codex-cli 0.136.0-alpha.1`.
+`@openai/codex@0.136.0-alpha.2` maps to GitHub prerelease `rust-v0.136.0-alpha.2`, published 2026-06-01. Release target is `main`; use the release URL and raw GitHub source at the tag for source-backed refreshes. The local `codex --version` used for this refresh reported `codex-cli 0.136.0-alpha.2`.
 
-Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.136.0-alpha.1`. The current handler directory contains `close_agent.rs`, `followup_task.rs`, `list_agents.rs`, `message_tool.rs`, `send_message.rs`, `spawn.rs`, and `wait.rs`.
+Core evidence: `codex-rs/core/src/tools/handlers/multi_agents_v2/*.rs`, `multi_agents_spec.rs`, `multi_agents_spec_tests.rs`, `multi_agents_tests.rs`, `codex-rs/core/src/session/multi_agents.rs`, and TUI multi-agent/goal files at tag `rust-v0.136.0-alpha.2`. The current handler directory contains `assign_task.rs`, `close_agent.rs`, `list_agents.rs`, `message_tool.rs`, `send_message.rs`, `spawn.rs`, and `wait.rs`.
 
 ## Tool Contracts
 
 - `spawn_agent`: requires `task_name`, `message`; optional `agent_type`, `fork_turns`, `model`, `reasoning_effort`, `service_tier`; returns `task_name` plus optional `nickname`.
 - `send_message`: requires `target`, `message`; queue-only; accepts relative or canonical targets; can target root; no output schema; empty success text.
-- `followup_task`: requires `target`, `message`; trigger-turn; resolves targets like message flow but rejects root; no output schema.
+- `assign_task`: requires `target`, `message`; trigger-turn; resolves targets like message flow but rejects root; no output schema.
 - `wait_agent`: only optional `timeout_ms`; returns `message` and `timed_out`; never completed content.
 - `list_agents`: optional relative or canonical `path_prefix`; returns `agent_name`, `agent_status`, `last_task_message`; status includes strings, `completed`, `errored`.
 - `close_agent`: requires `target`; rejects root; returns `previous_status`; closes live descendants.
@@ -21,7 +21,7 @@ Evidence: `create_*_tool`, v2 handlers, result structs, output-schema tests, rej
 
 ## Spawn, Fork, And Message Details
 
-`SpawnAgentArgs` uses `serde(deny_unknown_fields)`. `fork_context` is present only to reject it with: `fork_context is not supported in MultiAgentV2; use fork_turns instead`. `AgentPath::join` creates the child path under the spawning agent path, so root spawns become `/root/task_name` and child spawns become `/root/parent/task_name`. `fork_turns` defaults to `all`; valid values are `none`, `all`, positive integer string. Full-history forks reject `agent_type`, `model`, `reasoning_effort`; `service_tier` is separate. V2 ignores depth limit and refreshes child runtime config. `send_message` sets `trigger_turn: false`; `followup_task` sets `true`; successful messages update `last_task_message`.
+`SpawnAgentArgs` uses `serde(deny_unknown_fields)`. `fork_context` is present only to reject it with: `fork_context is not supported in MultiAgentV2; use fork_turns instead`. `AgentPath::join` creates the child path under the spawning agent path, so root spawns become `/root/task_name` and child spawns become `/root/parent/task_name`. `fork_turns` defaults to `all`; valid values are `none`, `all`, positive integer string. Full-history forks reject `agent_type`, `model`, `reasoning_effort`; `service_tier` is separate. V2 ignores depth limit and refreshes child runtime config. `send_message` sets `trigger_turn: false`; `assign_task` sets `true`; successful messages update `last_task_message`.
 
 ## Paths
 

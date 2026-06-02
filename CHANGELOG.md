@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Updates MultiAgentV2 contracts and source notes for the Codex `0.136.0-alpha.2` hard rename from `followup_task` to `assign_task`.
+
 ## 0.1.15
 
 - Refreshes Codex `0.136.0-alpha.1` MultiAgentV2 source notes, clarifies runtime setup paths, aligns native tool mappings with current goal and subagent tools, tightens interactive choice gates, and bounds subagent fanout guidance.

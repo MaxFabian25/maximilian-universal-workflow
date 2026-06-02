@@ -16,7 +16,7 @@ Use lowercase snake_case `task_name`; avoid `/`, `root`, `.`, `..`, uppercase, a
 
 `wait_agent` reports mailbox activity or timeout, never completed text. Collect results with `list_agents`, using `path_prefix` when useful. Completed text is in `agent_status`.
 
-`send_message` queues only. `followup_task` triggers a non-root turn and must not target `/root`. Use relative targets locally and canonical paths across branches.
+`send_message` queues only. `assign_task` triggers a non-root turn and must not target `/root`. Use relative targets locally and canonical paths across branches.
 
 On timeout, avoid blind loops. Treat acknowledgement-only, empty, stale, or unrelated completion as unusable. Send at most one evidence-focused follow-up, then close and continue with partial evidence.
 

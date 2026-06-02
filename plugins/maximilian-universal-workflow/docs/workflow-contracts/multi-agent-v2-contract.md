@@ -8,7 +8,7 @@ Treat MultiAgentV2 as task-path coordination, not a result queue. `wait_agent` r
 
 ## Role Boundary
 
-Before using `wait_agent`, `list_agents`, `followup_task`, or `close_agent`, decide whether you are the orchestrator for agents you spawned. If you are any spawned agent and the task did not explicitly assign descendant orchestration, you are a leaf: do not wait for sibling agents, do not collect sibling results, and do not close agents. Finish your assigned task and return your result to the parent.
+Before using `wait_agent`, `list_agents`, `assign_task`, or `close_agent`, decide whether you are the orchestrator for agents you spawned. If you are any spawned agent and the task did not explicitly assign descendant orchestration, you are a leaf: do not wait for sibling agents, do not collect sibling results, and do not close agents. Finish your assigned task and return your result to the parent.
 
 If a child intentionally spawns its own descendants, it may coordinate only those descendants. Track the returned task names and ignore unrelated live agents. Do not treat root-spawned siblings as blockers.
 
@@ -25,7 +25,7 @@ Spawn subagents when they improve speed, breadth, critique, or isolation enough 
 
 ## Message
 
-Use `send_message` for queue-only updates; it accepts relative or canonical targets and does not trigger a turn. Send child handoffs to the current parent/orchestrator; target `/root` only when `/root` is the immediate orchestrator for that child. Use `followup_task` for a non-root agent's new turn; never target `/root`. Use relative targets only within the current branch and canonical paths across branches.
+Use `send_message` for queue-only updates; it accepts relative or canonical targets and does not trigger a turn. Send child handoffs to the current parent/orchestrator; target `/root` only when `/root` is the immediate orchestrator for that child. Use `assign_task` for a non-root agent's new turn; never target `/root`. Use relative targets only within the current branch and canonical paths across branches.
 
 ## Collect
 
@@ -33,7 +33,7 @@ When collecting child state/results after `wait_agent`, call `list_agents`; comp
 
 ## Recover
 
-Recover v2 failures by checking required fields, `fork_turns` values, full-history override limits, and target paths. Resolve missing paths with `list_agents` and canonical targets. For unusable completion, send one evidence-focused `followup_task`; if it shuts down, sticks, or fails again, close and retry fresh only if worthwhile.
+Recover v2 failures by checking required fields, `fork_turns` values, full-history override limits, and target paths. Resolve missing paths with `list_agents` and canonical targets. For unusable completion, send one evidence-focused `assign_task`; if it shuts down, sticks, or fails again, close and retry fresh only if worthwhile.
 
 ## Close
 

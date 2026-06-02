@@ -1,6 +1,6 @@
 {
   "name": "maximilian-universal-workflow",
-  "version": "0.1.15+codex.20260531153850",
+  "version": "0.1.15+codex.20260602140907",
   "description": "Universal Codex-native phase workflow harness for git repository workspaces.",
   "author": {
     "name": "Max Fabian",

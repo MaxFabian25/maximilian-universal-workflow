@@ -1,6 +1,6 @@
 ---
 name: multi-agent-v2
-description: "Use when coordinating MultiAgentV2 task paths, row-manifest fanout, result collection, stalled agents, recovery, or spawn_agent/list_agents/followup_task/close_agent debugging."
+description: "Use when coordinating MultiAgentV2 task paths, row-manifest fanout, result collection, stalled agents, recovery, or spawn_agent/list_agents/assign_task/close_agent debugging."
 ---
 
 # Multi-Agent V2
@@ -27,7 +27,7 @@ Use stable lowercase snake_case `task_name`, prefer `fork_turns: "none"`, never 
 
 ## Collect
 
-Track returned task names, use `path_prefix` where useful, and read completed text from `list_agents` `agent_status`. `send_message` queues; `followup_task` triggers a non-root turn. On timeout, avoid blind loops.
+Track returned task names, use `path_prefix` where useful, and read completed text from `list_agents` `agent_status`. `send_message` queues; `assign_task` triggers a non-root turn. On timeout, avoid blind loops.
 
 ## Recover
 
