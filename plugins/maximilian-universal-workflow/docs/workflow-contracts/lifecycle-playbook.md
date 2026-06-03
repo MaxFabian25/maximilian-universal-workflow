@@ -37,7 +37,7 @@ Use root-thread `request_user_input` when a material decision gate has 2-3 concr
 
 ## Goal-Backed Planning
 
-`planning` outputs the plan first, then uses native goal tools as the default workflow mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocations use goal-backed setup unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+`planning` outputs the plan first, then uses native goal tools as this workflow's explicit default mode. It compares active goal state to the planned objective with `get_goal`, resolves active-goal conflicts through `request_user_input`, and calls `create_goal` when no current goal exists after the plan is decision-complete. Normal workflow invocations use goal-backed setup unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior; ordinary non-workflow tasks do not imply goal creation.
 
 ## Phase Transitions
 

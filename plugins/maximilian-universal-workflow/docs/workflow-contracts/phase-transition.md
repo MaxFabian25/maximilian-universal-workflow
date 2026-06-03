@@ -34,7 +34,7 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 ## Rules
 
 - Treat acceptance criteria as the thread running through planning, execution, verification, review, and handoff.
-- Continue directly into the next phase when Decision Precedence proves approval, ownership, evidence, and safety are sufficient; normal workflow invocations continue through clear handoffs and use default goal-backed planning unless the user explicitly asked for planning-only, no-goal, or stop-with-evidence behavior.
+- Continue directly into the next phase when Decision Precedence proves approval, ownership, evidence, and safety are sufficient; normal workflow invocations continue through clear handoffs and use this workflow's explicit default goal-backed planning unless the user explicitly asked for planning-only, no-goal, or stop-with-evidence behavior.
 - Use `request_user_input` before crossing a material side-effect, scope, ownership, active-goal conflict disposition, verification, review, or closeout decision.
 - Apply `artifact-floor.md` for substantial-run artifact requirements and exceptions.
 - Trivial single-step work may report the changed bundle fields in the final response without an HTML artifact.

@@ -30,7 +30,7 @@ Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into
 The config enables the plugin's required native surfaces:
 
 - `request_user_input` in Default mode
-- `/goal`
+- native goals with explicit workflow-backed setup
 - remote plugin installation
 - skill/plugin mentions
 - MultiAgentV2 with explicit root/subagent role boundaries

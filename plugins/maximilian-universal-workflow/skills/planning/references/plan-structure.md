@@ -10,14 +10,16 @@ Task tables must show task, owner, files/areas, actions, verification, and revie
 
 ## Goal Tool Gates
 
-Before `create_goal`, the plan must have a durable executed repo objective, proof-backed criteria, instruction evidence, scope/non-goals, allowed side effects, tasks, ownership, verification, settled worktree disposition, no blocker, and no explicit planning-only/no-goal/stop-with-evidence instruction.
+Before `create_goal`, the plan must have a durable executed repo objective, proof-backed criteria, instruction evidence, scope/non-goals, allowed side effects, tasks, ownership, verification, settled worktree disposition, no blocker, and no explicit planning-only/no-goal/stop-with-evidence instruction. This workflow explicitly authorizes that default goal creation after the gates pass; ordinary non-workflow tasks do not imply `create_goal`.
 
 Route goal tools this way:
 
 - Call `get_goal` after the planned objective is known.
 - Use `request_user_input` for active-goal conflicts.
 - Call `create_goal` only when no active goal exists and the plan is decision-complete.
+- Set `token_budget` only when the user explicitly requested a token budget.
 - Do not create goals for planning-only, no-goal, or stop-with-evidence requests; record the objective in the phase bundle.
-- Call `update_goal` only from verification or later after identity and fresh proof are confirmed.
+- Call `update_goal(status="complete")` only from verification or later after identity and fresh proof are confirmed; when completing a budgeted goal, report final token usage from the tool result.
+- Call `update_goal(status="blocked")` only after the same blocking condition has repeated for at least three consecutive goal turns and the agent cannot make meaningful progress without user input or an external-state change.
 
 Keep the goal objective current-state verifiable and under 4,000 characters. Put long detail in the execution prompt or repo file. Set `continue_now: yes` only after goal, worktree, ownership, and approval are settled.

@@ -10,7 +10,7 @@ Runtime loop:
 
 A general invocation of the plugin starts at `intake` and advances through the loop in the same turn when the next phase satisfies the Decision Precedence in `phase-transition.md`. Do not stop after naming the next phase unless a user-owned decision, missing evidence, permission boundary, or safety stop requires it.
 
-Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes`. Normal workflow invocations continue through clear phase handoffs and use default goal-backed planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
+Phase skills consume and update the current phase bundle state described by `phase-bundle.md`, then route with `phase-transition.md`. Apply the next phase directly when the phase footer has `continue_now: yes`. Normal workflow invocations continue through clear phase handoffs and use this workflow's explicit default goal-backed planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
 
 ## Phase Table
 

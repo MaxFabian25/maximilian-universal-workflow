@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- Updates MultiAgentV2 contracts and source notes for the Codex `0.136.0-alpha.2` hard rename from `followup_task` to `assign_task`.
+- Refreshes goal-tool guidance for Codex `0.137.0-alpha.4`: workflow-invoked planning explicitly authorizes default goal creation after gates pass, `token_budget` is explicit-only, budgeted goal completion reports final usage, and blocked goals require the same blocker across at least three consecutive goal turns.
+- Refreshes MultiAgentV2 source notes to Codex `0.137.0-alpha.4`, including the `followup_task` hard cutover, dogfood defaults, and per-thread runtime metadata updates.
 
 ## 0.1.15
 

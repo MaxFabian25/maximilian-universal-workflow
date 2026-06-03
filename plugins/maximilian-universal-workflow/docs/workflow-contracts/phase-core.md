@@ -44,7 +44,7 @@ Continue without asking when the user already made the decision or repo evidence
 
 Before mutation, confirm repo root, branch, status, and instructions. If repo mechanics are missing, establish a repo/worktree or stop. Use `git-worktrees` between planning and execution to record current-branch approval or prepare isolation.
 
-Planning owns default native goal-backed setup: compare active goal state with `get_goal`, resolve conflicts with `request_user_input`, and create a goal only after the plan is decision-complete. Later phases preserve goal identity; `verification` or later updates completion only after fresh proof.
+Planning owns default native goal-backed setup for this workflow's explicit repo-lifecycle contract: compare active goal state with `get_goal`, resolve conflicts with `request_user_input`, and create a goal only after the plan is decision-complete. Later phases preserve goal identity; `verification` or later updates completion only after fresh proof and reports final token usage when completing a budgeted goal. Mark goals blocked only after the same blocking condition repeats for at least three consecutive goal turns.
 
 ## Subagents
 
