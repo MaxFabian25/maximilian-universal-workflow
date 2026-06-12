@@ -16,8 +16,8 @@ Run the checks available in your local Codex environment before opening a pull r
 
 ```bash
 jq empty .agents/plugins/marketplace.json
-jq empty plugins/maximilian-universal-workflow/.codex-plugin/plugin.json
-python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/maximilian-universal-workflow
+jq empty .codex-plugin/plugin.json
+python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
-When available, also run skill validation and Plugin Eval against `plugins/maximilian-universal-workflow`.
+When available, also run skill validation and Plugin Eval against the repository root.

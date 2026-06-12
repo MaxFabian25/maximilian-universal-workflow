@@ -2,7 +2,7 @@
 set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel)"
-plugin_root="$repo_root/plugins/maximilian-universal-workflow"
+plugin_root="$repo_root"
 benchmark_root="$repo_root/benchmarks/plugin-eval"
 out_dir="${1:-$repo_root/tmp/plugin-eval-benchmark}"
 source_dir="$out_dir/source"
@@ -69,7 +69,7 @@ config["workspace"] = {
 target_config.write_text(f"{json.dumps(config, indent=2)}\n", encoding="utf-8")
 PY
 
-plugin-eval benchmark "$source_dir/plugins/maximilian-universal-workflow" \
+plugin-eval benchmark "$source_dir" \
   --config "$config_path" \
   --usage-out "$usage_path" \
   --result-out "$result_path" \
