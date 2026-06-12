@@ -11,7 +11,7 @@ The gate is intentionally separate from deterministic validation. Run determinis
 - `scripts/check_benchmark_gate.py`: deterministic result checker for Plugin Eval benchmark output.
 - `scripts/run_benchmark_gate.sh`: current-working-tree runner that snapshots the repo into `tmp/`, replaces the original `.git` metadata with a clean snapshot commit, and invokes Plugin Eval from that snapshot.
 
-These files are repository-development support files. Keep them outside `plugins/maximilian-universal-workflow/` so they are not included in the installed plugin payload.
+These files are repository-development support files that live beside the plugin manifest in this flat plugin repository. They are not workflow authority; the installed runtime guidance remains in `skills/`, `docs/workflow-contracts/`, and `.codex-plugin/plugin.json`.
 
 ## Scenarios
 
@@ -58,10 +58,10 @@ Run these before handoff:
 
 ```bash
 jq empty .agents/plugins/marketplace.json
-jq empty plugins/maximilian-universal-workflow/.codex-plugin/plugin.json
-python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/maximilian-universal-workflow
-for skill in plugins/maximilian-universal-workflow/skills/*; do
+jq empty .codex-plugin/plugin.json
+python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
+for skill in skills/*; do
   python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$skill"
 done
-plugin-eval analyze plugins/maximilian-universal-workflow --format markdown
+plugin-eval analyze . --format markdown
 ```

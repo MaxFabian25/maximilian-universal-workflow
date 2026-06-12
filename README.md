@@ -23,7 +23,7 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 
 ## Required Codex Config
 
-The marketplace/repository root includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`. After marketplace install, these files live beside `.agents/plugins/marketplace.json`, not under `plugins/maximilian-universal-workflow/`.
+The marketplace/repository root is also the plugin root. It includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`.
 
 Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment for this plugin. Do not replace personal machine paths, MCP servers, secrets, marketplace state, or unrelated local policy with the repository file.
 
@@ -64,10 +64,9 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 .codex/config.toml
 .codex/agents/
 .agents/plugins/marketplace.json
-plugins/maximilian-universal-workflow/
-  .codex-plugin/plugin.json
-  docs/workflow-contracts/
-  skills/
+.codex-plugin/plugin.json
+docs/workflow-contracts/
+skills/
 ```
 
 ## Workflow Contract
@@ -88,18 +87,18 @@ Validate the marketplace and plugin metadata:
 
 ```bash
 jq empty .agents/plugins/marketplace.json
-jq empty plugins/maximilian-universal-workflow/.codex-plugin/plugin.json
-python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py plugins/maximilian-universal-workflow
+jq empty .codex-plugin/plugin.json
+python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
 Run skill validation and Plugin Eval when those local tools are available; Plugin Eval budget warnings are acceptable if structural checks pass:
 
 ```bash
-for skill in plugins/maximilian-universal-workflow/skills/*; do
+for skill in skills/*; do
   python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$skill"
 done
 
-plugin-eval analyze plugins/maximilian-universal-workflow --format markdown
+plugin-eval analyze . --format markdown
 ```
 
 Run the Plugin Eval Scenario Suite benchmark gate when changing workflow guidance that may affect token use or routing behavior:
@@ -108,4 +107,4 @@ Run the Plugin Eval Scenario Suite benchmark gate when changing workflow guidanc
 scripts/run_benchmark_gate.sh
 ```
 
-See `docs/benchmark-gate.md` for thresholds, observed-usage analysis, and expected benchmark artifacts. Benchmark gate files live outside `plugins/maximilian-universal-workflow/` so plugin-development context is not shipped in the installed plugin payload.
+See `docs/benchmark-gate.md` for thresholds, observed-usage analysis, and expected benchmark artifacts. Benchmark gate files live beside the plugin source and are development support, not runtime workflow authority.

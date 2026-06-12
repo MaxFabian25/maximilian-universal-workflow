@@ -8,7 +8,7 @@
       "name": "maximilian-universal-workflow",
       "source": {
         "source": "local",
-        "path": "./plugins/maximilian-universal-workflow"
+        "path": "."
       },
       "policy": {
         "installation": "AVAILABLE",

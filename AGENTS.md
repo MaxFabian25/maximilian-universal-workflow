@@ -15,9 +15,9 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 - Marketplace metadata lives at `.agents/plugins/marketplace.json`.
 - Required Codex runtime config lives at `.codex/config.toml`.
 - Agent role config referenced by `.codex/config.toml` lives under `.codex/agents/`.
-- The plugin root lives at `plugins/maximilian-universal-workflow/`.
-- The required plugin manifest is `plugins/maximilian-universal-workflow/.codex-plugin/plugin.json`.
-- Bundled skills live under `plugins/maximilian-universal-workflow/skills/`.
+- The repository root is the plugin root.
+- The required plugin manifest is `.codex-plugin/plugin.json`.
+- Bundled skills live under `skills/`.
 
 ## Edit Rules
 
@@ -33,6 +33,6 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 Before handoff, run the available deterministic checks:
 
 - Validate `.agents/plugins/marketplace.json` and plugin JSON with `jq`.
-- Run plugin validation against `plugins/maximilian-universal-workflow`.
+- Run plugin validation against the repository root.
 - Run skill validation for every bundled skill when the local validator is available.
 - Run Plugin Eval when available; budget warnings are acceptable if structural checks pass.
