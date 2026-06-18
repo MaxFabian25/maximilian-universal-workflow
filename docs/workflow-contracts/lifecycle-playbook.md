@@ -10,7 +10,7 @@ Repeatable git-repo lifecycle:
 
 `git-worktrees` owns the planning-to-execution branch-safety boundary, whether execution stays on the current branch or moves into an isolated worktree.
 
-See `phase-runtime.md` for per-phase tool, evidence, subagent, exit, and next-phase rules. See `evidence-discipline.md` for proof surfaces, tight feedback loops, scratch work, subagent evidence, review feedback, and completion gates.
+See `phase-runtime.md` for per-phase tool, evidence, subagent, exit, and next-phase rules. See `evidence-discipline.md` for proof surfaces, `proof-first-change.md` for material mutation, `diagnosis-loop.md` for unexpected results, `information-structure.md` for folder and file structure, and `question-first-scratch-work.md` for temporary work.
 
 ## Routing
 
@@ -27,6 +27,8 @@ See `phase-runtime.md` for per-phase tool, evidence, subagent, exit, and next-ph
 | triage received review feedback | `receiving-review` |
 | status, branch/PR choices, operator handoff | `handoff` |
 | stale context cleanup | `repo-context-cleanup` |
+
+Use `decision-interrogation.md` before user-owned material choices, `vocabulary-decision-capture.md` when terms or decisions become durable, and `work-item-shaping.md` when requests or findings need worker-ready shape.
 
 ## Decisions
 

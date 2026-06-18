@@ -30,10 +30,20 @@ evidence:
   files: <paths and line refs when useful>
   commands: <commands, exit status, key output>
   proof_surface: <test/query/checklist/source set/prototype/dry-run/manual check or none>
+  diagnosis_loop: <unexpected-result loop/cause/status or none>
   scratch_work: <none/deleted/archived/folded-in/remaining with owner>
+information_structure:
+  affected_files_or_folders: <placement, role, structure, locality, or none>
+  disposition: <unchanged/moved/split/merged/deleted/needs decision/not applicable>
+vocabulary_and_decisions:
+  terms: <new/changed/unresolved terms or none>
+  decisions: <captured/deferred/not needed>
+work_items:
+  shaped: <briefs/slices/issues/findings/none>
+  destination: <repo/tracker/handoff/user-owned/not applicable>
 subagents:
   used: <yes/no>
-  tasks: <task, owner, changed paths/artifacts, proof surface, result>
+  tasks: <task, owner, changed paths/support artifacts, proof surface, result>
   integration: <verified/integrated/needs decision/not applicable>
 goal_state:
   active_goal: <none/matching/conflict/created/complete/blocked>
@@ -93,5 +103,8 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, active-goal conflict, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the workflow has fresh current-state evidence.
 - Do not rely on old summaries as proof. Record the current proof surface, scratch work, and subagent evidence.
+- Use `information_structure` when work changes file placement, file role, or internal file structure.
+- Use `vocabulary_and_decisions` when terminology or durable decisions change.
+- Use `work_items` when requests, findings, or plans are shaped for later execution.
 - Do not set `next_phase: done` while `git_closeout_state.status` is `unstaged`, `staged`, `unpushed`, or `pr-open` unless the user explicitly selected a user-owned stop or no further git closeout is needed.
 - Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.

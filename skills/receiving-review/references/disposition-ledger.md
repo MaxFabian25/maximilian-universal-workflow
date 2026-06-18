@@ -4,7 +4,7 @@ Use this structure when review feedback contains multiple items or when the fina
 
 | Item | Source | Claim | Evidence checked | Proof surface | Acceptance criteria impact | Disposition | Action | Verification | Reply |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  | user/PR/CI/agent |  | file/line, command, spec, artifact, source, calculation |  |  | fix/push back/decision_needed |  |  |  |
+|  | user/PR/CI/agent |  | file/line, command, spec, support artifact, source, calculation |  |  | fix/push back/decision_needed |  |  |  |
 
 ## Disposition Rules
 

@@ -2,7 +2,7 @@
 
 Maximilian Universal Workflow is a public Codex marketplace repository for the `maximilian-universal-workflow` plugin.
 
-The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase consumes and updates a shared phase bundle with repo state, objective, acceptance criteria, side effects, evidence, proof surfaces, scratch work, subagent state, decisions, goal state, artifact state, and next phase:
+The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase consumes and updates a shared phase bundle with repo state, objective, acceptance criteria, side effects, evidence, proof surfaces, diagnosis loops, information structure, scratch work, work items, subagent state, decisions, goal state, artifact state, and next phase:
 
 ```text
 intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> verification -> review -> handoff
@@ -61,6 +61,8 @@ The plugin assumes the active workspace is a git repository. If repo mechanics a
 
 `git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial workflow runs. Repo files, sources, datasets, docs, tests, branches, commits, and pull requests are the primary work surface.
 
+The workflow also carries generalized replacements for reusable workflow value from Superpowers and Codex Real Engineering Skills: proof-first change, diagnosis loops, information structure, decision interrogation, vocabulary and decision capture, question-first scratch work, and work-item shaping. See `docs/workflow-contracts/replacement-coverage-map.md`.
+
 ## Development
 
 Validate the marketplace and plugin metadata:
@@ -71,12 +73,10 @@ jq empty .codex-plugin/plugin.json
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
-Run skill validation and Plugin Eval when those local tools are available; Plugin Eval budget warnings are acceptable if structural checks pass:
+Run skill validation when the local validator is available:
 
 ```bash
 for skill in skills/*; do
   python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$skill"
 done
-
-plugin-eval analyze . --format markdown
 ```

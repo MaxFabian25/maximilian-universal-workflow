@@ -9,13 +9,13 @@ Turn an approved direction into an executable, goal-backed repo plan.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-core.md` and `references/plan-structure.md`. Use other workflow-contract files only when the core or local reference requires deeper authority.
+Read `../../docs/workflow-contracts/phase-core.md`, `../../docs/workflow-contracts/proof-first-change.md`, `../../docs/workflow-contracts/information-structure.md`, `../../docs/workflow-contracts/work-item-shaping.md`, and `references/plan-structure.md`. Use other workflow-contract files only when the core or local reference requires deeper authority.
 
 ## Do
 
 - If repo evidence is missing, follow `exploration` first; cite fresh evidence when present.
 - Do not plan from assumptions when evidence is discoverable.
-- Update the phase bundle with goal, acceptance criteria, scope, files/areas, tasks, ownership, worktree decision, proof surface, verification, review, handoff, and next phase.
+- Update the phase bundle with goal, acceptance criteria, scope, files/areas, information-structure changes, vocabulary/decision capture, work-item shape, tasks, ownership, worktree decision, proof surface, verification, review, handoff, and next phase.
 - Follow `references/plan-structure.md` for required payload and Goal Tool Gates.
 - Use this workflow's explicit default goal-backed planning unless the user asks for planning-only, no-goal, or stop-with-evidence. Keep the goal objective durable, repo-scoped, verifiable, concise, and under 4,000 characters.
 - Inspect repo conventions and use root-thread `request_user_input` for material tradeoffs, scope, ownership, active-goal, proof-surface, and verification choices when 2-3 concrete options remain.

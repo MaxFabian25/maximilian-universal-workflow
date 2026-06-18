@@ -20,4 +20,4 @@ jq empty .codex-plugin/plugin.json
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
-When available, also run skill validation and Plugin Eval against the repository root.
+When available, also run skill validation against the repository root.

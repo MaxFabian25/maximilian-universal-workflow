@@ -30,4 +30,3 @@ Before handoff, run the available deterministic checks:
 - Validate `.agents/plugins/marketplace.json` and plugin JSON with `jq`.
 - Run plugin validation against the repository root.
 - Run skill validation for every bundled skill when the local validator is available.
-- Run Plugin Eval when available; budget warnings are acceptable if structural checks pass.
