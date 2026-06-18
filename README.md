@@ -80,11 +80,3 @@ done
 
 plugin-eval analyze . --format markdown
 ```
-
-Run the Plugin Eval Scenario Suite benchmark gate when changing workflow guidance that may affect token use or routing behavior:
-
-```bash
-scripts/run_benchmark_gate.sh
-```
-
-See `docs/benchmark-gate.md` for thresholds, observed-usage analysis, and expected benchmark artifacts. Benchmark gate files live beside the plugin source and are development support, not runtime workflow authority.
