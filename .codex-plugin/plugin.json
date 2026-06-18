@@ -15,15 +15,13 @@
     "git",
     "repository",
     "worktrees",
-    "subagents",
-    "multi-agent",
     "goals"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Maximilian Universal Workflow",
     "shortDescription": "Outcome-first repo workflow guidance for Codex",
-    "longDescription": "Outcome-first Codex workflow guidance for git repository workspaces with phase-state handoffs, bounded explorer and worker fanout, git worktree isolation, default native goal-backed execution, proportional evidence artifacts, and MultiAgentV2 coordination lanes.",
+    "longDescription": "Outcome-first Codex workflow guidance for git repository workspaces with phase-state handoffs, git worktree isolation, default native goal-backed execution, and proportional evidence artifacts.",
     "developerName": "Max Fabian",
     "category": "Developer Tools",
     "capabilities": [
@@ -37,7 +35,7 @@
     "defaultPrompt": [
       "Complete the repo task with branch, instruction, safety, goal, and verification boundaries.",
       "Use goal-backed planning; create goals only at gates; route through worktrees, execution, verification, review, or handoff.",
-      "Preserve native goal state and keep subagents and HTML evidence proportional to task risk."
+      "Preserve native goal state and keep HTML evidence proportional to task risk."
     ],
     "brandColor": "#2563EB",
     "screenshots": []

@@ -20,7 +20,7 @@ Read `../../docs/workflow-contracts/phase-core.md` and `references/worktree-play
 - Name the branch from the plan outcome using repo conventions; avoid overwriting existing branches or worktrees.
 - Create the worktree with `git worktree add` and switch execution context to the new path.
 - Run repo-appropriate setup and baseline verification in the worktree.
-- Use `request_user_input` for branch/location, dirty-state, baseline failure, and destructive cleanup choices when the tool is available and 2-3 concrete options remain; return `decision_needed` only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
+- Use `request_user_input` for branch/location, dirty-state, baseline failure, and destructive cleanup choices when the tool is available and 2-3 concrete options remain; return `decision_needed` only when the tool is unavailable or the active workflow phase cannot own the choice.
 - Update the shared phase bundle with worktree path, branch, baseline evidence, allowed side effects, artifact state, and next execution prompt.
 
 ## Stop

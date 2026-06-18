@@ -3,13 +3,13 @@
 ## Unreleased
 
 - Refreshes goal-tool guidance for Codex `0.137.0-alpha.4`: workflow-invoked planning explicitly authorizes default goal creation after gates pass, `token_budget` is explicit-only, budgeted goal completion reports final usage, and blocked goals require the same blocker across at least three consecutive goal turns.
-- Refreshes MultiAgentV2 source notes to Codex `0.137.0-alpha.4`, including the `followup_task` hard cutover, dogfood defaults, and per-thread runtime metadata updates.
+- Removes bundled delegation guidance, plugin-owned role files, runtime hint blocks, packet templates, and dedicated contract docs so the plugin no longer duplicates Codex CLI's built-in model instructions.
 
 ## 0.1.15
 
-- Refreshes Codex `0.136.0-alpha.1` MultiAgentV2 source notes, clarifies runtime setup paths, aligns native tool mappings with current goal and subagent tools, tightens interactive choice gates, and bounds subagent fanout guidance.
+- Refreshes Codex `0.136.0-alpha.1` runtime setup paths, aligns native tool mappings with current goal tools, and tightens interactive choice gates.
 - Aligns source docs and skills with the v0.1.15 default goal-backed workflow semantics: normal invocations create the default native goal after decision-complete planning unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior.
-- Removes stale `spawn_agents_on_csv` guidance, makes planning goal creation conditional in the agent prompt, and adds phase-bundle/transition reads to mutating review and cleanup side paths.
+- Removes stale CSV batch guidance, makes planning goal creation conditional in the agent prompt, and adds phase-bundle/transition reads to mutating review and cleanup side paths.
 
 ## 0.1.14
 
@@ -29,7 +29,7 @@
 
 ## 0.1.10
 
-- Removes remaining soft-path workflow wording for native goal completion, validation, review disposition, and subagent follow-up.
+- Removes remaining soft-path workflow wording for native goal completion, validation, and review disposition.
 
 ## 0.1.9
 
@@ -45,7 +45,7 @@
 
 ## 0.1.6
 
-- Adds repository-held `.codex/config.toml` and agent role files for the plugin's required Codex runtime features.
+- Adds runtime setup guidance for the plugin's Codex-native workflow surfaces.
 
 ## 0.1.5
 
@@ -66,4 +66,3 @@
 - Initial public release of Maximilian Universal Workflow.
 - Adds universal phase-oriented Codex workflows for git repository workspaces.
 - Bundles phase skills for intake, exploration, ideation, goal-backed planning, execution, verification, review, handoff, and repository context cleanup.
-- Bundles `multi-agent-v2` as the canonical future copy for Codex native subagent coordination.

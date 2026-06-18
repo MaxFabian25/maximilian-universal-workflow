@@ -8,13 +8,11 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 - Prefer hard cutovers over compatibility aliases or legacy shims.
 - Keep workflow authority in human-readable prose: `AGENTS.md`, `README.md`, `docs/workflow-contracts/`, skill `SKILL.md` files, and direct references.
 - Use code only for deterministic mechanics such as validation, parsing, formatting, and reproducible checks.
-- Do not trim capability, source-backed guidance, or subagent encouragement solely to reduce token cost.
+- Do not trim capability or source-backed guidance solely to reduce token cost.
 
 ## Plugin Layout
 
 - Marketplace metadata lives at `.agents/plugins/marketplace.json`.
-- Required Codex runtime config lives at `.codex/config.toml`.
-- Agent role config referenced by `.codex/config.toml` lives under `.codex/agents/`.
 - The repository root is the plugin root.
 - The required plugin manifest is `.codex-plugin/plugin.json`.
 - Bundled skills live under `skills/`.
@@ -22,10 +20,7 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 ## Edit Rules
 
 - Keep the plugin name `maximilian-universal-workflow` unless the user explicitly requests a breaking rename.
-- Keep `multi-agent-v2` bundled as the canonical future copy.
-- Keep `explorer` fanout encouraged for read-only investigation and review.
-- Keep `worker` fanout encouraged for isolated execution ownership.
-- Keep `.codex/config.toml` public-safe: no personal paths, secrets, MCP server credentials, marketplace state, or unrelated local policy.
+- Do not bundle plugin-owned delegation skills, role files, runtime hint blocks, or packet templates; rely on Codex CLI's built-in model instructions.
 - Do not add non-git fallback parity language. If repo mechanics are missing, the workflow should establish a repo/worktree or stop.
 
 ## Validation

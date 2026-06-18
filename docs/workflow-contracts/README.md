@@ -12,11 +12,8 @@ Human-facing authority for Maximilian Universal Workflow.
 
 ## Files
 
-- Marketplace/source repository root `.codex/config.toml` defines the required Codex runtime features and agent role mapping; `.codex/agents/*.toml` defines the bundled `default`, `explorer`, and `worker` role instructions.
 - `harness-boundary.md` defines the repo-universal plugin boundary.
 - `lifecycle-playbook.md` defines the phase order and ownership.
-- `multi-agent-v2-contract.md` defines the expanded MultiAgentV2 operating contract.
-- `multi-agent-v2-source-notes.md` preserves source-backed MultiAgentV2 diagnostics without making them part of the `multi-agent-v2` skill's normal deferred payload.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
 - `phase-core.md` defines the compact active contract phase skills read before escalating to detailed contracts.
 - `phase-bundle.md` defines the shared handoff state each phase consumes and updates.
@@ -31,13 +28,11 @@ Human-facing authority for Maximilian Universal Workflow.
 ## Rules
 
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
-- Runtime config: install or merge the source repository `.codex/config.toml` and `.codex/agents/*.toml` into the active Codex home; keep `default_mode_request_user_input`, `goals`, `remote_plugin`, `mentions_v2`, `child_agents_md`, and `features.multi_agent_v2.enabled` enabled for this plugin.
+- Environment: the user's Codex environment owns native tool and feature availability. This plugin assumes the relevant native surfaces are available when a phase asks for them.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
 - Goal-backed planning: `planning` outputs the plan first, then uses native goal tools by default under this workflow's explicit repo-lifecycle contract. Use `get_goal` to compare current goal state against the planned objective. If a different current goal exists, call `request_user_input` for the goal conflict choice. When no current goal exists, `create_goal` creates the default goal after the plan is decision-complete. Normal workflow invocations use goal-backed setup unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior; do not infer goals for ordinary non-workflow tasks. Set `token_budget` only when explicitly requested. Complete only after proof, reporting final token usage for budgeted goals; mark blocked only after the same blocker repeats for at least three consecutive goal turns.
 - Branch safety: use `git-worktrees` between planning and execution to record current-branch approval or prepare an isolated worktree before write-owning mutation.
 - Narrower skills: use domain-specific skills, tools, or repo-local processes for their specialized procedure while this workflow owns repo lifecycle, evidence, decision, worktree, goal, review, and handoff mechanics.
 - User choices: call `request_user_input` when the tool is available, there are 2-3 concrete paths, and the choice affects scope, side effects, ownership, active-goal conflict disposition, verification, review, or closeout. Use `request-user-input.md` for the exact choice shape.
-- Subagents: use `explorer` read-only fanout and `worker` isolated ownership when the work is independent, bounded, and improves confidence, speed, critique, or isolation. Use `fork_turns: "none"`. Parents collect boundedly and close stuck leaves; leaves return results, call `request_user_input` for operator direction when available, or return `decision_needed` only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
-- MultiAgentV2: use `multi-agent-v2` when task-path coordination, result collection, stalled agents, recovery, or diagnostics are the primary task.
 - Phase transition: every phase consumes and updates the shared `phase-bundle.md` state, then routes through `phase-transition.md`.
 - Artifacts: follow `artifact-floor.md` for requirements and exceptions, and `html-artifact-template.md` for HTML shape. Source, tests, docs, branches, commits, and PRs are primary.

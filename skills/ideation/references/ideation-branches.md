@@ -1,6 +1,6 @@
 # Ideation Paths
 
-Use repo evidence to create options across axes such as conservative/balanced/ambitious, minimal/complete, local/systemic, quick fix/refactor, artifact-only/source-changing, and sequential/subagent-owned.
+Use repo evidence to create options across axes such as conservative/balanced/ambitious, minimal/complete, local/systemic, quick fix/refactor, artifact-only/source-changing, and sequential/parallel.
 
 Each implementation-path choice should include:
 

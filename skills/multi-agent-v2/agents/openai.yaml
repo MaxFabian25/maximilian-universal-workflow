@@ -1,4 +1,0 @@
-interface:
-  display_name: "Multi-Agent V2"
-  short_description: "Coordinate Codex MultiAgentV2 task paths."
-  default_prompt: "Use $maximilian-universal-workflow:multi-agent-v2 to delegate bounded subagent tasks, collect results through list_agents, recover stuck agents once, and close finished children."

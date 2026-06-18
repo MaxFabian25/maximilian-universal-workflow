@@ -1,6 +1,6 @@
 ---
 name: verification
-description: Use when execution claims need fresh parent-side proof mapped to acceptance criteria and goal state.
+description: Use when execution claims need fresh current-state proof mapped to acceptance criteria and goal state.
 ---
 
 # Verification
@@ -15,7 +15,7 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 
 - Run or identify the command/checklist proving the claim in the current repo state.
 - Map acceptance criteria to command/check evidence, exit status, pass/fail counts, and unverified gaps.
-- Treat child summaries and old output as inputs, not proof.
+- Treat summaries and old output as inputs, not proof.
 - Call `get_goal` before `update_goal`; mark the goal complete only when the active objective matches the verified outcome and no required work remains. When completing a budgeted goal, report final token usage from the tool result.
 - If verification cannot run, state exactly why and what risk remains.
 - On pass, update the shared phase bundle and continue to `review`. On fail, return to `execution` when repair is clear and in scope. Use `request_user_input` only for residual-risk, scope, side-effect, or stop-with-evidence choices. When the user selects stop-with-evidence or accepts residual risk after a failed verification, route to `handoff` without marking the work complete.

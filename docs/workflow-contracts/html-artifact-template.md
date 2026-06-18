@@ -12,7 +12,7 @@ The artifact is a static, standalone evidence dashboard. It must not fetch remot
 - Phase timeline: intake, exploration, ideation, planning, git-worktrees, execution, verification, review, handoff.
 - Decision gates: `request_user_input` ids, selected options, unresolved decisions.
 - Acceptance criteria: criterion, proof source, status, owner.
-- Evidence: files, commands, exit statuses, key output, subagent summaries.
+- Evidence: files, commands, exit statuses, and key output.
 - Goal state: active objective, created/matching/conflict/complete/blocked, final usage when complete.
 - Worktree state: mode, path, branch, baseline command and result.
 - Verification and review: proof, failures, findings, dispositions.

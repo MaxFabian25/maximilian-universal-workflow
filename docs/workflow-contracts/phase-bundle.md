@@ -6,11 +6,11 @@ The bundle is prose authority, not a hidden schema or a run-state file. Preserve
 
 ## Bundle Ownership
 
-The root thread or current orchestrator owns the live phase bundle. Spawned children return evidence, proposed field updates, and `decision_needed` payloads; they do not overwrite the bundle or artifact unless their packet explicitly assigns them an artifact section.
+The running workflow phase owns the live phase bundle.
 
 For trivial runs, the live bundle may exist only as the phase footer plus changed fields in the thread, final response, or next-phase packet. For substantial runs, the current HTML artifact stores the complete bundle, while the thread still carries the compact phase footer for routing.
 
-When merging child results, preserve parent-owned decisions, acceptance criteria, allowed side effects, and verification status unless fresh parent-side evidence changes them. Record conflicting child evidence under `evidence.subagents` or `decision_gate` instead of silently choosing a side.
+When merging new evidence, preserve existing decisions, acceptance criteria, allowed side effects, and verification status unless fresh evidence changes them. Record conflicting evidence under `decision_gate` instead of silently choosing a side.
 
 ## Fields
 
@@ -29,7 +29,6 @@ allowed_side_effects:
 evidence:
   files: <paths and line refs when useful>
   commands: <commands, exit status, key output>
-  subagents: <agent task_names and useful summaries>
 goal_state:
   active_goal: <none/matching/conflict/created/complete/blocked>
   objective: <active or planned goal objective>
@@ -50,12 +49,9 @@ git_closeout_state:
   unpushed_commits: <count or unknown>
   pr: <url/needed/not-needed/unknown>
   decision: <request_user_input id or explicit user-owned stop>
-subagent_state:
-  mode: <none/explorer/worker/mixed>
-  ownership: <read-only or non-overlapping mutable ownership>
 verification_state:
   status: <not-run/pass/fail/blocked>
-  proof: <fresh parent-side commands/checks or gaps>
+  proof: <fresh current-state commands/checks or gaps>
 review_state:
   status: <not-run/pass/findings/blocked>
   findings: <blocking findings or none>
@@ -89,6 +85,6 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Every phase stop or continuation includes the phase footer.
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, active-goal conflict, worktree, verification, review, or closeout choices.
-- Treat `verification_state.proof` as valid only when the parent has fresh current-state evidence.
+- Treat `verification_state.proof` as valid only when the workflow has fresh current-state evidence.
 - Do not set `next_phase: done` while `git_closeout_state.status` is `unstaged`, `staged`, `unpushed`, or `pr-open` unless the user explicitly selected a user-owned stop or no further git closeout is needed.
 - Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.
