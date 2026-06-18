@@ -73,12 +73,10 @@ jq empty .codex-plugin/plugin.json
 python3 ~/.codex/skills/.system/plugin-creator/scripts/validate_plugin.py .
 ```
 
-Run skill validation and Plugin Eval when those local tools are available; Plugin Eval budget warnings are acceptable if structural checks pass:
+Run skill validation when the local validator is available:
 
 ```bash
 for skill in skills/*; do
   python3 ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py "$skill"
 done
-
-plugin-eval analyze . --format markdown
 ```
