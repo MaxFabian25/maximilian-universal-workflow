@@ -5,7 +5,7 @@ Detailed decision-complete, goal-backed repo plan contract for `../../skills/pla
 ## Required Fields
 
 - Goal
-- Exploration evidence: files inspected, commands run, explorer summaries if any, and unresolved evidence gaps
+- Exploration evidence: files inspected, commands run, and unresolved evidence gaps
 - Approved direction
 - Acceptance criteria
 - Repo state and branch assumption

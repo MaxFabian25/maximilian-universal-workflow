@@ -15,7 +15,7 @@ These files are repository-development support files that live beside the plugin
 
 ## Scenarios
 
-- `read-only-regression-review`: checks token-load regression review across planning, git-worktrees, execution, and MultiAgentV2 guidance.
+- `read-only-regression-review`: checks token-load regression review across planning, git-worktrees, execution, and review guidance.
 - `goal-backed-planning-gate`: checks goal-backed planning and branch-safety disposition without creating a goal or editing files.
 - `weak-match-boundary`: checks that the plugin narrows scope for weak-match requests.
 

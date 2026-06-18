@@ -7,8 +7,8 @@ Contributions should preserve the plugin's purpose: universal, repeatable, phase
 - Keep workflow policy in readable prose before adding code-based control planes.
 - Prefer hard cutovers when changing skill topology or workflow contracts.
 - Preserve the repo-universal assumption.
-- Encourage subagent spawning where it improves speed, breadth, critique, or isolated ownership.
-- Keep child-agent role boundaries explicit: leaves do their assigned packet and return results or `decision_needed`.
+- Keep execution ownership explicit where it improves speed, breadth, critique, or isolation.
+- Keep ownership boundaries explicit: each task owns its assigned scope and returns results or `decision_needed`.
 
 ## Validation
 

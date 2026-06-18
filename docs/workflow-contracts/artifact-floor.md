@@ -35,7 +35,6 @@ Allowed interaction: static tabs, filters, collapsible evidence, severity toggle
 A run is substantial when any of these are true:
 
 - two or more phase transitions happen after `intake`;
-- any subagent is spawned;
 - native goal state is created, updated, completed, or blocked;
 - write-owning execution changes multiple files or combines source changes with generated support artifacts;
 - verification fails, is blocked, or leaves material unverified gaps;
@@ -45,7 +44,6 @@ A run is substantial when any of these are true:
 A run is trivial only when all of these are true:
 
 - the work fits in one phase or one direct command;
-- no subagent is spawned;
 - no native goal state changes;
 - no repo mutation occurs, or mutation is limited to one narrowly scoped file;
 - verification and review have no failures, findings, or unresolved gaps.

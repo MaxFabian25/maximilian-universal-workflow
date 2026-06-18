@@ -17,23 +17,15 @@ Phase skills consume and update the current phase bundle state described by `pha
 | Phase | Native tools | Required evidence | Exit condition | Next phase |
 | --- | --- | --- | --- | --- |
 | intake | `git status --short`, branch command, `rg --files`, `AGENTS.md` reads | repo/worktree, branch, status, instructions, requested outcome | repo mechanics and phase are known | exploration |
-| exploration | `rg`, reads, non-mutating commands, `explorer` fanout | cited files, commands, branch/status, uncertainty | evidence is enough for a decision or plan | ideation |
-| ideation | repo evidence, `request_user_input`, `explorer` critique when useful | 2-3 implementation-path choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
-| planning | repo reads, `explorer` checks when useful, `request_user_input`, native goal tools | exploration evidence, acceptance criteria, scope, task order, ownership, verification, native goal state | implementation plan and goal-backed setup are decision-complete | git-worktrees |
+| exploration | `rg`, reads, non-mutating commands | cited files, commands, branch/status, uncertainty | evidence is enough for a decision or plan | ideation |
+| ideation | repo evidence, `request_user_input` | 2-3 implementation-path choices, tradeoffs, selected direction | direction and acceptance criteria are chosen | planning |
+| planning | repo reads, `request_user_input`, native goal tools | exploration evidence, acceptance criteria, scope, task order, ownership, verification, native goal state | implementation plan and goal-backed setup are decision-complete | git-worktrees |
 | git-worktrees | `git worktree`, branch/status commands, setup command, baseline command, `request_user_input` | branch safety, worktree mode/path when used, branch, ignore check, setup result, baseline result | branch safety is resolved and current branch or worktree is ready | execution |
-| execution | `worker` fanout, `apply_patch`, commands, integration | ownership map, changed paths, local checks, blockers | work is integrated and ready to prove | verification |
-| verification | parent-side commands/checklists, `get_goal`, `update_goal` after proof | acceptance criteria mapped to command/check results in current repo state | claims are proven, failures are repaired, or a failed state has an explicit stop disposition | review, execution, or handoff |
-| review | `git status`, `git diff --stat`, `git diff`, tests, `rg`, `explorer` fanout | findings with file/line evidence and severity | findings resolved or accepted | handoff or execution |
-| receiving-review | full review text, repo reads, `explorer` checks when useful, `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
+| execution | `apply_patch`, commands, integration | ownership map, changed paths, local checks, blockers | work is integrated and ready to prove | verification |
+| verification | current-state commands/checklists, `get_goal`, `update_goal` after proof | acceptance criteria mapped to command/check results in current repo state | claims are proven, failures are repaired, or a failed state has an explicit stop disposition | review, execution, or handoff |
+| review | `git status`, `git diff --stat`, `git diff`, tests, `rg` | findings with file/line evidence and severity | findings resolved or accepted | handoff or execution |
+| receiving-review | full review text, repo reads, `request_user_input` | each review item, evidence, disposition, changed paths if fixed | all items are fixed, rejected with evidence, or escalated | execution, verification, review, or handoff |
 | handoff | `git status --short`, branch/upstream commands, branch/PR commands, `request_user_input` | changed paths, verification, review, risks, git closeout state, closeout choice | git state is clean, PR/branch closeout is complete, or remaining git work is explicitly user-owned | done |
-
-## Fanout Rubric
-
-Use subagents when the work is independent enough to improve speed, breadth, critique, or isolation. Prefer `explorer` for read-only evidence and review. Prefer `worker` for isolated write ownership.
-
-Before fanout, name the expected output, ownership boundary, maximum useful children, timeout or collection point, and merge/overlap risk. Prefer 1-3 children unless the task naturally splits into more independent packets. Ownership, role boundary, native tool correctness, and coordination value remain the hard limits.
-
-When a CSV row manifest defines independent, repeatable worker packets, the parent parses rows into bounded self-contained `spawn_agent` packets and keeps structured result collection in the owning phase.
 
 ## Decision Gates
 
@@ -44,10 +36,10 @@ Use `request_user_input` proactively whenever it is available and a phase has 2-
 - ideation (`ideation_direction`): choose one implementation path from 2-3 repo-grounded options.
 - planning (`active_goal_conflict`, `planning_disposition`): choose active-goal conflict disposition, handle explicit planning-only, no-goal, or stop-with-evidence requests, use worktree isolation, revise plan, or stop with plan. Normal workflow invocations create the default goal after decision-complete planning without a separate continuation decision.
 - git-worktrees (`worktree_location`, `dirty_state`, `baseline_failure`): choose worktree location, dirty-state disposition, baseline failure disposition, or stop with evidence.
-- execution (`ownership_overlap`): choose parent integration path when worker ownership overlaps or side effects expand.
+- execution (`ownership_overlap`): choose integration path when ownership overlaps or side effects expand.
 - verification (`verification_failure`): choose fix failures, accept residual risk, or stop with evidence; accepted risk or stop-with-evidence routes to handoff without marking completion.
 - review (`review_finding`): choose fix findings, accept findings, or request more review.
-- receiving-review (`review_finding`): choose fix, push back, or `request_user_input` when feedback changes scope; return `decision_needed` only when `request_user_input` is unavailable, the parent owns the choice, or sibling synthesis must happen first.
+- receiving-review (`review_finding`): choose fix, push back, or `request_user_input` when feedback changes scope; return `decision_needed` only when `request_user_input` is unavailable or the active workflow phase cannot own the choice.
 - handoff (`handoff_closeout`, `cleanup_choice`): choose 2-3 relevant options from stage/commit, push/create PR, keep branch, stop with evidence, or user-owned remaining git work; ask before staging, committing, pushing, merging, deleting, discarding, or destructive cleanup unless the user already explicitly requested that exact closeout action.
 
 ## Stop Output Contract

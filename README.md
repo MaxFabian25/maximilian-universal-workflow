@@ -10,31 +10,20 @@ intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> v
 
 When the plugin is invoked generally, `intake` should start the loop and advance through later phases as far as the current request, repo evidence, approval, and permissions allow.
 
-It also bundles `multi-agent-v2` as the canonical future copy for Codex native subagent coordination.
-
 ## Install
 
 Add this repository as a Codex plugin marketplace, then install the plugin from that marketplace:
 
 ```bash
-codex plugin marketplace add --enable remote_plugin MaxFabian25/maximilian-universal-workflow --ref main
+codex plugin marketplace add MaxFabian25/maximilian-universal-workflow --ref main
 codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 ```
 
-## Required Codex Config
+## Environment Assumptions
 
-The marketplace/repository root is also the plugin root. It includes the runtime config the plugin expects at `.codex/config.toml`, plus the referenced agent role files under `.codex/agents/`.
+The user's Codex environment owns tool and feature availability.
 
-Merge those settings into `$CODEX_HOME/config.toml` and copy the role files into `$CODEX_HOME/agents/` when setting up a Codex environment for this plugin. Do not replace personal machine paths, MCP servers, secrets, marketplace state, or unrelated local policy with the repository file.
-
-The config enables the plugin's required native surfaces:
-
-- `request_user_input` in Default mode
-- native goals with explicit workflow-backed setup
-- remote plugin installation
-- skill/plugin mentions
-- MultiAgentV2 with explicit root/subagent role boundaries
-- `default`, `explorer`, and `worker` agent roles
+The workflow assumes the relevant native Codex surfaces are available when a phase asks for them, including goal tools, skill/plugin mentions, and operator input tools.
 
 To refresh after updates:
 
@@ -56,13 +45,10 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 - `maximilian-universal-workflow:receiving-review`
 - `maximilian-universal-workflow:handoff`
 - `maximilian-universal-workflow:repo-context-cleanup`
-- `maximilian-universal-workflow:multi-agent-v2`
 
 ## Repository Layout
 
 ```text
-.codex/config.toml
-.codex/agents/
 .agents/plugins/marketplace.json
 .codex-plugin/plugin.json
 docs/workflow-contracts/
@@ -72,12 +58,6 @@ skills/
 ## Workflow Contract
 
 The plugin assumes the active workspace is a git repository. If repo mechanics are missing, establish a repository or worktree before using the phase workflows, or stop.
-
-Subagents are encouraged:
-
-- Use `explorer` for read-only repository investigation, critique, review, and evidence fanout.
-- Use `worker` for explicitly owned, isolated write/execution tasks.
-- Parent threads own user decisions, synthesis, integration, verification, review arbitration, and handoff.
 
 `git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
 

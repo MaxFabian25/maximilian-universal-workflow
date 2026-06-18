@@ -30,13 +30,13 @@ Set `continue_now: yes` only when repo state, governing instructions, approval, 
 
 ## Bundle Fields
 
-Preserve and update the fields needed for handoff: repo state, objective, acceptance criteria, allowed side effects, evidence, goal state, decision gate, worktree state, git closeout state, subagent state, verification state, review state, artifact state, next phase, and next prompt.
+Preserve and update the fields needed for handoff: repo state, objective, acceptance criteria, allowed side effects, evidence, goal state, decision gate, worktree state, git closeout state, verification state, review state, artifact state, next phase, and next prompt.
 
 Do not edit contract files as live state. Use a thread footer for trivial runs and an HTML artifact for substantial runs under `artifact-floor.md`.
 
 ## Decisions
 
-Any running agent with `request_user_input` available calls it for 2-3 concrete choices that affect scope, side effects, ownership, active-goal conflicts, worktree state, verification, review, cleanup, or handoff. Return `decision_needed` only when the tool is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first.
+Any running agent with `request_user_input` available calls it for 2-3 concrete choices that affect scope, side effects, ownership, active-goal conflicts, worktree state, verification, review, cleanup, or handoff. Return `decision_needed` only when the tool is unavailable or the active workflow phase cannot own the choice.
 
 Continue without asking when the user already made the decision or repo evidence safely decides it. Stop only for missing repo mechanics, unknown governing instructions, unsafe or unapproved side effects, ownership overlap, unavailable required tools, failed required verification, or explicit stop instructions.
 
@@ -45,7 +45,3 @@ Continue without asking when the user already made the decision or repo evidence
 Before mutation, confirm repo root, branch, status, and instructions. If repo mechanics are missing, establish a repo/worktree or stop. Use `git-worktrees` between planning and execution to record current-branch approval or prepare isolation.
 
 Planning owns default native goal-backed setup for this workflow's explicit repo-lifecycle contract: compare active goal state with `get_goal`, resolve conflicts with `request_user_input`, and create a goal only after the plan is decision-complete. Later phases preserve goal identity; `verification` or later updates completion only after fresh proof and reports final token usage when completing a budgeted goal. Mark goals blocked only after the same blocking condition repeats for at least three consecutive goal turns.
-
-## Subagents
-
-Use `explorer` for independent read-only evidence, critique, and review. Use `worker` only for isolated non-overlapping mutable ownership. Prefer `fork_turns: "none"`, bounded packets, parent-side synthesis, and closing stuck or unusable children.

@@ -16,7 +16,7 @@ Follow `../../docs/workflow-contracts/README.md`, `../../docs/workflow-contracts
 - Read the full review before acting on any individual point.
 - Confirm repo, branch, status, instructions, and review source.
 - Verify each item against code, tests, docs, specs, artifacts, and current branch evidence.
-- Decide per item: fix, push back with evidence, use `request_user_input` when available, or return `decision_needed` only when the tool is unavailable, the parent owns the choice, or sibling synthesis must happen first.
+- Decide per item: fix, push back with evidence, use `request_user_input` when available, or return `decision_needed` only when the tool is unavailable or the active workflow phase cannot own the choice.
 - Before mutating repo files, confirm branch safety is already resolved through a `git-worktrees` handoff; otherwise route to `git-worktrees` or stop with the disposition ledger.
 - Implement accepted fixes one item at a time only after branch safety is resolved; then run fresh verification for each fixed item.
 - Reply with concise dispositions and supporting evidence.

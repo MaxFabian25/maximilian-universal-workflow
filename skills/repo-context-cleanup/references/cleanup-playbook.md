@@ -2,7 +2,7 @@
 
 ## Candidate Sources
 
-Old plans, abandoned notes, stale `workflow-artifacts/`, copied prompts, duplicate summaries, temporary ledgers, ownerless generated reports, and scratch files under `.codex/`, `.agents/`, `docs/plans/`, `docs/archive/`, `tmp`, or repo-specific agent folders.
+Old plans, abandoned notes, stale `workflow-artifacts/`, copied prompts, duplicate summaries, temporary ledgers, ownerless generated reports, and scratch files under `.agents/`, `docs/plans/`, `docs/archive/`, `tmp`, or repo-specific agent folders.
 
 ## Classification
 

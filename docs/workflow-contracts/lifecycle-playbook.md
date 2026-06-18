@@ -10,8 +10,6 @@ Repeatable git-repo lifecycle:
 
 `git-worktrees` owns the planning-to-execution branch-safety boundary, whether execution stays on the current branch or moves into an isolated worktree.
 
-`multi-agent-v2` supports any phase that needs native subagent task-path coordination or debugging.
-
 See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 
 ## Routing
@@ -19,7 +17,7 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | Need | Skill |
 | --- | --- |
 | intake and repo state | `intake` |
-| exploration and read-only fanout | `exploration` |
+| exploration and read-only evidence | `exploration` |
 | ideation and implementation-path selection | `ideation` |
 | planning downstream of exploration evidence with default goal-backed state | `planning` |
 | isolated branch workspace before execution | `git-worktrees` |
@@ -29,7 +27,6 @@ See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
 | triage received review feedback | `receiving-review` |
 | status, branch/PR choices, operator handoff | `handoff` |
 | stale context cleanup | `repo-context-cleanup` |
-| subagent coordination mechanics and diagnostics | `multi-agent-v2` |
 
 ## Decisions
 

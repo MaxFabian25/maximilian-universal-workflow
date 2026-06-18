@@ -1,6 +1,6 @@
 # Request User Input
 
-Use `request_user_input` for material choices whenever the tool is available to the running agent. Spawned children do not stop just because they are children; they call the tool directly when they need operator direction and can present 2-3 concrete options. Return a `decision_needed` payload only when `request_user_input` is unavailable, the task packet explicitly assigns the decision to the parent, or sibling synthesis must happen first. Do not emulate the tool with markdown checkboxes or a prose menu.
+Use `request_user_input` for material choices whenever the tool is available to the running agent. Return a `decision_needed` payload only when `request_user_input` is unavailable or the active workflow phase cannot own the choice. Do not emulate the tool with markdown checkboxes or a prose menu.
 
 ## Decision Rule
 
@@ -23,7 +23,7 @@ Descriptions: one short sentence each explaining impact or tradeoff
 
 ## Decision Payload
 
-When `request_user_input` cannot be called in the current agent, return this payload to the parent:
+When `request_user_input` cannot be called in the current phase, return this payload to the owning workflow:
 
 ```text
 decision_needed:
@@ -39,7 +39,7 @@ decision_needed:
   blocking_phase: <phase or task name>
 ```
 
-The parent converts this payload into `request_user_input` when the decision is still needed after synthesis.
+The owning workflow converts this payload into `request_user_input` when the decision is still needed after synthesis.
 
 ## Use For
 
@@ -47,7 +47,7 @@ The parent converts this payload into `request_user_input` when the decision is 
 - ideation implementation-path selection and branch/worktree approval;
 - active-goal conflicts or explicit planning-only/no-goal/stop-with-evidence decisions;
 - git worktree location, branch collision, dirty-state, baseline failure, and cleanup decisions;
-- worker ownership overlap;
+- ownership overlap;
 - verification failure disposition;
 - review finding disposition;
 - cleanup delete/archive/report choices;
@@ -64,7 +64,7 @@ The parent converts this payload into `request_user_input` when the decision is 
 | `worktree_location` | Worktree | branch or worktree isolation has 2-3 safe locations | Create Worktree (Recommended) |
 | `dirty_state` | Dirty State | uncommitted changes affect planned mutation | Preserve And Isolate (Recommended) |
 | `baseline_failure` | Baseline | baseline setup/check fails before mutation | Stop With Evidence (Recommended) |
-| `ownership_overlap` | Ownership | worker or parent scopes overlap | Parent Integrates (Recommended) |
+| `ownership_overlap` | Ownership | mutable scopes overlap | Integrate Locally (Recommended) |
 | `verification_failure` | Verify | proof fails and fix/risk/stop choices remain | Fix Failures (Recommended) |
 | `review_finding` | Review | findings require fix/accept/defer decision | Fix Findings (Recommended) |
 | `cleanup_choice` | Cleanup | generated branches/worktrees/artifacts can be removed or archived | Keep Evidence (Recommended) |

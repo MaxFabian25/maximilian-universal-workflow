@@ -58,4 +58,3 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 
 - `receiving-review` may interrupt execution, verification, review, or handoff when feedback arrives. After triage, route to execution, verification, review, handoff, or `request_user_input`.
 - `repo-context-cleanup` may interrupt any phase when stale repo context blocks reliable work. After cleanup, return to the blocked phase with refreshed evidence.
-- `multi-agent-v2` is an auxiliary coordination skill for fanout mechanics, task-path debugging, stalled-agent handling, and collection. Return to the owning phase after coordination evidence is collected.

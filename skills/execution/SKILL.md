@@ -9,7 +9,7 @@ Execute approved repo plans with clear ownership and verification.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-core.md` and `references/worker-packets.md`. Use other workflow-contract files only when the core or local reference requires deeper authority.
+Read `../../docs/workflow-contracts/phase-core.md`. Use other workflow-contract files only when the core requires deeper authority.
 
 ## Do
 
@@ -17,8 +17,8 @@ Read `../../docs/workflow-contracts/phase-core.md` and `references/worker-packet
 - Require a completed `git-worktrees` handoff before write-owning mutation; invoke `git-worktrees` first when the handoff is missing.
 - Preserve active native goal state. When launched from planning, treat the goal objective as the execution success target, not a re-plan request.
 - Execute against the plan acceptance criteria and allowed side effects.
-- Parent sends self-contained, non-overlapping worker packets with `fork_turns: "none"`; leaves do only their packet and never overwrite others' work.
-- Parent integrates, verifies, arbitrates, and owns final choices.
+- Keep changed-path ownership explicit and non-overlapping.
+- Integrate, verify, arbitrate, and own final choices in the running thread.
 - Do not create goals during execution. If direct execution lacks a verified matching active goal, route through `planning` before mutation.
 - Update the shared phase bundle and continue to `verification`. Fix ordinary in-scope failures directly. Use `request_user_input` only for scope, side-effect, ownership, or material risk changes.
 
