@@ -15,7 +15,7 @@ Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-cont
 
 - Review boundary, requirements, evidence, changed paths, and support artifacts are explicit.
 - Use concrete repo evidence surfaces: `git status`, `git diff --stat`, `git diff`, changed tests, and relevant `rg`.
-- Use Codex-native subagents for separate correctness, scope, risk, or artifact-quality passes when review breadth matters.
+- Use Codex-native subagents for separate correctness, scope, risk, or support-artifact-quality passes when review breadth matters.
 - Check that proof surfaces match the acceptance criteria and that scratch work has a disposition.
 - Check information-structure locality, structural depth, stale references, duplicated authority, and overloaded files when structure changed.
 - The running thread arbitrates findings; review does not replace verification.
