@@ -1,6 +1,6 @@
 ---
 name: repo-context-cleanup
-description: Use when stale generated plans, scratch artifacts, duplicate notes, or uncertain repo context block a phase.
+description: Use when stale generated plans, scratch outputs, duplicate notes, or uncertain repo context block a phase.
 ---
 
 # Repo Context Cleanup
@@ -9,7 +9,7 @@ Clean stale agent context while preserving live authority.
 
 ## Read
 
-Follow `../../docs/workflow-contracts/README.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/cleanup-playbook.md`. Active instructions/specs/docs outrank this skill.
+Follow `../../docs/workflow-contracts/README.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/information-structure.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/cleanup-playbook.md`. Active instructions/specs/docs outrank this skill.
 
 ## Avoid
 

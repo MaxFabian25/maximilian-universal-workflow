@@ -2,6 +2,8 @@
 
 `workflow-artifacts/` stores supporting workflow evidence. It is not the primary output surface for repo work.
 
+This plugin reserves "workflow artifact" for support evidence. Ordinary repo contents should be described with folder, file, file role, file placement, and file structure vocabulary from `information-structure.md`.
+
 ## Default Path
 
 ```text

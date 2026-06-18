@@ -6,7 +6,7 @@ Use this compact gate before write-owning execution. Extended contract: `../../.
 
 Record one mode: `current-branch`, `worktree-needed`, or `decision-needed`.
 
-Require `worktree-needed` for isolation requirements, protected/default/release-like or unknown branch policy without explicit approval, unrelated dirty state, multiple mutable ownership areas, destructive cleanup, or generated artifacts plus source edits.
+Require `worktree-needed` for isolation requirements, protected/default/release-like or unknown branch policy without explicit approval, unrelated dirty state, multiple mutable ownership areas, destructive cleanup, or generated outputs plus source edits.
 
 Resolve `decision-needed` with `request_user_input` when available, offering current branch, isolated worktree, or stop with evidence. Return `decision_needed` only when the tool is unavailable or the active workflow phase cannot own the choice.
 
@@ -20,6 +20,6 @@ Run `git worktree add <path> -b <branch>` from the source repo; run setup and ba
 
 ## Output
 
-Update the phase bundle with mode, path, branch, source repo, dirty-state disposition, setup/baseline results, allowed side effects, artifact path, and exact execution prompt.
+Update the phase bundle with mode, path, branch, source repo, dirty-state disposition, setup/baseline results, allowed side effects, support artifact path, and exact execution prompt.
 
 Do not delete worktrees, branches, or changes without root-thread `request_user_input` and explicit destructive confirmation.

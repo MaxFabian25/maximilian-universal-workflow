@@ -9,12 +9,13 @@ Prove completion claims with fresh repo-state evidence.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/evidence-discipline.md`, `../../docs/workflow-contracts/request-user-input.md`, and `../../docs/workflow-contracts/native-tool-map.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
+Read `../../docs/workflow-contracts/phase-runtime.md`, `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/evidence-discipline.md`, `../../docs/workflow-contracts/proof-first-change.md`, `../../docs/workflow-contracts/information-structure.md`, `../../docs/workflow-contracts/request-user-input.md`, and `../../docs/workflow-contracts/native-tool-map.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 
 - Run or identify the command/checklist proving the claim in the current repo state.
 - Map acceptance criteria to command/check evidence, exit status, pass/fail counts, and unverified gaps.
+- Verify information-structure changes through links, imports, paths, schemas, commands, rendered outputs, or reference checks when relevant.
 - Treat summaries and old output as inputs, not proof.
 - Use Codex-native subagents for independent proof checks when the proof surface is broad, specialized, or easy to misread.
 - Confirm scratch work is deleted, archived, folded into durable work, or assigned a residual owner before reporting success.

@@ -21,7 +21,7 @@ Require `worktree-needed` when any of these are true:
 - The current branch is protected, default, release-like, or branch policy is unknown and current-branch mutation is not explicitly approved.
 - `git status --short` shows unrelated changes outside the planned ownership scope.
 - Execution spans multiple independent mutable ownership areas.
-- The plan includes destructive cleanup, generated artifacts plus source edits, or other side effects that should remain reviewable away from the source branch.
+- The plan includes destructive cleanup, generated outputs plus source edits, or other side effects that should remain reviewable away from the source branch.
 
 Use `request_user_input` for `decision-needed` when available; offer current branch, isolated worktree, or stop with evidence. Return the same choice as `decision_needed` only when the tool is unavailable or the active workflow phase cannot own the choice.
 
@@ -103,7 +103,7 @@ Return:
 - setup command and result;
 - dirty-state disposition;
 - allowed side effects;
-- artifact path for substantial runs;
+- support artifact path for substantial runs;
 - exact next `maximilian-universal-workflow:execution` prompt.
 
 ## Cleanup

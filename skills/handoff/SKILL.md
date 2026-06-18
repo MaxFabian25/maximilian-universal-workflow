@@ -9,11 +9,11 @@ Close with evidence, risks, branch state, and operator choices.
 
 ## Read
 
-Read `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/evidence-discipline.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/handoff-checklist.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
+Read `../../docs/workflow-contracts/phase-transition.md`, `../../docs/workflow-contracts/phase-bundle.md`, `../../docs/workflow-contracts/evidence-discipline.md`, `../../docs/workflow-contracts/work-item-shaping.md`, `../../docs/workflow-contracts/request-user-input.md`, and `references/handoff-checklist.md`. Read `../../docs/workflow-contracts/README.md` only for authority/setup.
 
 ## Do
 
-- Report outcome delivered, acceptance criteria status, repo path, worktree path when used, branch, changed paths, proof surfaces, scratch-work disposition, subagent evidence, verification commands with exit status, review disposition, risks, unverified gaps, stop condition, and next owner. Failed-verification handoffs must name the explicit stop-with-evidence or accepted-risk disposition and must not report the work as complete.
+- Report outcome delivered, acceptance criteria status, repo path, worktree path when used, branch, changed paths, proof surfaces, information-structure changes, vocabulary/decision capture, shaped work items, scratch-work disposition, subagent evidence, verification commands with exit status, review disposition, risks, unverified gaps, stop condition, and next owner. Failed-verification handoffs must name the explicit stop-with-evidence or accepted-risk disposition and must not report the work as complete.
 - Inspect and report git closeout state: unstaged, staged, untracked, unpushed, upstream, PR state when available, and current owner.
 - Use Codex-native subagents to audit closeout state or residual-risk evidence when the handoff is substantial.
 - Use root-thread `request_user_input` for 2-3 relevant closeout choices selected from: stop with evidence, keep branch, stage and commit, push/create PR, or user-owned remaining git work.

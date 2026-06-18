@@ -11,6 +11,9 @@ Detailed decision-complete, goal-backed repo plan contract for `../../skills/pla
 - Repo state and branch assumption
 - Scope and non-goals
 - Files or areas to create/modify
+- Information-structure changes: file placement, file role, file structure, locality, or explicit none
+- Vocabulary and decision capture: new terms, decision records, or explicit none
+- Work-item shape: task table, vertical slices, external destination, or explicit none
 - Task order
 - Ownership model
 - Worktree decision: current branch approved, isolated worktree required, or decision needed
@@ -60,6 +63,7 @@ Before calling `create_goal`, the plan is decision-complete only when all of the
 - acceptance criteria with proof expectations;
 - repo state and governing instruction evidence;
 - scope, non-goals, files or areas, and allowed side effects;
+- information-structure, vocabulary, decision-capture, scratch-work, and work-item-shaping disposition where relevant;
 - task order and ownership model;
 - proof surface, scratch work/prototype disposition, and subagent plan;
 - verification commands or checklists;
