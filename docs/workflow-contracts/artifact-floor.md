@@ -18,7 +18,7 @@
 
 ## Required Content
 
-Every durable support artifact includes purpose, repo path, branch when known, inputs reviewed, evidence status, decision state, open questions, next actions, and owner when known.
+Every durable support artifact includes purpose, repo path, branch when known, inputs reviewed, proof surfaces, scratch-work disposition, subagent evidence, evidence status, decision state, open questions, next actions, and owner when known.
 
 ## Interactive HTML Default
 

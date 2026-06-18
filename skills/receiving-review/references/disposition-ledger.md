@@ -2,9 +2,9 @@
 
 Use this structure when review feedback contains multiple items or when the final reply needs durable evidence.
 
-| Item | Source | Claim | Evidence checked | Acceptance criteria impact | Disposition | Action | Verification | Reply |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  | user/PR/CI/agent |  | file/line, command, spec, artifact |  | fix/push back/decision_needed |  |  |  |
+| Item | Source | Claim | Evidence checked | Proof surface | Acceptance criteria impact | Disposition | Action | Verification | Reply |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | user/PR/CI/agent |  | file/line, command, spec, artifact, source, calculation |  |  | fix/push back/decision_needed |  |  |  |
 
 ## Disposition Rules
 

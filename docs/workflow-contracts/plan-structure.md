@@ -14,6 +14,9 @@ Detailed decision-complete, goal-backed repo plan contract for `../../skills/pla
 - Task order
 - Ownership model
 - Worktree decision: current branch approved, isolated worktree required, or decision needed
+- Proof surface: command, checklist, source set, query, prototype, dry-run, or manual evidence needed to prove the work
+- Scratch work/prototype disposition
+- Subagent plan: where independent exploration, implementation, verification, or review would improve quality
 - Verification commands or checklists
 - Review expectations
 - Handoff target
@@ -23,9 +26,9 @@ Detailed decision-complete, goal-backed repo plan contract for `../../skills/pla
 
 ## Task Table
 
-| Task | Ownership | Files/Areas | Actions | Verification | Review Need |
-| --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |
+| Task | Ownership | Files/Areas | Actions | Proof Surface | Verification | Review Need |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |  |
 
 ## Goal-Backed Setup
 
@@ -41,7 +44,7 @@ Acceptance criteria:
 <criteria that verification and handoff must prove>
 
 Plan:
-<task order, ownership, allowed side effects, verification, review, handoff>
+<task order, ownership, allowed side effects, proof surface, subagent plan, verification, review, handoff>
 
 Phase bundle:
 <current shared phase bundle fields that execution must preserve or update>
@@ -58,6 +61,7 @@ Before calling `create_goal`, the plan is decision-complete only when all of the
 - repo state and governing instruction evidence;
 - scope, non-goals, files or areas, and allowed side effects;
 - task order and ownership model;
+- proof surface, scratch work/prototype disposition, and subagent plan;
 - verification commands or checklists;
 - worktree disposition with no pending user decision: `current-branch` explicitly approved, `worktree-needed`, or `worktree-ready`;
 - no open question that blocks execution;

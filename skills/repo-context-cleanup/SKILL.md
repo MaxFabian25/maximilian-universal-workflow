@@ -20,6 +20,7 @@ Follow `../../docs/workflow-contracts/README.md`, `../../docs/workflow-contracts
 
 - Identify `AGENTS.md`, cleanup conventions, and authority first.
 - Classify as authority, archive, stale bloat, generated evidence, or uncertain.
+- Use Codex-native subagents for large stale-context inventories when scopes can stay read-only and non-overlapping.
 - Actions: delete, archive, consolidate, rewrite as authority, or leave.
 - Before mutating cleanup actions, confirm branch safety is already resolved through a `git-worktrees` handoff; otherwise route to `git-worktrees` or stop with the cleanup proposal.
 - Use root-thread `request_user_input` when cleanup policy has concrete delete, archive, consolidate, or report-only options.

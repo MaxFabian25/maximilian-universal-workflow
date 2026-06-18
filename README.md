@@ -2,7 +2,7 @@
 
 Maximilian Universal Workflow is a public Codex marketplace repository for the `maximilian-universal-workflow` plugin.
 
-The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase consumes and updates a shared phase bundle with repo state, objective, acceptance criteria, side effects, evidence, decisions, goal state, artifact state, and next phase:
+The plugin provides universal, phase-oriented, repeatable Codex-native workflows for git repository workspaces. Each phase consumes and updates a shared phase bundle with repo state, objective, acceptance criteria, side effects, evidence, proof surfaces, scratch work, subagent state, decisions, goal state, artifact state, and next phase:
 
 ```text
 intake -> exploration -> ideation -> planning -> git-worktrees -> execution -> verification -> review -> handoff
@@ -23,7 +23,7 @@ codex plugin add maximilian-universal-workflow@maximilian-universal-workflow
 
 The user's Codex environment owns tool and feature availability.
 
-The workflow assumes the relevant native Codex surfaces are available when a phase asks for them, including goal tools, skill/plugin mentions, and operator input tools.
+The workflow assumes the relevant native Codex surfaces are available when a phase asks for them, including goal tools, skill/plugin mentions, and `request_user_input`.
 
 To refresh after updates:
 
@@ -59,7 +59,7 @@ skills/
 
 The plugin assumes the active workspace is a git repository. If repo mechanics are missing, establish a repository or worktree before using the phase workflows, or stop.
 
-`git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial workflow runs. Repo files, tests, branches, commits, and pull requests are the primary work surface.
+`git-worktrees` creates isolated branch workspaces before substantial write-owning execution when current-branch mutation is not approved. `workflow-artifacts/` is a supporting evidence surface for plans, ledgers, reports, handoffs, and standalone interactive HTML dashboards for substantial workflow runs. Repo files, sources, datasets, docs, tests, branches, commits, and pull requests are the primary work surface.
 
 ## Development
 

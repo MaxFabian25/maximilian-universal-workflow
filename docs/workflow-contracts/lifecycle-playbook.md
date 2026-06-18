@@ -10,7 +10,7 @@ Repeatable git-repo lifecycle:
 
 `git-worktrees` owns the planning-to-execution branch-safety boundary, whether execution stays on the current branch or moves into an isolated worktree.
 
-See `phase-runtime.md` for per-phase tool, evidence, exit, and next-phase rules.
+See `phase-runtime.md` for per-phase tool, evidence, subagent, exit, and next-phase rules. See `evidence-discipline.md` for proof surfaces, tight feedback loops, scratch work, subagent evidence, review feedback, and completion gates.
 
 ## Routing
 
