@@ -6,6 +6,8 @@
 workflow-artifacts/
 **/workflow-artifacts/
 
+.worktrees/
+
 node_modules/
 .pytest_cache/
 __pycache__/
