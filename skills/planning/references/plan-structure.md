@@ -4,13 +4,13 @@ Use this compact structure for decision-complete, goal-backed repo plans. Extend
 
 ## Required Payload
 
-Include goal, evidence, approved direction, acceptance criteria, repo state, scope/non-goals, files/areas, task order, ownership, worktree decision, verification, review, handoff target, goal state, execution prompt, phase bundle, `continue_now`, artifact path, and blockers.
+Include goal, evidence, approved direction, acceptance criteria, repo state, scope/non-goals, files/areas, task order, ownership, worktree decision, proof surface, scratch work/prototype disposition, subagent plan, verification, review, handoff target, goal state, execution prompt, phase bundle, `continue_now`, artifact path, and blockers.
 
-Task tables must show task, owner, files/areas, actions, verification, and review need. Worker-suitable tasks need non-overlapping mutable ownership.
+Task tables must show task, owner, files/areas, actions, proof surface, verification, and review need. Worker-suitable tasks need non-overlapping mutable ownership.
 
 ## Goal Tool Gates
 
-Before `create_goal`, the plan must have a durable executed repo objective, proof-backed criteria, instruction evidence, scope/non-goals, allowed side effects, tasks, ownership, verification, settled worktree disposition, no blocker, and no explicit planning-only/no-goal/stop-with-evidence instruction. This workflow explicitly authorizes that default goal creation after the gates pass; ordinary non-workflow tasks do not imply `create_goal`.
+Before `create_goal`, the plan must have a durable executed repo objective, proof-backed criteria, instruction evidence, scope/non-goals, allowed side effects, tasks, ownership, proof surface, subagent plan or explicit none, verification, settled worktree disposition, no blocker, and no explicit planning-only/no-goal/stop-with-evidence instruction. This workflow explicitly authorizes that default goal creation after the gates pass; ordinary non-workflow tasks do not imply `create_goal`.
 
 Route goal tools this way:
 

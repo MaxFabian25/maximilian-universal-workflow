@@ -20,7 +20,7 @@ This repository publishes the `maximilian-universal-workflow` Codex plugin as a 
 ## Edit Rules
 
 - Keep the plugin name `maximilian-universal-workflow` unless the user explicitly requests a breaking rename.
-- Do not bundle plugin-owned delegation skills, role files, runtime hint blocks, or packet templates; rely on Codex CLI's built-in model instructions.
+- Prefer Codex-native subagents when they materially improve quality, independent review, exploration breadth, or safe parallel execution. Keep delegated tasks scoped with ownership and evidence expectations.
 - Do not add non-git fallback parity language. If repo mechanics are missing, the workflow should establish a repo/worktree or stop.
 
 ## Validation

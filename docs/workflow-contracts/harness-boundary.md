@@ -1,10 +1,10 @@
 # Harness Boundary
 
-Maximilian Universal Workflow is a universal git-repository phase harness, not a global session router.
+Maximilian Universal Workflow is a universal git-repository phase harness, not a global session router or a software-only workflow pack.
 
 ## Owns
 
-Intake, repo state checks, exploration, ideation, goal-backed planning, git worktree isolation, execution, verification, read-only review, review feedback reception, handoff, branch/PR/merge/keep choices, evidence summaries, and stale context cleanup.
+Intake, repo state checks, exploration, ideation, goal-backed planning, git worktree isolation, execution, verification, read-only review, review feedback reception, handoff, branch/PR/merge/keep choices, evidence summaries, proof-surface discipline, scratch-work disposition, Codex-native subagent coordination, and stale context cleanup.
 
 ## Does Not Own
 

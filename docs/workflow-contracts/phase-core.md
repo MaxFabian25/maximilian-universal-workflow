@@ -30,9 +30,17 @@ Set `continue_now: yes` only when repo state, governing instructions, approval, 
 
 ## Bundle Fields
 
-Preserve and update the fields needed for handoff: repo state, objective, acceptance criteria, allowed side effects, evidence, goal state, decision gate, worktree state, git closeout state, verification state, review state, artifact state, next phase, and next prompt.
+Preserve and update the fields needed for handoff: repo state, objective, acceptance criteria, allowed side effects, evidence, proof surface, scratch work, subagent state, goal state, decision gate, worktree state, git closeout state, verification state, review state, artifact state, next phase, and next prompt.
 
 Do not edit contract files as live state. Use a thread footer for trivial runs and an HTML artifact for substantial runs under `artifact-floor.md`.
+
+## Evidence
+
+Apply `evidence-discipline.md` when the task involves uncertainty, a failed check, a broken output, disputed feedback, material repo mutation, or a completion claim. Use the lightest proof surface that can prove or falsify the claim. Scratch work and prototypes must answer a named question and be deleted, archived, or folded into durable work before handoff.
+
+## Subagents
+
+Use Codex-native subagents when they improve quality through independent context, parallel exploration, implementation isolation, or separate review. Keep ownership non-overlapping, require evidence in each return, and have the root thread verify and integrate results before phase transition.
 
 ## Decisions
 

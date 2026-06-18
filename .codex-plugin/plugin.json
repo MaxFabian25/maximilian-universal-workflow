@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "Maximilian Universal Workflow",
     "shortDescription": "Outcome-first repo workflow guidance for Codex",
-    "longDescription": "Outcome-first Codex workflow guidance for git repository workspaces with phase-state handoffs, git worktree isolation, default native goal-backed execution, and proportional evidence artifacts.",
+    "longDescription": "Outcome-first Codex workflow guidance for git repository workspaces with phase-state handoffs, proof-surface discipline, Codex-native subagent use, git worktree isolation, default native goal-backed execution, and proportional evidence artifacts.",
     "developerName": "Max Fabian",
     "category": "Developer Tools",
     "capabilities": [
@@ -33,9 +33,9 @@
     "privacyPolicyURL": "https://github.com/MaxFabian25/maximilian-universal-workflow/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/MaxFabian25/maximilian-universal-workflow/blob/main/TERMS.md",
     "defaultPrompt": [
-      "Complete the repo task with branch, instruction, safety, goal, and verification boundaries.",
+      "Complete the repo-backed task with branch, instruction, safety, goal, proof-surface, and verification boundaries.",
       "Use goal-backed planning; create goals only at gates; route through worktrees, execution, verification, review, or handoff.",
-      "Preserve native goal state and keep HTML evidence proportional to task risk."
+      "Preserve native goal state and keep evidence artifacts proportional to task risk."
     ],
     "brandColor": "#2563EB",
     "screenshots": []

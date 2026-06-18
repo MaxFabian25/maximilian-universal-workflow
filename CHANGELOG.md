@@ -2,8 +2,9 @@
 
 ## Unreleased
 
+- Adds a cross-domain evidence discipline contract for proof surfaces, tight feedback loops, scratch work, subagent evidence, review feedback disposition, and completion gates across repo workflows.
 - Refreshes goal-tool guidance for Codex `0.137.0-alpha.4`: workflow-invoked planning explicitly authorizes default goal creation after gates pass, `token_budget` is explicit-only, budgeted goal completion reports final usage, and blocked goals require the same blocker across at least three consecutive goal turns.
-- Removes bundled delegation guidance, plugin-owned role files, runtime hint blocks, packet templates, and dedicated contract docs so the plugin no longer duplicates Codex CLI's built-in model instructions.
+- Adds phase guidance for Codex-native subagent use when it improves exploration, planning, execution, verification, review, or handoff quality.
 
 ## 0.1.15
 

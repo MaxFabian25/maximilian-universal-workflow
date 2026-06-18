@@ -29,6 +29,12 @@ allowed_side_effects:
 evidence:
   files: <paths and line refs when useful>
   commands: <commands, exit status, key output>
+  proof_surface: <test/query/checklist/source set/prototype/dry-run/manual check or none>
+  scratch_work: <none/deleted/archived/folded-in/remaining with owner>
+subagents:
+  used: <yes/no>
+  tasks: <task, owner, changed paths/artifacts, proof surface, result>
+  integration: <verified/integrated/needs decision/not applicable>
 goal_state:
   active_goal: <none/matching/conflict/created/complete/blocked>
   objective: <active or planned goal objective>
@@ -86,5 +92,6 @@ Use the full bundle for substantial artifacts. Use the footer for turn-to-turn r
 - Set `continue_now: yes` only when evidence, approval, ownership, and safety are sufficient for the next phase.
 - Set `decision_gate.needed: yes` before crossing material scope, side-effect, ownership, active-goal conflict, worktree, verification, review, or closeout choices.
 - Treat `verification_state.proof` as valid only when the workflow has fresh current-state evidence.
+- Do not rely on old summaries as proof. Record the current proof surface, scratch work, and subagent evidence.
 - Do not set `next_phase: done` while `git_closeout_state.status` is `unstaged`, `staged`, `unpushed`, or `pr-open` unless the user explicitly selected a user-owned stop or no further git closeout is needed.
 - Use `artifact_state.path` for substantial runs under `artifact-floor.md`; the artifact supports evidence and handoff, but repo files, tests, branches, commits, and PRs remain primary.

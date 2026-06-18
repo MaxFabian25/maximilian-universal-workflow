@@ -13,6 +13,7 @@ Human-facing authority for Maximilian Universal Workflow.
 ## Files
 
 - `harness-boundary.md` defines the repo-universal plugin boundary.
+- `evidence-discipline.md` defines cross-domain evidence, feedback-loop, scratch-work, subagent, review, and completion gates.
 - `lifecycle-playbook.md` defines the phase order and ownership.
 - `native-tool-map.md` defines phase-to-native-tool mapping.
 - `phase-core.md` defines the compact active contract phase skills read before escalating to detailed contracts.
@@ -30,6 +31,7 @@ Human-facing authority for Maximilian Universal Workflow.
 - Git: confirm repo, branch, status, and instructions before mutation. If repo mechanics are missing, establish a repo/worktree or stop.
 - Environment: the user's Codex environment owns native tool and feature availability. This plugin assumes the relevant native surfaces are available when a phase asks for them.
 - Phase loop: a general plugin invocation starts at `intake` and continues through later phases as far as evidence, approval, permissions, and safety allow.
+- Evidence discipline: apply `evidence-discipline.md` before material changes and before completion claims. Build a tight proof surface for bugs, failed checks, bad outputs, disputed claims, and review feedback. Treat old summaries as leads, not proof.
 - Goal-backed planning: `planning` outputs the plan first, then uses native goal tools by default under this workflow's explicit repo-lifecycle contract. Use `get_goal` to compare current goal state against the planned objective. If a different current goal exists, call `request_user_input` for the goal conflict choice. When no current goal exists, `create_goal` creates the default goal after the plan is decision-complete. Normal workflow invocations use goal-backed setup unless the user explicitly asks for planning-only, no-goal, or stop-with-evidence behavior; do not infer goals for ordinary non-workflow tasks. Set `token_budget` only when explicitly requested. Complete only after proof, reporting final token usage for budgeted goals; mark blocked only after the same blocker repeats for at least three consecutive goal turns.
 - Branch safety: use `git-worktrees` between planning and execution to record current-branch approval or prepare an isolated worktree before write-owning mutation.
 - Narrower skills: use domain-specific skills, tools, or repo-local processes for their specialized procedure while this workflow owns repo lifecycle, evidence, decision, worktree, goal, review, and handoff mechanics.

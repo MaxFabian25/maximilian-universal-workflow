@@ -22,7 +22,7 @@ When stopping, asking, and continuing are all plausible, apply this order:
 Before a phase hands off, asks, or stops:
 
 - update acceptance criteria status or state why it is still unknown;
-- record new evidence, commands, changed paths, and unresolved uncertainty;
+- record new evidence, proof surface, scratch work, subagent results, commands, changed paths, and unresolved uncertainty;
 - record decisions already made and the next decision gate, if any;
 - update artifact state for substantial runs or state why no artifact is needed;
 - set `next_phase` to one phase name or `done`;
@@ -34,6 +34,7 @@ If `decision_gate` is not `none`, call `request_user_input` before continuing. I
 ## Rules
 
 - Treat acceptance criteria as the thread running through planning, execution, verification, review, and handoff.
+- Apply `evidence-discipline.md` before mutation and before completion claims; scratch work and subagent results must have an owner and disposition before `done`.
 - Continue directly into the next phase when Decision Precedence proves approval, ownership, evidence, and safety are sufficient; normal workflow invocations continue through clear handoffs and use this workflow's explicit default goal-backed planning unless the user explicitly asked for planning-only, no-goal, or stop-with-evidence behavior.
 - Use `request_user_input` before crossing a material side-effect, scope, ownership, active-goal conflict disposition, verification, review, or closeout decision.
 - Apply `artifact-floor.md` for substantial-run artifact requirements and exceptions.
